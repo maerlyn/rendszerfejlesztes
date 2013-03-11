@@ -9,3 +9,10 @@ message AuthResponse {
   required string status = 1;
 }
 
+message Megallo {
+  required string nev = 1;
+}
+
+message MegalloLista {
+  repeated Megallo megallok = 1;
+}

@@ -23,6 +23,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* AuthResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   AuthResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Megallo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Megallo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MegalloLista_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MegalloLista_reflection_ = NULL;
 
 }  // namespace
 
@@ -64,6 +70,36 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AuthResponse));
+  Megallo_descriptor_ = file->message_type(2);
+  static const int Megallo_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Megallo, nev_),
+  };
+  Megallo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Megallo_descriptor_,
+      Megallo::default_instance_,
+      Megallo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Megallo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Megallo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Megallo));
+  MegalloLista_descriptor_ = file->message_type(3);
+  static const int MegalloLista_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MegalloLista, megallok_),
+  };
+  MegalloLista_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MegalloLista_descriptor_,
+      MegalloLista::default_instance_,
+      MegalloLista_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MegalloLista, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MegalloLista, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MegalloLista));
 }
 
 namespace {
@@ -80,6 +116,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     AuthRequest_descriptor_, &AuthRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AuthResponse_descriptor_, &AuthResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Megallo_descriptor_, &Megallo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MegalloLista_descriptor_, &MegalloLista::default_instance());
 }
 
 }  // namespace
@@ -89,6 +129,10 @@ void protobuf_ShutdownFile_rendszerfejlesztes_2eproto() {
   delete AuthRequest_reflection_;
   delete AuthResponse::default_instance_;
   delete AuthResponse_reflection_;
+  delete Megallo::default_instance_;
+  delete Megallo_reflection_;
+  delete MegalloLista::default_instance_;
+  delete MegalloLista_reflection_;
 }
 
 void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
@@ -100,13 +144,19 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030rendszerfejlesztes.proto\022\010protocol\"1\n\013"
     "AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010passwor"
-    "d\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002(\t", 119);
+    "d\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002(\t\""
+    "\026\n\007Megallo\022\013\n\003nev\030\001 \002(\t\"3\n\014MegalloLista\022"
+    "#\n\010megallok\030\001 \003(\0132\021.protocol.Megallo", 196);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   AuthRequest::default_instance_ = new AuthRequest();
   AuthResponse::default_instance_ = new AuthResponse();
+  Megallo::default_instance_ = new Megallo();
+  MegalloLista::default_instance_ = new MegalloLista();
   AuthRequest::default_instance_->InitAsDefaultInstance();
   AuthResponse::default_instance_->InitAsDefaultInstance();
+  Megallo::default_instance_->InitAsDefaultInstance();
+  MegalloLista::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_rendszerfejlesztes_2eproto);
 }
 
@@ -621,6 +671,436 @@ void AuthResponse::Swap(AuthResponse* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = AuthResponse_descriptor_;
   metadata.reflection = AuthResponse_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Megallo::kNevFieldNumber;
+#endif  // !_MSC_VER
+
+Megallo::Megallo()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Megallo::InitAsDefaultInstance() {
+}
+
+Megallo::Megallo(const Megallo& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Megallo::SharedCtor() {
+  _cached_size_ = 0;
+  nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Megallo::~Megallo() {
+  SharedDtor();
+}
+
+void Megallo::SharedDtor() {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    delete nev_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Megallo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Megallo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Megallo_descriptor_;
+}
+
+const Megallo& Megallo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_rendszerfejlesztes_2eproto();  return *default_instance_;
+}
+
+Megallo* Megallo::default_instance_ = NULL;
+
+Megallo* Megallo::New() const {
+  return new Megallo;
+}
+
+void Megallo::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_nev()) {
+      if (nev_ != &::google::protobuf::internal::kEmptyString) {
+        nev_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Megallo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string nev = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_nev()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->nev().data(), this->nev().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Megallo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string nev = 1;
+  if (has_nev()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nev().data(), this->nev().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->nev(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Megallo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string nev = 1;
+  if (has_nev()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nev().data(), this->nev().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->nev(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Megallo::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string nev = 1;
+    if (has_nev()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->nev());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Megallo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Megallo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Megallo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Megallo::MergeFrom(const Megallo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_nev()) {
+      set_nev(from.nev());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Megallo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Megallo::CopyFrom(const Megallo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Megallo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void Megallo::Swap(Megallo* other) {
+  if (other != this) {
+    std::swap(nev_, other->nev_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Megallo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Megallo_descriptor_;
+  metadata.reflection = Megallo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MegalloLista::kMegallokFieldNumber;
+#endif  // !_MSC_VER
+
+MegalloLista::MegalloLista()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MegalloLista::InitAsDefaultInstance() {
+}
+
+MegalloLista::MegalloLista(const MegalloLista& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MegalloLista::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MegalloLista::~MegalloLista() {
+  SharedDtor();
+}
+
+void MegalloLista::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MegalloLista::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MegalloLista::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MegalloLista_descriptor_;
+}
+
+const MegalloLista& MegalloLista::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_rendszerfejlesztes_2eproto();  return *default_instance_;
+}
+
+MegalloLista* MegalloLista::default_instance_ = NULL;
+
+MegalloLista* MegalloLista::New() const {
+  return new MegalloLista;
+}
+
+void MegalloLista::Clear() {
+  megallok_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MegalloLista::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .protocol.Megallo megallok = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_megallok:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_megallok()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_megallok;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MegalloLista::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .protocol.Megallo megallok = 1;
+  for (int i = 0; i < this->megallok_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->megallok(i), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MegalloLista::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .protocol.Megallo megallok = 1;
+  for (int i = 0; i < this->megallok_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->megallok(i), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MegalloLista::ByteSize() const {
+  int total_size = 0;
+  
+  // repeated .protocol.Megallo megallok = 1;
+  total_size += 1 * this->megallok_size();
+  for (int i = 0; i < this->megallok_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->megallok(i));
+  }
+  
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MegalloLista::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MegalloLista* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MegalloLista*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MegalloLista::MergeFrom(const MegalloLista& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  megallok_.MergeFrom(from.megallok_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MegalloLista::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MegalloLista::CopyFrom(const MegalloLista& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MegalloLista::IsInitialized() const {
+  
+  for (int i = 0; i < megallok_size(); i++) {
+    if (!this->megallok(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void MegalloLista::Swap(MegalloLista* other) {
+  if (other != this) {
+    megallok_.Swap(&other->megallok_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MegalloLista::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MegalloLista_descriptor_;
+  metadata.reflection = MegalloLista_reflection_;
   return metadata;
 }
 

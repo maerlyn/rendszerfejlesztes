@@ -34,6 +34,8 @@ void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
 
 class AuthRequest;
 class AuthResponse;
+class Megallo;
+class MegalloLista;
 
 // ===================================================================
 
@@ -221,6 +223,177 @@ class AuthResponse : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static AuthResponse* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Megallo : public ::google::protobuf::Message {
+ public:
+  Megallo();
+  virtual ~Megallo();
+  
+  Megallo(const Megallo& from);
+  
+  inline Megallo& operator=(const Megallo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Megallo& default_instance();
+  
+  void Swap(Megallo* other);
+  
+  // implements Message ----------------------------------------------
+  
+  Megallo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Megallo& from);
+  void MergeFrom(const Megallo& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string nev = 1;
+  inline bool has_nev() const;
+  inline void clear_nev();
+  static const int kNevFieldNumber = 1;
+  inline const ::std::string& nev() const;
+  inline void set_nev(const ::std::string& value);
+  inline void set_nev(const char* value);
+  inline void set_nev(const char* value, size_t size);
+  inline ::std::string* mutable_nev();
+  inline ::std::string* release_nev();
+  
+  // @@protoc_insertion_point(class_scope:protocol.Megallo)
+ private:
+  inline void set_has_nev();
+  inline void clear_has_nev();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* nev_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+  
+  void InitAsDefaultInstance();
+  static Megallo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MegalloLista : public ::google::protobuf::Message {
+ public:
+  MegalloLista();
+  virtual ~MegalloLista();
+  
+  MegalloLista(const MegalloLista& from);
+  
+  inline MegalloLista& operator=(const MegalloLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MegalloLista& default_instance();
+  
+  void Swap(MegalloLista* other);
+  
+  // implements Message ----------------------------------------------
+  
+  MegalloLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MegalloLista& from);
+  void MergeFrom(const MegalloLista& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // repeated .protocol.Megallo megallok = 1;
+  inline int megallok_size() const;
+  inline void clear_megallok();
+  static const int kMegallokFieldNumber = 1;
+  inline const ::protocol::Megallo& megallok(int index) const;
+  inline ::protocol::Megallo* mutable_megallok(int index);
+  inline ::protocol::Megallo* add_megallok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >&
+      megallok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >*
+      mutable_megallok();
+  
+  // @@protoc_insertion_point(class_scope:protocol.MegalloLista)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::RepeatedPtrField< ::protocol::Megallo > megallok_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+  
+  void InitAsDefaultInstance();
+  static MegalloLista* default_instance_;
+};
 // ===================================================================
 
 
@@ -404,6 +577,97 @@ inline ::std::string* AuthResponse::release_status() {
     status_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
+}
+
+// -------------------------------------------------------------------
+
+// Megallo
+
+// required string nev = 1;
+inline bool Megallo::has_nev() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Megallo::set_has_nev() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Megallo::clear_has_nev() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Megallo::clear_nev() {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    nev_->clear();
+  }
+  clear_has_nev();
+}
+inline const ::std::string& Megallo::nev() const {
+  return *nev_;
+}
+inline void Megallo::set_nev(const ::std::string& value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Megallo::set_nev(const char* value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Megallo::set_nev(const char* value, size_t size) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Megallo::mutable_nev() {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  return nev_;
+}
+inline ::std::string* Megallo::release_nev() {
+  clear_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nev_;
+    nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// MegalloLista
+
+// repeated .protocol.Megallo megallok = 1;
+inline int MegalloLista::megallok_size() const {
+  return megallok_.size();
+}
+inline void MegalloLista::clear_megallok() {
+  megallok_.Clear();
+}
+inline const ::protocol::Megallo& MegalloLista::megallok(int index) const {
+  return megallok_.Get(index);
+}
+inline ::protocol::Megallo* MegalloLista::mutable_megallok(int index) {
+  return megallok_.Mutable(index);
+}
+inline ::protocol::Megallo* MegalloLista::add_megallok() {
+  return megallok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >&
+MegalloLista::megallok() const {
+  return megallok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >*
+MegalloLista::mutable_megallok() {
+  return &megallok_;
 }
 
 

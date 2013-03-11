@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
   std::cout << "User: "; getline(std::cin, s);
   arq.set_username(s);
 
-  termios oldt;
+  /*termios oldt;
   tcgetattr(STDIN_FILENO, &oldt);
   termios newt = oldt;
   newt.c_lflag &= ~ECHO;
-  tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+  tcsetattr(STDIN_FILENO, TCSANOW, &newt);*/
   std::cout << "Pass: "; getline(std::cin, s);
   arq.set_password(s);
-  tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+  /*tcsetattr(STDIN_FILENO, TCSANOW, &oldt);*/
 
   arq.SerializeToString(&s);
 
@@ -38,17 +38,28 @@ int main(int argc, char *argv[])
   sock.write(s.c_str());
   sock.flush();
 
-  std::cout << "waiting for response..." << std::endl;
+  //std::cout << "waiting for response..." << std::endl;
   sock.waitForReadyRead(100);
   protocol::AuthResponse arp;
 
-  std::cout << "bytes avail: " << sock.bytesAvailable() << std::endl;
+  //std::cout << "bytes avail: " << sock.bytesAvailable() << std::endl;
   sock.read((char*)&length, 4);
-  std::cout << "resp len: " << length << std::endl;
+  //std::cout << "resp len: " << length << std::endl;
   QByteArray buf;
   buf = sock.read(length);
   arp.ParseFromString(QString(buf).toStdString());
   std::cout << arp.status() << std::endl;
+
+  sock.read((char*) &length, 4);
+  //std::cout << "length: " << length << "\n";
+  buf = sock.read(length);
+  protocol::MegalloLista ml;
+  ml.ParseFromString(QString(buf).toStdString());
+
+  //std::cout << "megallok.size(): " << ml.megallok().size() << " / " << ml.megallok_size() << "\n";
+  for (int i = 0; i < ml.megallok().size(); ++i) {
+      std::cout << ml.megallok().Get(i).nev() << "\n";
+  }
 
   sock.disconnect();
 

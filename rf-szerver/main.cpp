@@ -3,7 +3,7 @@
 
 #include "../protobuf/rendszerfejlesztes.pb.h"
 
-#include "connection.h"
+/*#include "connection.h"*/
 #include "rfszerver.h"
 
 int main(int argc, char *argv[])
@@ -11,10 +11,10 @@ int main(int argc, char *argv[])
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   QCoreApplication a(argc, argv);
 
-  if (!createConnection()) {
+ /* if (!createConnection()) {
     qDebug() << "DB connection failed";
     exit(1);
-  }
+  }*/
 
   RFSzerver sz;
 

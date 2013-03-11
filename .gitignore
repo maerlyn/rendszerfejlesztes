@@ -1,2 +1,6 @@
 *-build-desktop
 *.pro.user
+Makefile
+*.o
+rf-kliens/rf-kliens
+rf-szerver/rf-szerver
