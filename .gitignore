@@ -4,3 +4,4 @@ Makefile
 *.o
 rf-kliens/rf-kliens
 rf-szerver/rf-szerver
+.DS_Store
