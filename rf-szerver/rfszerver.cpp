@@ -10,21 +10,14 @@
 
 #include "../protobuf/rendszerfejlesztes.pb.h"
 
-QString escape(const QString input);
-
-RFSzerver::RFSzerver(QObject *parent) : QObject(parent), socket(this)
+RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
-  qDebug() << socket.listen(QHostAddress::Any, 7462);
-  if (!socket.isListening()) {
-    exit(1);
-  }
-
-  QObject::connect(&socket, SIGNAL(newConnection()), this, SLOT(incomingConnection()));
+  QObject::connect(&(helper.socket), SIGNAL(newConnection()), this, SLOT(incomingConnection()));
 }
 
 void RFSzerver::incomingConnection()
 {
-  QTcpSocket* client = socket.nextPendingConnection();
+  QTcpSocket* client = helper.socket.nextPendingConnection();
   QObject::connect(client, SIGNAL(readyRead()), this, SLOT(readyRead()));
   QObject::connect(client, SIGNAL(disconnected()), client, SLOT(deleteLater()));
 
@@ -33,56 +26,104 @@ void RFSzerver::incomingConnection()
 
 void RFSzerver::readyRead()
 {
-  QTcpSocket *sock = qobject_cast<QTcpSocket*>(sender());
-
-  unsigned int message_length;
-  QByteArray buffer;
   qDebug() << "readyRead";
+  QTcpSocket *sock = qobject_cast<QTcpSocket*>(sender());
+  protocol::MessageType_Types mt = helper.readMessageType(sock);
+  qDebug() << "got a type";
 
-  sock->read((char*)&message_length, 4);
-  qDebug() << message_length;
+  switch (mt) {
+    case protocol::MessageType_Types_AUTH_TYPE:
+      handleAuthRequest(sock);
+      break;
 
-  buffer = sock->read(message_length);
-  protocol::AuthRequest arq;
-  std::string s = QString(buffer).toStdString();
-  arq.ParseFromString(s);
-  std::cout << arq.username() << " / " << arq.password() << std::endl;
+    case protocol::MessageType_Types_UTVONALLISTA_REQUEST:
+      handleUtvonallistaRequest(sock);
+      break;
 
-  protocol::AuthResponse arp;
-  /*QSqlQuery query(QString("SELECT * FROM felhasznalo WHERE username=%1 AND `password`=%2;")
-                  .arg(escape(QString(arq.username().c_str())))
-                  .arg(escape(QString(arq.password().c_str()))));
-  qDebug() << query.size();*/
+    case protocol::MessageType_Types_BUSZLISA_REQUEST:
+      handleBuszlistaRequest(sock);
+      break;
 
-  arp.set_status((arq.username() == "admin" && arq.password() == "admin") ? "ok" : "fail");
+    case protocol::MessageType_Types_SOFORLISTA_REQUEST:
+      handleSoforlistaRequest(sock);
+      break;
 
-  std::cout << "sending resp. status: " << arp.status() << "... ";
-
-  arp.SerializeToString(&s);
-  message_length = s.length();
-  sock->write((char*) &message_length, 4);
-  sock->write(s.c_str());
-  sock->flush();
-
-  protocol::MegalloLista ml;
-  std::map<int, std::string> megallok;
-  megallok[1] = "elso megallo";
-  megallok[2] = "masodik megallo";
-  megallok[3] = "harmadik megallo";
-
-  for (std::map<int, std::string>::iterator i = megallok.begin(); i != megallok.end(); ++i) {
-      protocol::Megallo *m = ml.add_megallok();
-
-      m->set_nev(i->second);
+    case protocol::MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST:
+      handleUtvonalBuszSoforRequest(sock);
+      break;
   }
+}
 
-  ml.SerializeToString(&s);
-  message_length = s.length();
-  sock->write((char*) &message_length, 4);
-  sock->write(s.c_str());
-  sock->flush();
+void RFSzerver::handleAuthRequest(QTcpSocket *sock)
+{
+    protocol::AuthRequest arq;
+    helper.readMessage(arq, sock);
 
-  std::cout << "sent " << message_length << " bytes" << std::endl;
+    protocol::AuthResponse arp;
+    arp.set_status((arq.username() == "admin" && arq.password() == "admin") ? "ok" : "fail");
 
-  sock->disconnect();
+    helper.sendMessage(arp, sock);
+}
+
+void RFSzerver::handleUtvonallistaRequest(QTcpSocket *sock)
+{
+    std::map<int, std::string> utvonalak;
+    utvonalak[1] = "1-es utvonal";
+
+    protocol::UtvonalLista utvonallista;
+
+    for (std::map<int, std::string>::iterator i = utvonalak.begin(); i != utvonalak.end(); ++i) {
+        protocol::Utvonal *u = utvonallista.add_utvonalak();
+
+        u->set_id(i->first);
+        u->set_nev(i->second);
+    }
+
+    helper.sendMessage(utvonallista, sock);
+}
+
+void RFSzerver::handleBuszlistaRequest(QTcpSocket *socket)
+{
+    std::map<int, std::string> buszok;
+    buszok[1] = "AAA-111";
+
+    protocol::BuszLista buszlista;
+
+    for (std::map<int, std::string>::iterator i = buszok.begin(); i != buszok.end(); ++i) {
+        protocol::Busz *b = buszlista.add_buszok();
+
+        b->set_id(i->first);
+        b->set_rendszam(i->second);
+    }
+
+    helper.sendMessage(buszlista, socket);
+}
+
+void RFSzerver::handleSoforlistaRequest(QTcpSocket *socket)
+{
+    std::map<int, std::string> soforok;
+    soforok[1] = "Jozsi";
+
+    protocol::SoforLista soforlista;
+
+    for (std::map<int, std::string>::iterator i = soforok.begin(); i != soforok.end(); ++i) {
+        protocol::Sofor *s = soforlista.add_soforok();
+
+        s->set_id(i->first);
+        s->set_nev(i->second);
+    }
+
+    helper.sendMessage(soforlista, socket);
+}
+
+void RFSzerver::handleUtvonalBuszSoforRequest(QTcpSocket *socket)
+{
+    //protocol::UtvonalBuszSoforRequest req;
+    //helper.readMessage(req, socket);
+    //qDebug() << "req read";
+
+    protocol::UtvonalBuszSoforResponse resp;
+    resp.set_status("ok");
+    helper.sendMessage(resp, socket);
+    qDebug() << "resp sent";
 }

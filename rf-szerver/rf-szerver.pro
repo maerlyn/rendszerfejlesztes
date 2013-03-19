@@ -17,8 +17,9 @@ TEMPLATE = app
 LIBS += -lprotobuf
 
 SOURCES += main.cpp \
-    rfszerver.cpp ../protobuf/rendszerfejlesztes.pb.cc
+    rfszerver.cpp ../protobuf/rendszerfejlesztes.pb.cc \
+    networkhelper.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
-    connection.h
+    networkhelper.h

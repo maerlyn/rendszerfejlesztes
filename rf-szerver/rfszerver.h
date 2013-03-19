@@ -2,13 +2,13 @@
 #define RFSZERVER_H
 
 #include <QObject>
-#include <QTcpServer>
+#include <QTcpSocket>
+#include <networkhelper.h>
 
 class RFSzerver : public QObject
 {
   Q_OBJECT
-
-  QTcpServer socket;
+  networkhelper helper;
 
 public:
   RFSzerver(QObject *parent = 0);
@@ -18,6 +18,12 @@ signals:
 public slots:
   void incomingConnection();
   void readyRead();
+
+  void handleAuthRequest(QTcpSocket *socket);
+  void handleUtvonallistaRequest(QTcpSocket *socket);
+  void handleBuszlistaRequest(QTcpSocket *socket);
+  void handleSoforlistaRequest(QTcpSocket *socket);
+  void handleUtvonalBuszSoforRequest(QTcpSocket *socket);
 
 
 };
