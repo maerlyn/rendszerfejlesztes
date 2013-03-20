@@ -1,5 +1,17 @@
 package protocol;
 
+message MessageType {
+  enum Types {
+    AUTH_TYPE = 1;
+    UTVONALLISTA_REQUEST = 2;
+    BUSZLISA_REQUEST = 3;
+    SOFORLISTA_REQUEST = 4;
+    UTVONAL_BUSZ_SOFOR_REQUEST = 5;
+  }
+
+  required Types type = 1;
+}
+
 message AuthRequest {
   required string username = 1;
   required string password = 2;
@@ -15,4 +27,41 @@ message Megallo {
 
 message MegalloLista {
   repeated Megallo megallok = 1;
+}
+
+message Utvonal {
+  required int32 id = 1;
+  required string nev = 2;
+}
+
+message UtvonalLista {
+  repeated Utvonal utvonalak = 1;
+}
+
+message Busz {
+  required int32 id = 1;
+  required string rendszam = 2;
+}
+
+message BuszLista {
+  repeated Busz buszok = 1;
+}
+
+message Sofor {
+  required int32 id = 1;
+  required string nev = 2;
+}
+
+message SoforLista {
+  repeated Sofor soforok = 1;
+}
+
+message UtvonalBuszSoforRequest {
+  required int32 utvonal_id = 1;
+  required int32 busz_id = 2;
+  required int32 sofor_id = 3;
+}
+
+message UtvonalBuszSoforResponse {
+  required string status = 1;
 }

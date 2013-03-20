@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -33,12 +34,152 @@ void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
 void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
 void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
 
+class MessageType;
 class AuthRequest;
 class AuthResponse;
 class Megallo;
 class MegalloLista;
+class Utvonal;
+class UtvonalLista;
+class Busz;
+class BuszLista;
+class Sofor;
+class SoforLista;
+class UtvonalBuszSoforRequest;
+class UtvonalBuszSoforResponse;
 
+enum MessageType_Types {
+  MessageType_Types_AUTH_TYPE = 1,
+  MessageType_Types_UTVONALLISTA_REQUEST = 2,
+  MessageType_Types_BUSZLISA_REQUEST = 3,
+  MessageType_Types_SOFORLISTA_REQUEST = 4,
+  MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST = 5
+};
+bool MessageType_Types_IsValid(int value);
+const MessageType_Types MessageType_Types_Types_MIN = MessageType_Types_AUTH_TYPE;
+const MessageType_Types MessageType_Types_Types_MAX = MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST;
+const int MessageType_Types_Types_ARRAYSIZE = MessageType_Types_Types_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* MessageType_Types_descriptor();
+inline const ::std::string& MessageType_Types_Name(MessageType_Types value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MessageType_Types_descriptor(), value);
+}
+inline bool MessageType_Types_Parse(
+    const ::std::string& name, MessageType_Types* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MessageType_Types>(
+    MessageType_Types_descriptor(), name, value);
+}
 // ===================================================================
+
+class MessageType : public ::google::protobuf::Message {
+ public:
+  MessageType();
+  virtual ~MessageType();
+
+  MessageType(const MessageType& from);
+
+  inline MessageType& operator=(const MessageType& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MessageType& default_instance();
+
+  void Swap(MessageType* other);
+
+  // implements Message ----------------------------------------------
+
+  MessageType* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MessageType& from);
+  void MergeFrom(const MessageType& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef MessageType_Types Types;
+  static const Types AUTH_TYPE = MessageType_Types_AUTH_TYPE;
+  static const Types UTVONALLISTA_REQUEST = MessageType_Types_UTVONALLISTA_REQUEST;
+  static const Types BUSZLISA_REQUEST = MessageType_Types_BUSZLISA_REQUEST;
+  static const Types SOFORLISTA_REQUEST = MessageType_Types_SOFORLISTA_REQUEST;
+  static const Types UTVONAL_BUSZ_SOFOR_REQUEST = MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST;
+  static inline bool Types_IsValid(int value) {
+    return MessageType_Types_IsValid(value);
+  }
+  static const Types Types_MIN =
+    MessageType_Types_Types_MIN;
+  static const Types Types_MAX =
+    MessageType_Types_Types_MAX;
+  static const int Types_ARRAYSIZE =
+    MessageType_Types_Types_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Types_descriptor() {
+    return MessageType_Types_descriptor();
+  }
+  static inline const ::std::string& Types_Name(Types value) {
+    return MessageType_Types_Name(value);
+  }
+  static inline bool Types_Parse(const ::std::string& name,
+      Types* value) {
+    return MessageType_Types_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required .protocol.MessageType.Types type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::protocol::MessageType_Types type() const;
+  inline void set_type(::protocol::MessageType_Types value);
+
+  // @@protoc_insertion_point(class_scope:protocol.MessageType)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  int type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static MessageType* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class AuthRequest : public ::google::protobuf::Message {
  public:
@@ -399,10 +540,772 @@ class MegalloLista : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MegalloLista* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Utvonal : public ::google::protobuf::Message {
+ public:
+  Utvonal();
+  virtual ~Utvonal();
+
+  Utvonal(const Utvonal& from);
+
+  inline Utvonal& operator=(const Utvonal& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Utvonal& default_instance();
+
+  void Swap(Utvonal* other);
+
+  // implements Message ----------------------------------------------
+
+  Utvonal* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Utvonal& from);
+  void MergeFrom(const Utvonal& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required string nev = 2;
+  inline bool has_nev() const;
+  inline void clear_nev();
+  static const int kNevFieldNumber = 2;
+  inline const ::std::string& nev() const;
+  inline void set_nev(const ::std::string& value);
+  inline void set_nev(const char* value);
+  inline void set_nev(const char* value, size_t size);
+  inline ::std::string* mutable_nev();
+  inline ::std::string* release_nev();
+  inline void set_allocated_nev(::std::string* nev);
+
+  // @@protoc_insertion_point(class_scope:protocol.Utvonal)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_nev();
+  inline void clear_has_nev();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* nev_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Utvonal* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class UtvonalLista : public ::google::protobuf::Message {
+ public:
+  UtvonalLista();
+  virtual ~UtvonalLista();
+
+  UtvonalLista(const UtvonalLista& from);
+
+  inline UtvonalLista& operator=(const UtvonalLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UtvonalLista& default_instance();
+
+  void Swap(UtvonalLista* other);
+
+  // implements Message ----------------------------------------------
+
+  UtvonalLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UtvonalLista& from);
+  void MergeFrom(const UtvonalLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Utvonal utvonalak = 1;
+  inline int utvonalak_size() const;
+  inline void clear_utvonalak();
+  static const int kUtvonalakFieldNumber = 1;
+  inline const ::protocol::Utvonal& utvonalak(int index) const;
+  inline ::protocol::Utvonal* mutable_utvonalak(int index);
+  inline ::protocol::Utvonal* add_utvonalak();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Utvonal >&
+      utvonalak() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Utvonal >*
+      mutable_utvonalak();
+
+  // @@protoc_insertion_point(class_scope:protocol.UtvonalLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Utvonal > utvonalak_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static UtvonalLista* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Busz : public ::google::protobuf::Message {
+ public:
+  Busz();
+  virtual ~Busz();
+
+  Busz(const Busz& from);
+
+  inline Busz& operator=(const Busz& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Busz& default_instance();
+
+  void Swap(Busz* other);
+
+  // implements Message ----------------------------------------------
+
+  Busz* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Busz& from);
+  void MergeFrom(const Busz& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required string rendszam = 2;
+  inline bool has_rendszam() const;
+  inline void clear_rendszam();
+  static const int kRendszamFieldNumber = 2;
+  inline const ::std::string& rendszam() const;
+  inline void set_rendszam(const ::std::string& value);
+  inline void set_rendszam(const char* value);
+  inline void set_rendszam(const char* value, size_t size);
+  inline ::std::string* mutable_rendszam();
+  inline ::std::string* release_rendszam();
+  inline void set_allocated_rendszam(::std::string* rendszam);
+
+  // @@protoc_insertion_point(class_scope:protocol.Busz)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_rendszam();
+  inline void clear_has_rendszam();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* rendszam_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Busz* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BuszLista : public ::google::protobuf::Message {
+ public:
+  BuszLista();
+  virtual ~BuszLista();
+
+  BuszLista(const BuszLista& from);
+
+  inline BuszLista& operator=(const BuszLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BuszLista& default_instance();
+
+  void Swap(BuszLista* other);
+
+  // implements Message ----------------------------------------------
+
+  BuszLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BuszLista& from);
+  void MergeFrom(const BuszLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Busz buszok = 1;
+  inline int buszok_size() const;
+  inline void clear_buszok();
+  static const int kBuszokFieldNumber = 1;
+  inline const ::protocol::Busz& buszok(int index) const;
+  inline ::protocol::Busz* mutable_buszok(int index);
+  inline ::protocol::Busz* add_buszok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Busz >&
+      buszok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Busz >*
+      mutable_buszok();
+
+  // @@protoc_insertion_point(class_scope:protocol.BuszLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Busz > buszok_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static BuszLista* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sofor : public ::google::protobuf::Message {
+ public:
+  Sofor();
+  virtual ~Sofor();
+
+  Sofor(const Sofor& from);
+
+  inline Sofor& operator=(const Sofor& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sofor& default_instance();
+
+  void Swap(Sofor* other);
+
+  // implements Message ----------------------------------------------
+
+  Sofor* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sofor& from);
+  void MergeFrom(const Sofor& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required string nev = 2;
+  inline bool has_nev() const;
+  inline void clear_nev();
+  static const int kNevFieldNumber = 2;
+  inline const ::std::string& nev() const;
+  inline void set_nev(const ::std::string& value);
+  inline void set_nev(const char* value);
+  inline void set_nev(const char* value, size_t size);
+  inline ::std::string* mutable_nev();
+  inline ::std::string* release_nev();
+  inline void set_allocated_nev(::std::string* nev);
+
+  // @@protoc_insertion_point(class_scope:protocol.Sofor)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_nev();
+  inline void clear_has_nev();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* nev_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sofor* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoforLista : public ::google::protobuf::Message {
+ public:
+  SoforLista();
+  virtual ~SoforLista();
+
+  SoforLista(const SoforLista& from);
+
+  inline SoforLista& operator=(const SoforLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoforLista& default_instance();
+
+  void Swap(SoforLista* other);
+
+  // implements Message ----------------------------------------------
+
+  SoforLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoforLista& from);
+  void MergeFrom(const SoforLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Sofor soforok = 1;
+  inline int soforok_size() const;
+  inline void clear_soforok();
+  static const int kSoforokFieldNumber = 1;
+  inline const ::protocol::Sofor& soforok(int index) const;
+  inline ::protocol::Sofor* mutable_soforok(int index);
+  inline ::protocol::Sofor* add_soforok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Sofor >&
+      soforok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Sofor >*
+      mutable_soforok();
+
+  // @@protoc_insertion_point(class_scope:protocol.SoforLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Sofor > soforok_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoforLista* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class UtvonalBuszSoforRequest : public ::google::protobuf::Message {
+ public:
+  UtvonalBuszSoforRequest();
+  virtual ~UtvonalBuszSoforRequest();
+
+  UtvonalBuszSoforRequest(const UtvonalBuszSoforRequest& from);
+
+  inline UtvonalBuszSoforRequest& operator=(const UtvonalBuszSoforRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UtvonalBuszSoforRequest& default_instance();
+
+  void Swap(UtvonalBuszSoforRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  UtvonalBuszSoforRequest* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UtvonalBuszSoforRequest& from);
+  void MergeFrom(const UtvonalBuszSoforRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 utvonal_id = 1;
+  inline bool has_utvonal_id() const;
+  inline void clear_utvonal_id();
+  static const int kUtvonalIdFieldNumber = 1;
+  inline ::google::protobuf::int32 utvonal_id() const;
+  inline void set_utvonal_id(::google::protobuf::int32 value);
+
+  // required int32 busz_id = 2;
+  inline bool has_busz_id() const;
+  inline void clear_busz_id();
+  static const int kBuszIdFieldNumber = 2;
+  inline ::google::protobuf::int32 busz_id() const;
+  inline void set_busz_id(::google::protobuf::int32 value);
+
+  // required int32 sofor_id = 3;
+  inline bool has_sofor_id() const;
+  inline void clear_sofor_id();
+  static const int kSoforIdFieldNumber = 3;
+  inline ::google::protobuf::int32 sofor_id() const;
+  inline void set_sofor_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:protocol.UtvonalBuszSoforRequest)
+ private:
+  inline void set_has_utvonal_id();
+  inline void clear_has_utvonal_id();
+  inline void set_has_busz_id();
+  inline void clear_has_busz_id();
+  inline void set_has_sofor_id();
+  inline void clear_has_sofor_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 utvonal_id_;
+  ::google::protobuf::int32 busz_id_;
+  ::google::protobuf::int32 sofor_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static UtvonalBuszSoforRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class UtvonalBuszSoforResponse : public ::google::protobuf::Message {
+ public:
+  UtvonalBuszSoforResponse();
+  virtual ~UtvonalBuszSoforResponse();
+
+  UtvonalBuszSoforResponse(const UtvonalBuszSoforResponse& from);
+
+  inline UtvonalBuszSoforResponse& operator=(const UtvonalBuszSoforResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UtvonalBuszSoforResponse& default_instance();
+
+  void Swap(UtvonalBuszSoforResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  UtvonalBuszSoforResponse* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const UtvonalBuszSoforResponse& from);
+  void MergeFrom(const UtvonalBuszSoforResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string status = 1;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 1;
+  inline const ::std::string& status() const;
+  inline void set_status(const ::std::string& value);
+  inline void set_status(const char* value);
+  inline void set_status(const char* value, size_t size);
+  inline ::std::string* mutable_status();
+  inline ::std::string* release_status();
+  inline void set_allocated_status(::std::string* status);
+
+  // @@protoc_insertion_point(class_scope:protocol.UtvonalBuszSoforResponse)
+ private:
+  inline void set_has_status();
+  inline void clear_has_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* status_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static UtvonalBuszSoforResponse* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// MessageType
+
+// required .protocol.MessageType.Types type = 1;
+inline bool MessageType::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MessageType::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MessageType::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MessageType::clear_type() {
+  type_ = 1;
+  clear_has_type();
+}
+inline ::protocol::MessageType_Types MessageType::type() const {
+  return static_cast< ::protocol::MessageType_Types >(type_);
+}
+inline void MessageType::set_type(::protocol::MessageType_Types value) {
+  assert(::protocol::MessageType_Types_IsValid(value));
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
 
 // AuthRequest
 
@@ -723,6 +1626,525 @@ MegalloLista::mutable_megallok() {
   return &megallok_;
 }
 
+// -------------------------------------------------------------------
+
+// Utvonal
+
+// required int32 id = 1;
+inline bool Utvonal::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Utvonal::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Utvonal::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Utvonal::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Utvonal::id() const {
+  return id_;
+}
+inline void Utvonal::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required string nev = 2;
+inline bool Utvonal::has_nev() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Utvonal::set_has_nev() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Utvonal::clear_has_nev() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Utvonal::clear_nev() {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    nev_->clear();
+  }
+  clear_has_nev();
+}
+inline const ::std::string& Utvonal::nev() const {
+  return *nev_;
+}
+inline void Utvonal::set_nev(const ::std::string& value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Utvonal::set_nev(const char* value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Utvonal::set_nev(const char* value, size_t size) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Utvonal::mutable_nev() {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  return nev_;
+}
+inline ::std::string* Utvonal::release_nev() {
+  clear_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nev_;
+    nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Utvonal::set_allocated_nev(::std::string* nev) {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    delete nev_;
+  }
+  if (nev) {
+    set_has_nev();
+    nev_ = nev;
+  } else {
+    clear_has_nev();
+    nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// UtvonalLista
+
+// repeated .protocol.Utvonal utvonalak = 1;
+inline int UtvonalLista::utvonalak_size() const {
+  return utvonalak_.size();
+}
+inline void UtvonalLista::clear_utvonalak() {
+  utvonalak_.Clear();
+}
+inline const ::protocol::Utvonal& UtvonalLista::utvonalak(int index) const {
+  return utvonalak_.Get(index);
+}
+inline ::protocol::Utvonal* UtvonalLista::mutable_utvonalak(int index) {
+  return utvonalak_.Mutable(index);
+}
+inline ::protocol::Utvonal* UtvonalLista::add_utvonalak() {
+  return utvonalak_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Utvonal >&
+UtvonalLista::utvonalak() const {
+  return utvonalak_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Utvonal >*
+UtvonalLista::mutable_utvonalak() {
+  return &utvonalak_;
+}
+
+// -------------------------------------------------------------------
+
+// Busz
+
+// required int32 id = 1;
+inline bool Busz::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Busz::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Busz::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Busz::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Busz::id() const {
+  return id_;
+}
+inline void Busz::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required string rendszam = 2;
+inline bool Busz::has_rendszam() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Busz::set_has_rendszam() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Busz::clear_has_rendszam() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Busz::clear_rendszam() {
+  if (rendszam_ != &::google::protobuf::internal::kEmptyString) {
+    rendszam_->clear();
+  }
+  clear_has_rendszam();
+}
+inline const ::std::string& Busz::rendszam() const {
+  return *rendszam_;
+}
+inline void Busz::set_rendszam(const ::std::string& value) {
+  set_has_rendszam();
+  if (rendszam_ == &::google::protobuf::internal::kEmptyString) {
+    rendszam_ = new ::std::string;
+  }
+  rendszam_->assign(value);
+}
+inline void Busz::set_rendszam(const char* value) {
+  set_has_rendszam();
+  if (rendszam_ == &::google::protobuf::internal::kEmptyString) {
+    rendszam_ = new ::std::string;
+  }
+  rendszam_->assign(value);
+}
+inline void Busz::set_rendszam(const char* value, size_t size) {
+  set_has_rendszam();
+  if (rendszam_ == &::google::protobuf::internal::kEmptyString) {
+    rendszam_ = new ::std::string;
+  }
+  rendszam_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Busz::mutable_rendszam() {
+  set_has_rendszam();
+  if (rendszam_ == &::google::protobuf::internal::kEmptyString) {
+    rendszam_ = new ::std::string;
+  }
+  return rendszam_;
+}
+inline ::std::string* Busz::release_rendszam() {
+  clear_has_rendszam();
+  if (rendszam_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = rendszam_;
+    rendszam_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Busz::set_allocated_rendszam(::std::string* rendszam) {
+  if (rendszam_ != &::google::protobuf::internal::kEmptyString) {
+    delete rendszam_;
+  }
+  if (rendszam) {
+    set_has_rendszam();
+    rendszam_ = rendszam;
+  } else {
+    clear_has_rendszam();
+    rendszam_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BuszLista
+
+// repeated .protocol.Busz buszok = 1;
+inline int BuszLista::buszok_size() const {
+  return buszok_.size();
+}
+inline void BuszLista::clear_buszok() {
+  buszok_.Clear();
+}
+inline const ::protocol::Busz& BuszLista::buszok(int index) const {
+  return buszok_.Get(index);
+}
+inline ::protocol::Busz* BuszLista::mutable_buszok(int index) {
+  return buszok_.Mutable(index);
+}
+inline ::protocol::Busz* BuszLista::add_buszok() {
+  return buszok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Busz >&
+BuszLista::buszok() const {
+  return buszok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Busz >*
+BuszLista::mutable_buszok() {
+  return &buszok_;
+}
+
+// -------------------------------------------------------------------
+
+// Sofor
+
+// required int32 id = 1;
+inline bool Sofor::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Sofor::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Sofor::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Sofor::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Sofor::id() const {
+  return id_;
+}
+inline void Sofor::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required string nev = 2;
+inline bool Sofor::has_nev() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Sofor::set_has_nev() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Sofor::clear_has_nev() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Sofor::clear_nev() {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    nev_->clear();
+  }
+  clear_has_nev();
+}
+inline const ::std::string& Sofor::nev() const {
+  return *nev_;
+}
+inline void Sofor::set_nev(const ::std::string& value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Sofor::set_nev(const char* value) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(value);
+}
+inline void Sofor::set_nev(const char* value, size_t size) {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  nev_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Sofor::mutable_nev() {
+  set_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    nev_ = new ::std::string;
+  }
+  return nev_;
+}
+inline ::std::string* Sofor::release_nev() {
+  clear_has_nev();
+  if (nev_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nev_;
+    nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Sofor::set_allocated_nev(::std::string* nev) {
+  if (nev_ != &::google::protobuf::internal::kEmptyString) {
+    delete nev_;
+  }
+  if (nev) {
+    set_has_nev();
+    nev_ = nev;
+  } else {
+    clear_has_nev();
+    nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// SoforLista
+
+// repeated .protocol.Sofor soforok = 1;
+inline int SoforLista::soforok_size() const {
+  return soforok_.size();
+}
+inline void SoforLista::clear_soforok() {
+  soforok_.Clear();
+}
+inline const ::protocol::Sofor& SoforLista::soforok(int index) const {
+  return soforok_.Get(index);
+}
+inline ::protocol::Sofor* SoforLista::mutable_soforok(int index) {
+  return soforok_.Mutable(index);
+}
+inline ::protocol::Sofor* SoforLista::add_soforok() {
+  return soforok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Sofor >&
+SoforLista::soforok() const {
+  return soforok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Sofor >*
+SoforLista::mutable_soforok() {
+  return &soforok_;
+}
+
+// -------------------------------------------------------------------
+
+// UtvonalBuszSoforRequest
+
+// required int32 utvonal_id = 1;
+inline bool UtvonalBuszSoforRequest::has_utvonal_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void UtvonalBuszSoforRequest::set_has_utvonal_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void UtvonalBuszSoforRequest::clear_has_utvonal_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void UtvonalBuszSoforRequest::clear_utvonal_id() {
+  utvonal_id_ = 0;
+  clear_has_utvonal_id();
+}
+inline ::google::protobuf::int32 UtvonalBuszSoforRequest::utvonal_id() const {
+  return utvonal_id_;
+}
+inline void UtvonalBuszSoforRequest::set_utvonal_id(::google::protobuf::int32 value) {
+  set_has_utvonal_id();
+  utvonal_id_ = value;
+}
+
+// required int32 busz_id = 2;
+inline bool UtvonalBuszSoforRequest::has_busz_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void UtvonalBuszSoforRequest::set_has_busz_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void UtvonalBuszSoforRequest::clear_has_busz_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void UtvonalBuszSoforRequest::clear_busz_id() {
+  busz_id_ = 0;
+  clear_has_busz_id();
+}
+inline ::google::protobuf::int32 UtvonalBuszSoforRequest::busz_id() const {
+  return busz_id_;
+}
+inline void UtvonalBuszSoforRequest::set_busz_id(::google::protobuf::int32 value) {
+  set_has_busz_id();
+  busz_id_ = value;
+}
+
+// required int32 sofor_id = 3;
+inline bool UtvonalBuszSoforRequest::has_sofor_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void UtvonalBuszSoforRequest::set_has_sofor_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void UtvonalBuszSoforRequest::clear_has_sofor_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void UtvonalBuszSoforRequest::clear_sofor_id() {
+  sofor_id_ = 0;
+  clear_has_sofor_id();
+}
+inline ::google::protobuf::int32 UtvonalBuszSoforRequest::sofor_id() const {
+  return sofor_id_;
+}
+inline void UtvonalBuszSoforRequest::set_sofor_id(::google::protobuf::int32 value) {
+  set_has_sofor_id();
+  sofor_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// UtvonalBuszSoforResponse
+
+// required string status = 1;
+inline bool UtvonalBuszSoforResponse::has_status() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void UtvonalBuszSoforResponse::set_has_status() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void UtvonalBuszSoforResponse::clear_has_status() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void UtvonalBuszSoforResponse::clear_status() {
+  if (status_ != &::google::protobuf::internal::kEmptyString) {
+    status_->clear();
+  }
+  clear_has_status();
+}
+inline const ::std::string& UtvonalBuszSoforResponse::status() const {
+  return *status_;
+}
+inline void UtvonalBuszSoforResponse::set_status(const ::std::string& value) {
+  set_has_status();
+  if (status_ == &::google::protobuf::internal::kEmptyString) {
+    status_ = new ::std::string;
+  }
+  status_->assign(value);
+}
+inline void UtvonalBuszSoforResponse::set_status(const char* value) {
+  set_has_status();
+  if (status_ == &::google::protobuf::internal::kEmptyString) {
+    status_ = new ::std::string;
+  }
+  status_->assign(value);
+}
+inline void UtvonalBuszSoforResponse::set_status(const char* value, size_t size) {
+  set_has_status();
+  if (status_ == &::google::protobuf::internal::kEmptyString) {
+    status_ = new ::std::string;
+  }
+  status_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* UtvonalBuszSoforResponse::mutable_status() {
+  set_has_status();
+  if (status_ == &::google::protobuf::internal::kEmptyString) {
+    status_ = new ::std::string;
+  }
+  return status_;
+}
+inline ::std::string* UtvonalBuszSoforResponse::release_status() {
+  clear_has_status();
+  if (status_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = status_;
+    status_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void UtvonalBuszSoforResponse::set_allocated_status(::std::string* status) {
+  if (status_ != &::google::protobuf::internal::kEmptyString) {
+    delete status_;
+  }
+  if (status) {
+    set_has_status();
+    status_ = status;
+  } else {
+    clear_has_status();
+    status_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -732,6 +2154,10 @@ MegalloLista::mutable_megallok() {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::protocol::MessageType_Types>() {
+  return ::protocol::MessageType_Types_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf
