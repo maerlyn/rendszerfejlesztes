@@ -7,6 +7,8 @@ message MessageType {
     BUSZLISA_REQUEST = 3;
     SOFORLISTA_REQUEST = 4;
     UTVONAL_BUSZ_SOFOR_REQUEST = 5;
+
+    SHUTDOWN = 999;
   }
 
   required Types type = 1;

@@ -53,11 +53,12 @@ enum MessageType_Types {
   MessageType_Types_UTVONALLISTA_REQUEST = 2,
   MessageType_Types_BUSZLISA_REQUEST = 3,
   MessageType_Types_SOFORLISTA_REQUEST = 4,
-  MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST = 5
+  MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST = 5,
+  MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
 const MessageType_Types MessageType_Types_Types_MIN = MessageType_Types_AUTH_TYPE;
-const MessageType_Types MessageType_Types_Types_MAX = MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST;
+const MessageType_Types MessageType_Types_Types_MAX = MessageType_Types_SHUTDOWN;
 const int MessageType_Types_Types_ARRAYSIZE = MessageType_Types_Types_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MessageType_Types_descriptor();
@@ -130,6 +131,7 @@ class MessageType : public ::google::protobuf::Message {
   static const Types BUSZLISA_REQUEST = MessageType_Types_BUSZLISA_REQUEST;
   static const Types SOFORLISTA_REQUEST = MessageType_Types_SOFORLISTA_REQUEST;
   static const Types UTVONAL_BUSZ_SOFOR_REQUEST = MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST;
+  static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
   }

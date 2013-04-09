@@ -25,7 +25,7 @@ public slots:
   void handleSoforlistaRequest(QTcpSocket *socket);
   void handleUtvonalBuszSoforRequest(QTcpSocket *socket);
 
-
+  void handleShutdownRequest();
 };
 
 #endif // RFSZERVER_H

@@ -51,6 +51,10 @@ void RFSzerver::readyRead()
     case protocol::MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST:
       handleUtvonalBuszSoforRequest(sock);
       break;
+
+    case protocol::MessageType::SHUTDOWN:
+      handleShutdownRequest();
+      break;
   }
 }
 
@@ -126,4 +130,10 @@ void RFSzerver::handleUtvonalBuszSoforRequest(QTcpSocket *socket)
     resp.set_status("ok");
     helper.sendMessage(resp, socket);
     qDebug() << "resp sent";
+}
+
+void RFSzerver::handleShutdownRequest()
+{
+    qDebug() << "kilepes";
+    exit(0);
 }

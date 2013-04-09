@@ -48,6 +48,8 @@ void rfkliens::menu()
 
         switch (valasz) {
             case 1: utvonal_sofor_busz_hozzarendeles();
+
+            case 999: shutdown();
         }
     } while (valasz != 0);
 }
@@ -110,4 +112,10 @@ void rfkliens::utvonal_sofor_busz_hozzarendeles()
 
     protocol::UtvonalBuszSoforResponse resp;
     std::cout << resp.status();
+}
+
+void rfkliens::shutdown()
+{
+    helper->sendMessageType(protocol::MessageType::SHUTDOWN);
+    exit(0);
 }

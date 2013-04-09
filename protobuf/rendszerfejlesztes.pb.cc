@@ -350,26 +350,26 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\270\001\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\310\001\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"~\n\005Types\022\r\n\tAUTH_TYPE\020\001\022"
-    "\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_RE"
-    "QUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVON"
-    "AL_BUSZ_SOFOR_REQUEST\020\005\"1\n\013AuthRequest\022\020"
-    "\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014Au"
-    "thResponse\022\016\n\006status\030\001 \002(\t\"\026\n\007Megallo\022\013\n"
-    "\003nev\030\001 \002(\t\"3\n\014MegalloLista\022#\n\010megallok\030\001"
-    " \003(\0132\021.protocol.Megallo\"\"\n\007Utvonal\022\n\n\002id"
-    "\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"4\n\014UtvonalLista\022$\n\tu"
-    "tvonalak\030\001 \003(\0132\021.protocol.Utvonal\"$\n\004Bus"
-    "z\022\n\n\002id\030\001 \002(\005\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszL"
-    "ista\022\036\n\006buszok\030\001 \003(\0132\016.protocol.Busz\" \n\005"
-    "Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforL"
-    "ista\022 \n\007soforok\030\001 \003(\0132\017.protocol.Sofor\"P"
-    "\n\027UtvonalBuszSoforRequest\022\022\n\nutvonal_id\030"
-    "\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005"
-    "\"*\n\030UtvonalBuszSoforResponse\022\016\n\006status\030\001"
-    " \002(\t", 764);
+    "ssageType.Types\"\215\001\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
+    "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
+    "NAL_BUSZ_SOFOR_REQUEST\020\005\022\r\n\010SHUTDOWN\020\347\007\""
+    "1\n\013AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010pass"
+    "word\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002"
+    "(\t\"\026\n\007Megallo\022\013\n\003nev\030\001 \002(\t\"3\n\014MegalloLis"
+    "ta\022#\n\010megallok\030\001 \003(\0132\021.protocol.Megallo\""
+    "\"\n\007Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"4\n\014U"
+    "tvonalLista\022$\n\tutvonalak\030\001 \003(\0132\021.protoco"
+    "l.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n\010rendsza"
+    "m\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszok\030\001 \003(\0132\016.p"
+    "rotocol.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev"
+    "\030\002 \002(\t\".\n\nSoforLista\022 \n\007soforok\030\001 \003(\0132\017."
+    "protocol.Sofor\"P\n\027UtvonalBuszSoforReques"
+    "t\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020"
+    "\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBuszSoforResp"
+    "onse\022\016\n\006status\030\001 \002(\t", 780);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -421,6 +421,7 @@ bool MessageType_Types_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 999:
       return true;
     default:
       return false;
@@ -433,6 +434,7 @@ const MessageType_Types MessageType::UTVONALLISTA_REQUEST;
 const MessageType_Types MessageType::BUSZLISA_REQUEST;
 const MessageType_Types MessageType::SOFORLISTA_REQUEST;
 const MessageType_Types MessageType::UTVONAL_BUSZ_SOFOR_REQUEST;
+const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
 const MessageType_Types MessageType::Types_MAX;
 const int MessageType::Types_ARRAYSIZE;
