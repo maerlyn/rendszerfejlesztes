@@ -29,6 +29,9 @@ public slots:
   void handleMegalloUjRequest(QTcpSocket *socket);
   void handleMegalloTorlesRequest(QTcpSocket *socket);
 
+  void handleUtvonalUjRequest(QTcpSocket *socket);
+  void handleUtvonalTorlesRequest(QTcpSocket *socket);
+
   void handleShutdownRequest();
 };
 

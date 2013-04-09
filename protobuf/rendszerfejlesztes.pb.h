@@ -57,6 +57,8 @@ enum MessageType_Types {
   MessageType_Types_MEGALLO_LISTA_REQUEST = 6,
   MessageType_Types_MEGALLO_UJ_REQUEST = 7,
   MessageType_Types_MEGALLO_TORLES_REQUEST = 8,
+  MessageType_Types_UTVONAL_UJ_REQUEST = 9,
+  MessageType_Types_UTVONAL_TORLES_REQUEST = 10,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -137,6 +139,8 @@ class MessageType : public ::google::protobuf::Message {
   static const Types MEGALLO_LISTA_REQUEST = MessageType_Types_MEGALLO_LISTA_REQUEST;
   static const Types MEGALLO_UJ_REQUEST = MessageType_Types_MEGALLO_UJ_REQUEST;
   static const Types MEGALLO_TORLES_REQUEST = MessageType_Types_MEGALLO_TORLES_REQUEST;
+  static const Types UTVONAL_UJ_REQUEST = MessageType_Types_UTVONAL_UJ_REQUEST;
+  static const Types UTVONAL_TORLES_REQUEST = MessageType_Types_UTVONAL_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -633,6 +637,18 @@ class Utvonal : public ::google::protobuf::Message {
   inline ::std::string* release_nev();
   inline void set_allocated_nev(::std::string* nev);
 
+  // repeated .protocol.Megallo megallok = 3;
+  inline int megallok_size() const;
+  inline void clear_megallok();
+  static const int kMegallokFieldNumber = 3;
+  inline const ::protocol::Megallo& megallok(int index) const;
+  inline ::protocol::Megallo* mutable_megallok(int index);
+  inline ::protocol::Megallo* add_megallok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >&
+      megallok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >*
+      mutable_megallok();
+
   // @@protoc_insertion_point(class_scope:protocol.Utvonal)
  private:
   inline void set_has_id();
@@ -643,10 +659,11 @@ class Utvonal : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* nev_;
+  ::google::protobuf::RepeatedPtrField< ::protocol::Megallo > megallok_;
   ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
   friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
@@ -1760,6 +1777,31 @@ inline void Utvonal::set_allocated_nev(::std::string* nev) {
     clear_has_nev();
     nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// repeated .protocol.Megallo megallok = 3;
+inline int Utvonal::megallok_size() const {
+  return megallok_.size();
+}
+inline void Utvonal::clear_megallok() {
+  megallok_.Clear();
+}
+inline const ::protocol::Megallo& Utvonal::megallok(int index) const {
+  return megallok_.Get(index);
+}
+inline ::protocol::Megallo* Utvonal::mutable_megallok(int index) {
+  return megallok_.Mutable(index);
+}
+inline ::protocol::Megallo* Utvonal::add_megallok() {
+  return megallok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >&
+Utvonal::megallok() const {
+  return megallok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Megallo >*
+Utvonal::mutable_megallok() {
+  return &megallok_;
 }
 
 // -------------------------------------------------------------------

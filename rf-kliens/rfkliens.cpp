@@ -5,6 +5,7 @@
 
 #include "../protobuf/rendszerfejlesztes.pb.h"
 #include "megallok_controller.h"
+#include "utvonal_controller.h"
 
 rfkliens::rfkliens(networkhelper& helper)
 {
@@ -42,6 +43,7 @@ void rfkliens::menu()
         std::cout << " ### MENU ###\n";
         std::cout << "1. utvonal-sofor-busz hozzarendeles\n";
         std::cout << "2. megallok kezelese\n";
+        std::cout << "3. utvonalak kezelese\n";
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
@@ -51,8 +53,8 @@ void rfkliens::menu()
 
         switch (valasz) {
             case 1: utvonal_sofor_busz_hozzarendeles(); break;
-
             case 2: megallok_kezelese(); break;
+            case 3: utvonalak_kezelese(); break;
 
             case 999: shutdown(); break;
         }
@@ -123,6 +125,12 @@ void rfkliens::megallok_kezelese()
 {
     megallok_controller mc(helper);
     mc.run();
+}
+
+void rfkliens::utvonalak_kezelese()
+{
+    utvonal_controller uc(helper);
+    uc.run();
 }
 
 void rfkliens::shutdown()

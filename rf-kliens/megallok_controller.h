@@ -7,12 +7,12 @@ class megallok_controller
 {
     networkhelper *helper;
 
-    void lista_kiiras(protocol::MegalloLista &lista);
 public:
     megallok_controller(networkhelper *helper);
 
     void run();
     void lista();
+    void lista_kiiras(protocol::MegalloLista &lista);
     void uj();
     void torles();
 };

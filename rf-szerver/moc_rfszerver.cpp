@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rfszerver.h'
 **
-** Created: Tue Apr 9 21:13:45 2013
+** Created: Tue Apr 9 22:08:25 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_RFSzerver[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -41,7 +41,9 @@ static const uint qt_meta_data_RFSzerver[] = {
      237,   44,   10,   10, 0x0a,
      276,   44,   10,   10, 0x0a,
      312,   44,   10,   10, 0x0a,
-     352,   10,   10,   10, 0x0a,
+     352,   44,   10,   10, 0x0a,
+     388,   44,   10,   10, 0x0a,
+     428,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -56,6 +58,8 @@ static const char qt_meta_stringdata_RFSzerver[] = {
     "handleMegalloListaRequest(QTcpSocket*)\0"
     "handleMegalloUjRequest(QTcpSocket*)\0"
     "handleMegalloTorlesRequest(QTcpSocket*)\0"
+    "handleUtvonalUjRequest(QTcpSocket*)\0"
+    "handleUtvonalTorlesRequest(QTcpSocket*)\0"
     "handleShutdownRequest()\0"
 };
 
@@ -75,7 +79,9 @@ void RFSzerver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 7: _t->handleMegalloListaRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 8: _t->handleMegalloUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 9: _t->handleMegalloTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
-        case 10: _t->handleShutdownRequest(); break;
+        case 10: _t->handleUtvonalUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 11: _t->handleUtvonalTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 12: _t->handleShutdownRequest(); break;
         default: ;
         }
     }
@@ -113,9 +119,9 @@ int RFSzerver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 13;
     }
     return _id;
 }

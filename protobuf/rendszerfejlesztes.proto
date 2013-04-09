@@ -12,6 +12,9 @@ message MessageType {
     MEGALLO_UJ_REQUEST = 7;
     MEGALLO_TORLES_REQUEST = 8;
 
+    UTVONAL_UJ_REQUEST = 9;
+    UTVONAL_TORLES_REQUEST = 10;
+
     SHUTDOWN = 999;
   }
 
@@ -39,6 +42,8 @@ message MegalloLista {
 message Utvonal {
   required int32 id = 1;
   required string nev = 2;
+
+  repeated Megallo megallok = 3;
 }
 
 message UtvonalLista {

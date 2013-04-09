@@ -70,6 +70,14 @@ void RFSzerver::readyRead()
       handleMegalloTorlesRequest(sock);
       break;
 
+    case protocol::MessageType::UTVONAL_UJ_REQUEST:
+      handleUtvonalUjRequest(sock);
+      break;
+
+    case protocol::MessageType::UTVONAL_TORLES_REQUEST:
+      handleUtvonalTorlesRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -159,6 +167,23 @@ void RFSzerver::handleMegalloTorlesRequest(QTcpSocket *socket)
     helper.readMessage(m, socket);
 
     MegalloDB::del(m);
+}
+
+void RFSzerver::handleUtvonalUjRequest(QTcpSocket *socket)
+{
+    protocol::Utvonal u;
+    helper.readMessage(u, socket);
+
+    UtvonalDB::add(u);
+}
+
+void RFSzerver::handleUtvonalTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Utvonal u;
+    helper.wait(socket);
+    helper.readMessage(u, socket);
+
+    UtvonalDB::del(u);
 }
 
 void RFSzerver::handleShutdownRequest()

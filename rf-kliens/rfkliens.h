@@ -13,6 +13,7 @@ public:
     void menu();
     void utvonal_sofor_busz_hozzarendeles();
     void megallok_kezelese();
+    void utvonalak_kezelese();
 
     void shutdown();
 };

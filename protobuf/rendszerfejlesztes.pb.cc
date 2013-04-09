@@ -149,9 +149,10 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MegalloLista));
   Utvonal_descriptor_ = file->message_type(5);
-  static const int Utvonal_offsets_[2] = {
+  static const int Utvonal_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, nev_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, megallok_),
   };
   Utvonal_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -351,28 +352,30 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\227\002\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\313\002\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"\334\001\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "ssageType.Types\"\220\002\n\005Types\022\r\n\tAUTH_TYPE\020\001"
     "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
     "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
     "NAL_BUSZ_SOFOR_REQUEST\020\005\022\031\n\025MEGALLO_LIST"
     "A_REQUEST\020\006\022\026\n\022MEGALLO_UJ_REQUEST\020\007\022\032\n\026M"
-    "EGALLO_TORLES_REQUEST\020\010\022\r\n\010SHUTDOWN\020\347\007\"1"
-    "\n\013AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010passw"
-    "ord\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002("
-    "\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"3\n"
-    "\014MegalloLista\022#\n\010megallok\030\001 \003(\0132\021.protoc"
-    "ol.Megallo\"\"\n\007Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev"
-    "\030\002 \002(\t\"4\n\014UtvonalLista\022$\n\tutvonalak\030\001 \003("
-    "\0132\021.protocol.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005"
-    "\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszo"
-    "k\030\001 \003(\0132\016.protocol.Busz\" \n\005Sofor\022\n\n\002id\030\001"
-    " \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista\022 \n\007sofor"
-    "ok\030\001 \003(\0132\017.protocol.Sofor\"P\n\027UtvonalBusz"
-    "SoforRequest\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz"
-    "_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBu"
-    "szSoforResponse\022\016\n\006status\030\001 \002(\t", 871);
+    "EGALLO_TORLES_REQUEST\020\010\022\026\n\022UTVONAL_UJ_RE"
+    "QUEST\020\t\022\032\n\026UTVONAL_TORLES_REQUEST\020\n\022\r\n\010S"
+    "HUTDOWN\020\347\007\"1\n\013AuthRequest\022\020\n\010username\030\001 "
+    "\002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n"
+    "\006status\030\001 \002(\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n\003"
+    "nev\030\002 \002(\t\"3\n\014MegalloLista\022#\n\010megallok\030\001 "
+    "\003(\0132\021.protocol.Megallo\"G\n\007Utvonal\022\n\n\002id\030"
+    "\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022#\n\010megallok\030\003 \003(\0132\021.p"
+    "rotocol.Megallo\"4\n\014UtvonalLista\022$\n\tutvon"
+    "alak\030\001 \003(\0132\021.protocol.Utvonal\"$\n\004Busz\022\n\n"
+    "\002id\030\001 \002(\005\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszLista"
+    "\022\036\n\006buszok\030\001 \003(\0132\016.protocol.Busz\" \n\005Sofo"
+    "r\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista"
+    "\022 \n\007soforok\030\001 \003(\0132\017.protocol.Sofor\"P\n\027Ut"
+    "vonalBuszSoforRequest\022\022\n\nutvonal_id\030\001 \002("
+    "\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030"
+    "UtvonalBuszSoforResponse\022\016\n\006status\030\001 \002(\t", 960);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -427,6 +430,8 @@ bool MessageType_Types_IsValid(int value) {
     case 6:
     case 7:
     case 8:
+    case 9:
+    case 10:
     case 999:
       return true;
     default:
@@ -443,6 +448,8 @@ const MessageType_Types MessageType::UTVONAL_BUSZ_SOFOR_REQUEST;
 const MessageType_Types MessageType::MEGALLO_LISTA_REQUEST;
 const MessageType_Types MessageType::MEGALLO_UJ_REQUEST;
 const MessageType_Types MessageType::MEGALLO_TORLES_REQUEST;
+const MessageType_Types MessageType::UTVONAL_UJ_REQUEST;
+const MessageType_Types MessageType::UTVONAL_TORLES_REQUEST;
 const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
 const MessageType_Types MessageType::Types_MAX;
@@ -1647,6 +1654,7 @@ void MegalloLista::Swap(MegalloLista* other) {
 #ifndef _MSC_VER
 const int Utvonal::kIdFieldNumber;
 const int Utvonal::kNevFieldNumber;
+const int Utvonal::kMegallokFieldNumber;
 #endif  // !_MSC_VER
 
 Utvonal::Utvonal()
@@ -1712,6 +1720,7 @@ void Utvonal::Clear() {
       }
     }
   }
+  megallok_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1750,6 +1759,21 @@ bool Utvonal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(26)) goto parse_megallok;
+        break;
+      }
+
+      // repeated .protocol.Megallo megallok = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_megallok:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_megallok()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_megallok;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1786,6 +1810,12 @@ void Utvonal::SerializeWithCachedSizes(
       2, this->nev(), output);
   }
 
+  // repeated .protocol.Megallo megallok = 3;
+  for (int i = 0; i < this->megallok_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->megallok(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1807,6 +1837,13 @@ void Utvonal::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->nev(), target);
+  }
+
+  // repeated .protocol.Megallo megallok = 3;
+  for (int i = 0; i < this->megallok_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->megallok(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1835,6 +1872,14 @@ int Utvonal::ByteSize() const {
     }
 
   }
+  // repeated .protocol.Megallo megallok = 3;
+  total_size += 1 * this->megallok_size();
+  for (int i = 0; i < this->megallok_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->megallok(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1860,6 +1905,7 @@ void Utvonal::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Utvonal::MergeFrom(const Utvonal& from) {
   GOOGLE_CHECK_NE(&from, this);
+  megallok_.MergeFrom(from.megallok_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_id(from.id());
@@ -1886,6 +1932,9 @@ void Utvonal::CopyFrom(const Utvonal& from) {
 bool Utvonal::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  for (int i = 0; i < megallok_size(); i++) {
+    if (!this->megallok(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1893,6 +1942,7 @@ void Utvonal::Swap(Utvonal* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(nev_, other->nev_);
+    megallok_.Swap(&other->megallok_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

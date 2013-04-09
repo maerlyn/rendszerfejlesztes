@@ -28,3 +28,38 @@ protocol::UtvonalLista UtvonalDB::findAll()
 {
     return utvonalak;
 }
+
+int UtvonalDB::nextId()
+{
+    int ret = 0;
+
+    for (int i = 0; i < utvonalak.utvonalak_size(); ++i) {
+        protocol::Utvonal m = utvonalak.utvonalak().Get(i);
+
+        if (m.id() > ret) ret = m.id();
+    }
+
+    return ret+1;
+}
+
+void UtvonalDB::add(protocol::Utvonal ujutvonal)
+{
+    int id;
+
+    id = nextId();
+    std::cout << "UtvonalDB::add, id: " << id << std::endl;
+
+    protocol::Utvonal *u = utvonalak.add_utvonalak();
+    u->CopyFrom(ujutvonal);
+    //std::cout << m->DebugString() << "\n";
+}
+
+void UtvonalDB::del(protocol::Utvonal utvonal)
+{
+    for (int i = 0; i < utvonalak.utvonalak().size(); ++i) {
+        if (utvonalak.utvonalak().Get(i).id() == utvonal.id()) {
+            utvonalak.mutable_utvonalak()->SwapElements(i, utvonalak.utvonalak_size() - 1);
+            utvonalak.mutable_utvonalak()->RemoveLast();
+        }
+    }
+}
