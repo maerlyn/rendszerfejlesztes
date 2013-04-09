@@ -18,8 +18,12 @@ LIBS += -lprotobuf
 
 SOURCES += main.cpp \
     rfszerver.cpp ../protobuf/rendszerfejlesztes.pb.cc \
-    networkhelper.cpp
+    networkhelper.cpp \
+    utvonaldb.cpp \
+    megallodb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
-    networkhelper.h
+    networkhelper.h \
+    utvonaldb.h \
+    megallodb.h

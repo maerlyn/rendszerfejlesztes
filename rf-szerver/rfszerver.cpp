@@ -9,10 +9,15 @@
 #include <map>
 
 #include "../protobuf/rendszerfejlesztes.pb.h"
+#include "utvonaldb.h"
+#include "megallodb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
   QObject::connect(&(helper.socket), SIGNAL(newConnection()), this, SLOT(incomingConnection()));
+
+  UtvonalDB::load();
+  MegalloDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -134,6 +139,9 @@ void RFSzerver::handleUtvonalBuszSoforRequest(QTcpSocket *socket)
 
 void RFSzerver::handleShutdownRequest()
 {
+    UtvonalDB::save();
+    MegalloDB::save();
+
     qDebug() << "kilepes";
     exit(0);
 }
