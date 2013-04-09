@@ -118,7 +118,8 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AuthResponse));
   Megallo_descriptor_ = file->message_type(3);
-  static const int Megallo_offsets_[1] = {
+  static const int Megallo_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Megallo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Megallo, nev_),
   };
   Megallo_reflection_ =
@@ -350,26 +351,28 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\310\001\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\227\002\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"\215\001\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "ssageType.Types\"\334\001\n\005Types\022\r\n\tAUTH_TYPE\020\001"
     "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
     "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
-    "NAL_BUSZ_SOFOR_REQUEST\020\005\022\r\n\010SHUTDOWN\020\347\007\""
-    "1\n\013AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010pass"
-    "word\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002"
-    "(\t\"\026\n\007Megallo\022\013\n\003nev\030\001 \002(\t\"3\n\014MegalloLis"
-    "ta\022#\n\010megallok\030\001 \003(\0132\021.protocol.Megallo\""
-    "\"\n\007Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"4\n\014U"
-    "tvonalLista\022$\n\tutvonalak\030\001 \003(\0132\021.protoco"
-    "l.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n\010rendsza"
-    "m\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszok\030\001 \003(\0132\016.p"
-    "rotocol.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev"
-    "\030\002 \002(\t\".\n\nSoforLista\022 \n\007soforok\030\001 \003(\0132\017."
-    "protocol.Sofor\"P\n\027UtvonalBuszSoforReques"
-    "t\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020"
-    "\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBuszSoforResp"
-    "onse\022\016\n\006status\030\001 \002(\t", 780);
+    "NAL_BUSZ_SOFOR_REQUEST\020\005\022\031\n\025MEGALLO_LIST"
+    "A_REQUEST\020\006\022\026\n\022MEGALLO_UJ_REQUEST\020\007\022\032\n\026M"
+    "EGALLO_TORLES_REQUEST\020\010\022\r\n\010SHUTDOWN\020\347\007\"1"
+    "\n\013AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010passw"
+    "ord\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002("
+    "\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"3\n"
+    "\014MegalloLista\022#\n\010megallok\030\001 \003(\0132\021.protoc"
+    "ol.Megallo\"\"\n\007Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev"
+    "\030\002 \002(\t\"4\n\014UtvonalLista\022$\n\tutvonalak\030\001 \003("
+    "\0132\021.protocol.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005"
+    "\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszo"
+    "k\030\001 \003(\0132\016.protocol.Busz\" \n\005Sofor\022\n\n\002id\030\001"
+    " \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista\022 \n\007sofor"
+    "ok\030\001 \003(\0132\017.protocol.Sofor\"P\n\027UtvonalBusz"
+    "SoforRequest\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz"
+    "_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBu"
+    "szSoforResponse\022\016\n\006status\030\001 \002(\t", 871);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -421,6 +424,9 @@ bool MessageType_Types_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
+    case 8:
     case 999:
       return true;
     default:
@@ -434,6 +440,9 @@ const MessageType_Types MessageType::UTVONALLISTA_REQUEST;
 const MessageType_Types MessageType::BUSZLISA_REQUEST;
 const MessageType_Types MessageType::SOFORLISTA_REQUEST;
 const MessageType_Types MessageType::UTVONAL_BUSZ_SOFOR_REQUEST;
+const MessageType_Types MessageType::MEGALLO_LISTA_REQUEST;
+const MessageType_Types MessageType::MEGALLO_UJ_REQUEST;
+const MessageType_Types MessageType::MEGALLO_TORLES_REQUEST;
 const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
 const MessageType_Types MessageType::Types_MAX;
@@ -1164,6 +1173,7 @@ void AuthResponse::Swap(AuthResponse* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int Megallo::kIdFieldNumber;
 const int Megallo::kNevFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1183,6 +1193,7 @@ Megallo::Megallo(const Megallo& from)
 
 void Megallo::SharedCtor() {
   _cached_size_ = 0;
+  id_ = 0;
   nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1222,6 +1233,7 @@ Megallo* Megallo::New() const {
 
 void Megallo::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = 0;
     if (has_nev()) {
       if (nev_ != &::google::protobuf::internal::kEmptyString) {
         nev_->clear();
@@ -1238,10 +1250,26 @@ bool Megallo::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string nev = 1;
+      // required int32 id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_nev;
+        break;
+      }
+
+      // required string nev = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_nev:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_nev()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1272,13 +1300,18 @@ bool Megallo::MergePartialFromCodedStream(
 
 void Megallo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string nev = 1;
+  // required int32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // required string nev = 2;
   if (has_nev()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->nev().data(), this->nev().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->nev(), output);
+      2, this->nev(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1289,14 +1322,19 @@ void Megallo::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Megallo::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required string nev = 1;
+  // required int32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // required string nev = 2;
   if (has_nev()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->nev().data(), this->nev().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->nev(), target);
+        2, this->nev(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1310,7 +1348,14 @@ int Megallo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string nev = 1;
+    // required int32 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->id());
+    }
+
+    // required string nev = 2;
     if (has_nev()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1344,6 +1389,9 @@ void Megallo::MergeFrom(const ::google::protobuf::Message& from) {
 void Megallo::MergeFrom(const Megallo& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
     if (from.has_nev()) {
       set_nev(from.nev());
     }
@@ -1364,13 +1412,14 @@ void Megallo::CopyFrom(const Megallo& from) {
 }
 
 bool Megallo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
 void Megallo::Swap(Megallo* other) {
   if (other != this) {
+    std::swap(id_, other->id_);
     std::swap(nev_, other->nev_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

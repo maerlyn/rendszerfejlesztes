@@ -8,6 +8,10 @@ message MessageType {
     SOFORLISTA_REQUEST = 4;
     UTVONAL_BUSZ_SOFOR_REQUEST = 5;
 
+    MEGALLO_LISTA_REQUEST = 6;
+    MEGALLO_UJ_REQUEST = 7;
+    MEGALLO_TORLES_REQUEST = 8;
+
     SHUTDOWN = 999;
   }
 
@@ -24,7 +28,8 @@ message AuthResponse {
 }
 
 message Megallo {
-  required string nev = 1;
+  required int32 id = 1;
+  required string nev = 2;
 }
 
 message MegalloLista {

@@ -57,6 +57,19 @@ void RFSzerver::readyRead()
       handleUtvonalBuszSoforRequest(sock);
       break;
 
+    case protocol::MessageType::MEGALLO_LISTA_REQUEST:
+      handleMegalloListaRequest(sock);
+      break;
+
+    case protocol::MessageType::MEGALLO_UJ_REQUEST:
+      std::cout << "megallo_uj_req\n";
+      handleMegalloUjRequest(sock);
+      break;
+
+    case protocol::MessageType::MEGALLO_TORLES_REQUEST:
+      handleMegalloTorlesRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -123,6 +136,29 @@ void RFSzerver::handleUtvonalBuszSoforRequest(QTcpSocket *socket)
     resp.set_status("ok");
     helper.sendMessage(resp, socket);
     qDebug() << "resp sent";
+}
+
+void RFSzerver::handleMegalloListaRequest(QTcpSocket *socket)
+{
+    helper.sendMessage(MegalloDB::findAll(), socket);
+}
+
+void RFSzerver::handleMegalloUjRequest(QTcpSocket *socket)
+{
+    protocol::Megallo m;
+    std::cout << "reading uj megallo\n";
+    helper.readMessage(m, socket);
+
+    MegalloDB::add(m);
+}
+
+void RFSzerver::handleMegalloTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Megallo m;
+    helper.wait(socket);
+    helper.readMessage(m, socket);
+
+    MegalloDB::del(m);
 }
 
 void RFSzerver::handleShutdownRequest()

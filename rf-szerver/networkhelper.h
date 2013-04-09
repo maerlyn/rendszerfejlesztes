@@ -6,6 +6,7 @@
 #include <QTcpServer>
 #include <QObject>
 #include <QDebug>
+#include <QString>
 #include <iostream>
 #include "../protobuf/rendszerfejlesztes.pb.h"
 
@@ -36,11 +37,21 @@ public:
     template<typename T> void readMessage(T &message, QTcpSocket *sock) {
         unsigned int length;
         QByteArray buf;
+        int retries = 10;
 
-        sock->read((char*)&length, 4);
-        buf = sock->read(length);
-        //std::cout << "ez jott (l = " << length << ") "; qDebug() << buf << std::endl;
-        message.ParseFromString(QString(buf).toStdString());
+        while (retries > 0) {
+            sock->read((char*)&length, 4);
+
+            if (length == 0) {
+                --retries;
+                sock->waitForReadyRead(10000);
+            } else {
+                buf = sock->read(length);
+                qDebug() << QString("ez jott (l = %1)").arg(length); qDebug() << buf;
+                message.ParseFromString(QString(buf).toStdString());
+                return;
+            }
+        }
 
     }
 };

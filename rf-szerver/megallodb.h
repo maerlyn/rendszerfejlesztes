@@ -10,6 +10,10 @@ class MegalloDB
 public:
     static void load();
     static void save();
+    static protocol::MegalloLista findAll();
+    static int nextId();
+    static void add(protocol::Megallo ujmegallo);
+    static void del(protocol::Megallo megallo);
 };
 
 #endif // MEGALLODB_H

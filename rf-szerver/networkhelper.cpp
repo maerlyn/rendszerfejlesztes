@@ -22,5 +22,5 @@ protocol::MessageType_Types networkhelper::readMessageType(QTcpSocket *sock)
 
 void networkhelper::wait(QTcpSocket *sock)
 {
-    sock->waitForReadyRead(1000);
+    sock->waitForReadyRead(10000);
 }

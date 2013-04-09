@@ -25,6 +25,10 @@ public slots:
   void handleSoforlistaRequest(QTcpSocket *socket);
   void handleUtvonalBuszSoforRequest(QTcpSocket *socket);
 
+  void handleMegalloListaRequest(QTcpSocket *socket);
+  void handleMegalloUjRequest(QTcpSocket *socket);
+  void handleMegalloTorlesRequest(QTcpSocket *socket);
+
   void handleShutdownRequest();
 };
 

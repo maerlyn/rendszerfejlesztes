@@ -54,6 +54,9 @@ enum MessageType_Types {
   MessageType_Types_BUSZLISA_REQUEST = 3,
   MessageType_Types_SOFORLISTA_REQUEST = 4,
   MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST = 5,
+  MessageType_Types_MEGALLO_LISTA_REQUEST = 6,
+  MessageType_Types_MEGALLO_UJ_REQUEST = 7,
+  MessageType_Types_MEGALLO_TORLES_REQUEST = 8,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -131,6 +134,9 @@ class MessageType : public ::google::protobuf::Message {
   static const Types BUSZLISA_REQUEST = MessageType_Types_BUSZLISA_REQUEST;
   static const Types SOFORLISTA_REQUEST = MessageType_Types_SOFORLISTA_REQUEST;
   static const Types UTVONAL_BUSZ_SOFOR_REQUEST = MessageType_Types_UTVONAL_BUSZ_SOFOR_REQUEST;
+  static const Types MEGALLO_LISTA_REQUEST = MessageType_Types_MEGALLO_LISTA_REQUEST;
+  static const Types MEGALLO_UJ_REQUEST = MessageType_Types_MEGALLO_UJ_REQUEST;
+  static const Types MEGALLO_TORLES_REQUEST = MessageType_Types_MEGALLO_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -426,10 +432,17 @@ class Megallo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string nev = 1;
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required string nev = 2;
   inline bool has_nev() const;
   inline void clear_nev();
-  static const int kNevFieldNumber = 1;
+  static const int kNevFieldNumber = 2;
   inline const ::std::string& nev() const;
   inline void set_nev(const ::std::string& value);
   inline void set_nev(const char* value);
@@ -440,15 +453,18 @@ class Megallo : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:protocol.Megallo)
  private:
+  inline void set_has_id();
+  inline void clear_has_id();
   inline void set_has_nev();
   inline void clear_has_nev();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* nev_;
+  ::google::protobuf::int32 id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
   friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
@@ -1529,15 +1545,37 @@ inline void AuthResponse::set_allocated_status(::std::string* status) {
 
 // Megallo
 
-// required string nev = 1;
-inline bool Megallo::has_nev() const {
+// required int32 id = 1;
+inline bool Megallo::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Megallo::set_has_nev() {
+inline void Megallo::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Megallo::clear_has_nev() {
+inline void Megallo::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void Megallo::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Megallo::id() const {
+  return id_;
+}
+inline void Megallo::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required string nev = 2;
+inline bool Megallo::has_nev() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Megallo::set_has_nev() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Megallo::clear_has_nev() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void Megallo::clear_nev() {
   if (nev_ != &::google::protobuf::internal::kEmptyString) {
