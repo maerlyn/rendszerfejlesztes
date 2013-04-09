@@ -23,3 +23,8 @@ void UtvonalDB::save()
 
     std::cout << "utvonalak mentve\n";
 }
+
+protocol::UtvonalLista UtvonalDB::findAll()
+{
+    return utvonalak;
+}

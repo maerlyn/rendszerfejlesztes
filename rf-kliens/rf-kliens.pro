@@ -17,7 +17,9 @@ TEMPLATE = app
 LIBS += -lprotobuf
 
 HEADERS += ../protobuf/rendszerfejlesztes.pb.h networkhelper.h \
-    rfkliens.h
+    rfkliens.h \
+    megallok_controller.h
 
 SOURCES += main.cpp ../protobuf/rendszerfejlesztes.pb.cc networkhelper.cpp \
-    rfkliens.cpp
+    rfkliens.cpp \
+    megallok_controller.cpp

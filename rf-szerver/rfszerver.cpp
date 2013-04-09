@@ -76,19 +76,7 @@ void RFSzerver::handleAuthRequest(QTcpSocket *sock)
 
 void RFSzerver::handleUtvonallistaRequest(QTcpSocket *sock)
 {
-    std::map<int, std::string> utvonalak;
-    utvonalak[1] = "1-es utvonal";
-
-    protocol::UtvonalLista utvonallista;
-
-    for (std::map<int, std::string>::iterator i = utvonalak.begin(); i != utvonalak.end(); ++i) {
-        protocol::Utvonal *u = utvonallista.add_utvonalak();
-
-        u->set_id(i->first);
-        u->set_nev(i->second);
-    }
-
-    helper.sendMessage(utvonallista, sock);
+    helper.sendMessage(UtvonalDB::findAll(), sock);
 }
 
 void RFSzerver::handleBuszlistaRequest(QTcpSocket *socket)

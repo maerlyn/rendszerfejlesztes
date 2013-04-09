@@ -2,7 +2,9 @@
 
 #include <iostream>
 #include <string>
+
 #include "../protobuf/rendszerfejlesztes.pb.h"
+#include "megallok_controller.h"
 
 rfkliens::rfkliens(networkhelper& helper)
 {
@@ -39,6 +41,7 @@ void rfkliens::menu()
     do {
         std::cout << " ### MENU ###\n";
         std::cout << "1. utvonal-sofor-busz hozzarendeles\n";
+        std::cout << "2. megallok kezelese\n";
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
@@ -47,9 +50,11 @@ void rfkliens::menu()
         valasz = atoi(s.c_str());
 
         switch (valasz) {
-            case 1: utvonal_sofor_busz_hozzarendeles();
+            case 1: utvonal_sofor_busz_hozzarendeles(); break;
 
-            case 999: shutdown();
+            case 2: megallok_kezelese(); break;
+
+            case 999: shutdown(); break;
         }
     } while (valasz != 0);
 }
@@ -112,6 +117,12 @@ void rfkliens::utvonal_sofor_busz_hozzarendeles()
 
     protocol::UtvonalBuszSoforResponse resp;
     std::cout << resp.status();
+}
+
+void rfkliens::megallok_kezelese()
+{
+    megallok_controller mc(helper);
+    mc.run();
 }
 
 void rfkliens::shutdown()

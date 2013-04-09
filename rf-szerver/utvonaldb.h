@@ -11,6 +11,7 @@ class UtvonalDB
 public:
     static void load();
     static void save();
+    static protocol::UtvonalLista findAll();
 };
 
 #endif // UTVONALDB_H
