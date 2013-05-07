@@ -31,12 +31,17 @@ public slots:
 
   void handleUtvonalUjRequest(QTcpSocket *socket);
   void handleUtvonalTorlesRequest(QTcpSocket *socket);
+  void handleUtvonalRequest(QTcpSocket *socket);
 
   void handleBuszUjRequest(QTcpSocket *socket);
   void handleBuszTorlesRequest(QTcpSocket *socket);
 
   void handleSoforUjRequest(QTcpSocket *socket);
   void handleSoforTorlesRequest(QTcpSocket *socket);
+
+  void handleJaratListaRequest(QTcpSocket *socket);
+  void handleJaratUjRequest(QTcpSocket *socket);
+  void handleJaratTorlesRequest(QTcpSocket *socket);
 
   void handleShutdownRequest();
 };

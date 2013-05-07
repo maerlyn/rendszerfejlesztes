@@ -13,6 +13,7 @@
 #include "megallodb.h"
 #include "buszdb.h"
 #include "sofordb.h"
+#include "jaratdb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -22,6 +23,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
   MegalloDB::load();
   BuszDB::load();
   SoforDB::load();
+  JaratDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -82,6 +84,10 @@ void RFSzerver::readyRead()
       handleUtvonalTorlesRequest(sock);
       break;
 
+    case protocol::MessageType::UTVONAL_REQUEST:
+      handleUtvonalRequest(sock);
+      break;
+
     case protocol::MessageType::BUSZ_UJ_REQUEST:
       handleBuszUjRequest(sock);
       break;
@@ -96,6 +102,18 @@ void RFSzerver::readyRead()
 
     case protocol::MessageType::SOFOR_TORLES_REQUEST:
       handleSoforTorlesRequest(sock);
+      break;
+
+    case protocol::MessageType::JARAT_LISTA_REQUEST:
+      handleJaratListaRequest(sock);
+      break;
+
+    case protocol::MessageType::JARAT_UJ_REQUEST:
+      handleJaratUjRequest(sock);
+      break;
+
+    case protocol::MessageType::JARAT_TORLES_REQUEST:
+      handleJaratTorlesRequest(sock);
       break;
 
     case protocol::MessageType::SHUTDOWN:
@@ -182,6 +200,16 @@ void RFSzerver::handleUtvonalTorlesRequest(QTcpSocket *socket)
     UtvonalDB::del(u);
 }
 
+void RFSzerver::handleUtvonalRequest(QTcpSocket *socket)
+{
+    protocol::Utvonal u;
+    //helper.wait(socket);
+    helper.readMessage(u, socket);
+    u = UtvonalDB::find(u.id());
+
+    helper.sendMessage(u, socket);
+}
+
 void RFSzerver::handleBuszUjRequest(QTcpSocket *socket)
 {
     protocol::Busz b;
@@ -218,12 +246,36 @@ void RFSzerver::handleSoforTorlesRequest(QTcpSocket *socket)
     SoforDB::del(s);
 }
 
+void RFSzerver::handleJaratListaRequest(QTcpSocket *socket)
+{
+    helper.sendMessage(JaratDB::findAll(), socket);
+}
+
+void RFSzerver::handleJaratUjRequest(QTcpSocket *socket)
+{
+    protocol::Jarat j;
+    helper.wait(socket);
+    helper.readMessage(j, socket);
+
+    JaratDB::add(j);
+}
+
+void RFSzerver::handleJaratTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Jarat j;
+    helper.wait(socket);
+    helper.readMessage(j, socket);
+
+    JaratDB::del(j);
+}
+
 void RFSzerver::handleShutdownRequest()
 {
     UtvonalDB::save();
     MegalloDB::save();
     BuszDB::save();
     SoforDB::save();
+    JaratDB::save();
 
     qDebug() << "kilepes";
     exit(0);

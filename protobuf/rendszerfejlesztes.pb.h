@@ -47,6 +47,8 @@ class Sofor;
 class SoforLista;
 class UtvonalBuszSoforRequest;
 class UtvonalBuszSoforResponse;
+class Jarat;
+class JaratLista;
 
 enum MessageType_Types {
   MessageType_Types_AUTH_TYPE = 1,
@@ -59,10 +61,14 @@ enum MessageType_Types {
   MessageType_Types_MEGALLO_TORLES_REQUEST = 8,
   MessageType_Types_UTVONAL_UJ_REQUEST = 9,
   MessageType_Types_UTVONAL_TORLES_REQUEST = 10,
+  MessageType_Types_UTVONAL_REQUEST = 18,
   MessageType_Types_BUSZ_UJ_REQUEST = 11,
   MessageType_Types_BUSZ_TORLES_REQUEST = 12,
   MessageType_Types_SOFOR_UJ_REQUEST = 13,
   MessageType_Types_SOFOR_TORLES_REQUEST = 14,
+  MessageType_Types_JARAT_LISTA_REQUEST = 15,
+  MessageType_Types_JARAT_UJ_REQUEST = 16,
+  MessageType_Types_JARAT_TORLES_REQUEST = 17,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -145,10 +151,14 @@ class MessageType : public ::google::protobuf::Message {
   static const Types MEGALLO_TORLES_REQUEST = MessageType_Types_MEGALLO_TORLES_REQUEST;
   static const Types UTVONAL_UJ_REQUEST = MessageType_Types_UTVONAL_UJ_REQUEST;
   static const Types UTVONAL_TORLES_REQUEST = MessageType_Types_UTVONAL_TORLES_REQUEST;
+  static const Types UTVONAL_REQUEST = MessageType_Types_UTVONAL_REQUEST;
   static const Types BUSZ_UJ_REQUEST = MessageType_Types_BUSZ_UJ_REQUEST;
   static const Types BUSZ_TORLES_REQUEST = MessageType_Types_BUSZ_TORLES_REQUEST;
   static const Types SOFOR_UJ_REQUEST = MessageType_Types_SOFOR_UJ_REQUEST;
   static const Types SOFOR_TORLES_REQUEST = MessageType_Types_SOFOR_TORLES_REQUEST;
+  static const Types JARAT_LISTA_REQUEST = MessageType_Types_JARAT_LISTA_REQUEST;
+  static const Types JARAT_UJ_REQUEST = MessageType_Types_JARAT_UJ_REQUEST;
+  static const Types JARAT_TORLES_REQUEST = MessageType_Types_JARAT_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -1318,6 +1328,198 @@ class UtvonalBuszSoforResponse : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static UtvonalBuszSoforResponse* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Jarat : public ::google::protobuf::Message {
+ public:
+  Jarat();
+  virtual ~Jarat();
+
+  Jarat(const Jarat& from);
+
+  inline Jarat& operator=(const Jarat& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Jarat& default_instance();
+
+  void Swap(Jarat* other);
+
+  // implements Message ----------------------------------------------
+
+  Jarat* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Jarat& from);
+  void MergeFrom(const Jarat& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required int32 utvonal_id = 2;
+  inline bool has_utvonal_id() const;
+  inline void clear_utvonal_id();
+  static const int kUtvonalIdFieldNumber = 2;
+  inline ::google::protobuf::int32 utvonal_id() const;
+  inline void set_utvonal_id(::google::protobuf::int32 value);
+
+  // required string indulasi_ido = 3;
+  inline bool has_indulasi_ido() const;
+  inline void clear_indulasi_ido();
+  static const int kIndulasiIdoFieldNumber = 3;
+  inline const ::std::string& indulasi_ido() const;
+  inline void set_indulasi_ido(const ::std::string& value);
+  inline void set_indulasi_ido(const char* value);
+  inline void set_indulasi_ido(const char* value, size_t size);
+  inline ::std::string* mutable_indulasi_ido();
+  inline ::std::string* release_indulasi_ido();
+  inline void set_allocated_indulasi_ido(::std::string* indulasi_ido);
+
+  // @@protoc_insertion_point(class_scope:protocol.Jarat)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_utvonal_id();
+  inline void clear_has_utvonal_id();
+  inline void set_has_indulasi_ido();
+  inline void clear_has_indulasi_ido();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 utvonal_id_;
+  ::std::string* indulasi_ido_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Jarat* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class JaratLista : public ::google::protobuf::Message {
+ public:
+  JaratLista();
+  virtual ~JaratLista();
+
+  JaratLista(const JaratLista& from);
+
+  inline JaratLista& operator=(const JaratLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const JaratLista& default_instance();
+
+  void Swap(JaratLista* other);
+
+  // implements Message ----------------------------------------------
+
+  JaratLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const JaratLista& from);
+  void MergeFrom(const JaratLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Jarat jaratok = 1;
+  inline int jaratok_size() const;
+  inline void clear_jaratok();
+  static const int kJaratokFieldNumber = 1;
+  inline const ::protocol::Jarat& jaratok(int index) const;
+  inline ::protocol::Jarat* mutable_jaratok(int index);
+  inline ::protocol::Jarat* add_jaratok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Jarat >&
+      jaratok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Jarat >*
+      mutable_jaratok();
+
+  // @@protoc_insertion_point(class_scope:protocol.JaratLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Jarat > jaratok_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static JaratLista* default_instance_;
+};
 // ===================================================================
 
 
@@ -2233,6 +2435,153 @@ inline void UtvonalBuszSoforResponse::set_allocated_status(::std::string* status
     clear_has_status();
     status_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// -------------------------------------------------------------------
+
+// Jarat
+
+// required int32 id = 1;
+inline bool Jarat::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Jarat::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Jarat::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Jarat::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Jarat::id() const {
+  return id_;
+}
+inline void Jarat::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required int32 utvonal_id = 2;
+inline bool Jarat::has_utvonal_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Jarat::set_has_utvonal_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Jarat::clear_has_utvonal_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Jarat::clear_utvonal_id() {
+  utvonal_id_ = 0;
+  clear_has_utvonal_id();
+}
+inline ::google::protobuf::int32 Jarat::utvonal_id() const {
+  return utvonal_id_;
+}
+inline void Jarat::set_utvonal_id(::google::protobuf::int32 value) {
+  set_has_utvonal_id();
+  utvonal_id_ = value;
+}
+
+// required string indulasi_ido = 3;
+inline bool Jarat::has_indulasi_ido() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Jarat::set_has_indulasi_ido() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Jarat::clear_has_indulasi_ido() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Jarat::clear_indulasi_ido() {
+  if (indulasi_ido_ != &::google::protobuf::internal::kEmptyString) {
+    indulasi_ido_->clear();
+  }
+  clear_has_indulasi_ido();
+}
+inline const ::std::string& Jarat::indulasi_ido() const {
+  return *indulasi_ido_;
+}
+inline void Jarat::set_indulasi_ido(const ::std::string& value) {
+  set_has_indulasi_ido();
+  if (indulasi_ido_ == &::google::protobuf::internal::kEmptyString) {
+    indulasi_ido_ = new ::std::string;
+  }
+  indulasi_ido_->assign(value);
+}
+inline void Jarat::set_indulasi_ido(const char* value) {
+  set_has_indulasi_ido();
+  if (indulasi_ido_ == &::google::protobuf::internal::kEmptyString) {
+    indulasi_ido_ = new ::std::string;
+  }
+  indulasi_ido_->assign(value);
+}
+inline void Jarat::set_indulasi_ido(const char* value, size_t size) {
+  set_has_indulasi_ido();
+  if (indulasi_ido_ == &::google::protobuf::internal::kEmptyString) {
+    indulasi_ido_ = new ::std::string;
+  }
+  indulasi_ido_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Jarat::mutable_indulasi_ido() {
+  set_has_indulasi_ido();
+  if (indulasi_ido_ == &::google::protobuf::internal::kEmptyString) {
+    indulasi_ido_ = new ::std::string;
+  }
+  return indulasi_ido_;
+}
+inline ::std::string* Jarat::release_indulasi_ido() {
+  clear_has_indulasi_ido();
+  if (indulasi_ido_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = indulasi_ido_;
+    indulasi_ido_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Jarat::set_allocated_indulasi_ido(::std::string* indulasi_ido) {
+  if (indulasi_ido_ != &::google::protobuf::internal::kEmptyString) {
+    delete indulasi_ido_;
+  }
+  if (indulasi_ido) {
+    set_has_indulasi_ido();
+    indulasi_ido_ = indulasi_ido;
+  } else {
+    clear_has_indulasi_ido();
+    indulasi_ido_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// JaratLista
+
+// repeated .protocol.Jarat jaratok = 1;
+inline int JaratLista::jaratok_size() const {
+  return jaratok_.size();
+}
+inline void JaratLista::clear_jaratok() {
+  jaratok_.Clear();
+}
+inline const ::protocol::Jarat& JaratLista::jaratok(int index) const {
+  return jaratok_.Get(index);
+}
+inline ::protocol::Jarat* JaratLista::mutable_jaratok(int index) {
+  return jaratok_.Mutable(index);
+}
+inline ::protocol::Jarat* JaratLista::add_jaratok() {
+  return jaratok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Jarat >&
+JaratLista::jaratok() const {
+  return jaratok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Jarat >*
+JaratLista::mutable_jaratok() {
+  return &jaratok_;
 }
 
 

@@ -15,6 +15,7 @@ public:
     static void del(protocol::Utvonal u);
     static int nextId();
     static void add(protocol::Utvonal ujutvonal);
+    static protocol::Utvonal find(int id);
 
 };
 

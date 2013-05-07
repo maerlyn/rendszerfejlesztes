@@ -64,3 +64,12 @@ void UtvonalDB::del(protocol::Utvonal utvonal)
         }
     }
 }
+
+protocol::Utvonal UtvonalDB::find(int id)
+{
+    for (int i = 0; i < utvonalak.utvonalak().size(); ++i) {
+        if (utvonalak.utvonalak().Get(i).id() == id) {
+            return utvonalak.utvonalak().Get(i);
+        }
+    }
+}

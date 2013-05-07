@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     utvonaldb.cpp \
     megallodb.cpp \
     buszdb.cpp \
-    sofordb.cpp
+    sofordb.cpp \
+    jaratdb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
@@ -30,4 +31,5 @@ HEADERS += \
     utvonaldb.h \
     megallodb.h \
     buszdb.h \
-    sofordb.h
+    sofordb.h \
+    jaratdb.h

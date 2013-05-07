@@ -14,12 +14,17 @@ message MessageType {
 
     UTVONAL_UJ_REQUEST = 9;
     UTVONAL_TORLES_REQUEST = 10;
+    UTVONAL_REQUEST = 18;
 
     BUSZ_UJ_REQUEST = 11;
     BUSZ_TORLES_REQUEST = 12;
     
     SOFOR_UJ_REQUEST = 13;
     SOFOR_TORLES_REQUEST = 14;
+
+    JARAT_LISTA_REQUEST = 15;
+    JARAT_UJ_REQUEST = 16;
+    JARAT_TORLES_REQUEST = 17;
 
     SHUTDOWN = 999;
   }
@@ -82,4 +87,14 @@ message UtvonalBuszSoforRequest {
 
 message UtvonalBuszSoforResponse {
   required string status = 1;
+}
+
+message Jarat {
+  required int32 id = 1;
+  required int32 utvonal_id = 2;
+  required string indulasi_ido = 3;
+}
+
+message JaratLista {
+  repeated Jarat jaratok = 1;
 }
