@@ -48,6 +48,7 @@ void UtvonalDB::add(protocol::Utvonal ujutvonal)
 
     id = nextId();
     std::cout << "UtvonalDB::add, id: " << id << std::endl;
+    ujutvonal.set_id(id);
 
     protocol::Utvonal *u = utvonalak.add_utvonalak();
     u->CopyFrom(ujutvonal);

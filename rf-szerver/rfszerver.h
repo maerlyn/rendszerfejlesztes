@@ -32,6 +32,12 @@ public slots:
   void handleUtvonalUjRequest(QTcpSocket *socket);
   void handleUtvonalTorlesRequest(QTcpSocket *socket);
 
+  void handleBuszUjRequest(QTcpSocket *socket);
+  void handleBuszTorlesRequest(QTcpSocket *socket);
+
+  void handleSoforUjRequest(QTcpSocket *socket);
+  void handleSoforTorlesRequest(QTcpSocket *socket);
+
   void handleShutdownRequest();
 };
 

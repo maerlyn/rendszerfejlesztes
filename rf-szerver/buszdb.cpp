@@ -48,6 +48,7 @@ void BuszDB::add(protocol::Busz ujbusz)
 
     id = nextId();
     std::cout << "BuszDB::add, id: " << id << std::endl;
+    ujbusz.set_id(id);
 
     protocol::Busz *b = buszok.add_buszok();
     b->CopyFrom(ujbusz);

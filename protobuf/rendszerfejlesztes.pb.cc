@@ -352,30 +352,33 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\313\002\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\251\003\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"\220\002\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "ssageType.Types\"\356\002\n\005Types\022\r\n\tAUTH_TYPE\020\001"
     "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
     "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
     "NAL_BUSZ_SOFOR_REQUEST\020\005\022\031\n\025MEGALLO_LIST"
     "A_REQUEST\020\006\022\026\n\022MEGALLO_UJ_REQUEST\020\007\022\032\n\026M"
     "EGALLO_TORLES_REQUEST\020\010\022\026\n\022UTVONAL_UJ_RE"
-    "QUEST\020\t\022\032\n\026UTVONAL_TORLES_REQUEST\020\n\022\r\n\010S"
-    "HUTDOWN\020\347\007\"1\n\013AuthRequest\022\020\n\010username\030\001 "
-    "\002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n"
-    "\006status\030\001 \002(\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n\003"
-    "nev\030\002 \002(\t\"3\n\014MegalloLista\022#\n\010megallok\030\001 "
-    "\003(\0132\021.protocol.Megallo\"G\n\007Utvonal\022\n\n\002id\030"
-    "\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022#\n\010megallok\030\003 \003(\0132\021.p"
-    "rotocol.Megallo\"4\n\014UtvonalLista\022$\n\tutvon"
-    "alak\030\001 \003(\0132\021.protocol.Utvonal\"$\n\004Busz\022\n\n"
-    "\002id\030\001 \002(\005\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszLista"
-    "\022\036\n\006buszok\030\001 \003(\0132\016.protocol.Busz\" \n\005Sofo"
-    "r\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista"
-    "\022 \n\007soforok\030\001 \003(\0132\017.protocol.Sofor\"P\n\027Ut"
-    "vonalBuszSoforRequest\022\022\n\nutvonal_id\030\001 \002("
-    "\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030"
-    "UtvonalBuszSoforResponse\022\016\n\006status\030\001 \002(\t", 960);
+    "QUEST\020\t\022\032\n\026UTVONAL_TORLES_REQUEST\020\n\022\023\n\017B"
+    "USZ_UJ_REQUEST\020\013\022\027\n\023BUSZ_TORLES_REQUEST\020"
+    "\014\022\024\n\020SOFOR_UJ_REQUEST\020\r\022\030\n\024SOFOR_TORLES_"
+    "REQUEST\020\016\022\r\n\010SHUTDOWN\020\347\007\"1\n\013AuthRequest\022"
+    "\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014A"
+    "uthResponse\022\016\n\006status\030\001 \002(\t\"\"\n\007Megallo\022\n"
+    "\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"3\n\014MegalloLista\022"
+    "#\n\010megallok\030\001 \003(\0132\021.protocol.Megallo\"G\n\007"
+    "Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022#\n\010mega"
+    "llok\030\003 \003(\0132\021.protocol.Megallo\"4\n\014Utvonal"
+    "Lista\022$\n\tutvonalak\030\001 \003(\0132\021.protocol.Utvo"
+    "nal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n\010rendszam\030\002 \002("
+    "\t\"+\n\tBuszLista\022\036\n\006buszok\030\001 \003(\0132\016.protoco"
+    "l.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t"
+    "\".\n\nSoforLista\022 \n\007soforok\030\001 \003(\0132\017.protoc"
+    "ol.Sofor\"P\n\027UtvonalBuszSoforRequest\022\022\n\nu"
+    "tvonal_id\030\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n\010sofo"
+    "r_id\030\003 \002(\005\"*\n\030UtvonalBuszSoforResponse\022\016"
+    "\n\006status\030\001 \002(\t", 1054);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -432,6 +435,10 @@ bool MessageType_Types_IsValid(int value) {
     case 8:
     case 9:
     case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
     case 999:
       return true;
     default:
@@ -450,6 +457,10 @@ const MessageType_Types MessageType::MEGALLO_UJ_REQUEST;
 const MessageType_Types MessageType::MEGALLO_TORLES_REQUEST;
 const MessageType_Types MessageType::UTVONAL_UJ_REQUEST;
 const MessageType_Types MessageType::UTVONAL_TORLES_REQUEST;
+const MessageType_Types MessageType::BUSZ_UJ_REQUEST;
+const MessageType_Types MessageType::BUSZ_TORLES_REQUEST;
+const MessageType_Types MessageType::SOFOR_UJ_REQUEST;
+const MessageType_Types MessageType::SOFOR_TORLES_REQUEST;
 const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
 const MessageType_Types MessageType::Types_MAX;

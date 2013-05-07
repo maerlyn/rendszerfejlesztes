@@ -19,9 +19,13 @@ LIBS += -lprotobuf
 HEADERS += ../protobuf/rendszerfejlesztes.pb.h networkhelper.h \
     rfkliens.h \
     megallok_controller.h \
-    utvonal_controller.h
+    utvonal_controller.h \
+    buszok_controller.h \
+    soforok_controller.h
 
 SOURCES += main.cpp ../protobuf/rendszerfejlesztes.pb.cc networkhelper.cpp \
     rfkliens.cpp \
     megallok_controller.cpp \
-    utvonal_controller.cpp
+    utvonal_controller.cpp \
+    buszok_controller.cpp \
+    soforok_controller.cpp

@@ -59,6 +59,10 @@ enum MessageType_Types {
   MessageType_Types_MEGALLO_TORLES_REQUEST = 8,
   MessageType_Types_UTVONAL_UJ_REQUEST = 9,
   MessageType_Types_UTVONAL_TORLES_REQUEST = 10,
+  MessageType_Types_BUSZ_UJ_REQUEST = 11,
+  MessageType_Types_BUSZ_TORLES_REQUEST = 12,
+  MessageType_Types_SOFOR_UJ_REQUEST = 13,
+  MessageType_Types_SOFOR_TORLES_REQUEST = 14,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -141,6 +145,10 @@ class MessageType : public ::google::protobuf::Message {
   static const Types MEGALLO_TORLES_REQUEST = MessageType_Types_MEGALLO_TORLES_REQUEST;
   static const Types UTVONAL_UJ_REQUEST = MessageType_Types_UTVONAL_UJ_REQUEST;
   static const Types UTVONAL_TORLES_REQUEST = MessageType_Types_UTVONAL_TORLES_REQUEST;
+  static const Types BUSZ_UJ_REQUEST = MessageType_Types_BUSZ_UJ_REQUEST;
+  static const Types BUSZ_TORLES_REQUEST = MessageType_Types_BUSZ_TORLES_REQUEST;
+  static const Types SOFOR_UJ_REQUEST = MessageType_Types_SOFOR_UJ_REQUEST;
+  static const Types SOFOR_TORLES_REQUEST = MessageType_Types_SOFOR_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);

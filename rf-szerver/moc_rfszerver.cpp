@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rfszerver.h'
 **
-** Created: Tue Apr 9 22:08:25 2013
+** Created: Tue May 7 17:08:45 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_RFSzerver[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,7 +43,11 @@ static const uint qt_meta_data_RFSzerver[] = {
      312,   44,   10,   10, 0x0a,
      352,   44,   10,   10, 0x0a,
      388,   44,   10,   10, 0x0a,
-     428,   10,   10,   10, 0x0a,
+     428,   44,   10,   10, 0x0a,
+     461,   44,   10,   10, 0x0a,
+     498,   44,   10,   10, 0x0a,
+     532,   44,   10,   10, 0x0a,
+     570,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -60,6 +64,10 @@ static const char qt_meta_stringdata_RFSzerver[] = {
     "handleMegalloTorlesRequest(QTcpSocket*)\0"
     "handleUtvonalUjRequest(QTcpSocket*)\0"
     "handleUtvonalTorlesRequest(QTcpSocket*)\0"
+    "handleBuszUjRequest(QTcpSocket*)\0"
+    "handleBuszTorlesRequest(QTcpSocket*)\0"
+    "handleSoforUjRequest(QTcpSocket*)\0"
+    "handleSoforTorlesRequest(QTcpSocket*)\0"
     "handleShutdownRequest()\0"
 };
 
@@ -81,7 +89,11 @@ void RFSzerver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 9: _t->handleMegalloTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 10: _t->handleUtvonalUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 11: _t->handleUtvonalTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
-        case 12: _t->handleShutdownRequest(); break;
+        case 12: _t->handleBuszUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 13: _t->handleBuszTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 14: _t->handleSoforUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 15: _t->handleSoforTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 16: _t->handleShutdownRequest(); break;
         default: ;
         }
     }
@@ -119,9 +131,9 @@ int RFSzerver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 17;
     }
     return _id;
 }

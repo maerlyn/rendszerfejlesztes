@@ -14,6 +14,8 @@ public:
     void utvonal_sofor_busz_hozzarendeles();
     void megallok_kezelese();
     void utvonalak_kezelese();
+    void buszok_kezelese();
+    void soforok_kezelese();
 
     void shutdown();
 };

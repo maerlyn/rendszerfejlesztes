@@ -15,6 +15,12 @@ message MessageType {
     UTVONAL_UJ_REQUEST = 9;
     UTVONAL_TORLES_REQUEST = 10;
 
+    BUSZ_UJ_REQUEST = 11;
+    BUSZ_TORLES_REQUEST = 12;
+    
+    SOFOR_UJ_REQUEST = 13;
+    SOFOR_TORLES_REQUEST = 14;
+
     SHUTDOWN = 999;
   }
 

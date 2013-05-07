@@ -12,6 +12,7 @@
 #include "utvonaldb.h"
 #include "megallodb.h"
 #include "buszdb.h"
+#include "sofordb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -20,6 +21,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
   UtvonalDB::load();
   MegalloDB::load();
   BuszDB::load();
+  SoforDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -80,6 +82,22 @@ void RFSzerver::readyRead()
       handleUtvonalTorlesRequest(sock);
       break;
 
+    case protocol::MessageType::BUSZ_UJ_REQUEST:
+      handleBuszUjRequest(sock);
+      break;
+
+    case protocol::MessageType::BUSZ_TORLES_REQUEST:
+      handleBuszTorlesRequest(sock);
+      break;
+
+    case protocol::MessageType::SOFOR_UJ_REQUEST:
+      handleSoforUjRequest(sock);
+      break;
+
+    case protocol::MessageType::SOFOR_TORLES_REQUEST:
+      handleSoforTorlesRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -104,36 +122,12 @@ void RFSzerver::handleUtvonallistaRequest(QTcpSocket *sock)
 
 void RFSzerver::handleBuszlistaRequest(QTcpSocket *socket)
 {
-    std::map<int, std::string> buszok;
-    buszok[1] = "AAA-111";
-
-    protocol::BuszLista buszlista;
-
-    for (std::map<int, std::string>::iterator i = buszok.begin(); i != buszok.end(); ++i) {
-        protocol::Busz *b = buszlista.add_buszok();
-
-        b->set_id(i->first);
-        b->set_rendszam(i->second);
-    }
-
-    helper.sendMessage(buszlista, socket);
+    helper.sendMessage(BuszDB::findAll(), socket);
 }
 
 void RFSzerver::handleSoforlistaRequest(QTcpSocket *socket)
 {
-    std::map<int, std::string> soforok;
-    soforok[1] = "Jozsi";
-
-    protocol::SoforLista soforlista;
-
-    for (std::map<int, std::string>::iterator i = soforok.begin(); i != soforok.end(); ++i) {
-        protocol::Sofor *s = soforlista.add_soforok();
-
-        s->set_id(i->first);
-        s->set_nev(i->second);
-    }
-
-    helper.sendMessage(soforlista, socket);
+    helper.sendMessage(SoforDB::findAll(), socket);
 }
 
 void RFSzerver::handleUtvonalBuszSoforRequest(QTcpSocket *socket)
@@ -188,11 +182,48 @@ void RFSzerver::handleUtvonalTorlesRequest(QTcpSocket *socket)
     UtvonalDB::del(u);
 }
 
+void RFSzerver::handleBuszUjRequest(QTcpSocket *socket)
+{
+    protocol::Busz b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    BuszDB::add(b);
+}
+
+void RFSzerver::handleBuszTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Busz b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    BuszDB::del(b);
+}
+
+void RFSzerver::handleSoforUjRequest(QTcpSocket *socket)
+{
+    protocol::Sofor s;
+    helper.wait(socket);
+    helper.readMessage(s, socket);
+
+    SoforDB::add(s);
+}
+
+void RFSzerver::handleSoforTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Sofor s;
+    helper.wait(socket);
+    helper.readMessage(s, socket);
+
+    SoforDB::del(s);
+}
+
 void RFSzerver::handleShutdownRequest()
 {
     UtvonalDB::save();
     MegalloDB::save();
     BuszDB::save();
+    SoforDB::save();
 
     qDebug() << "kilepes";
     exit(0);

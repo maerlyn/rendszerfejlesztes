@@ -6,6 +6,8 @@
 #include "../protobuf/rendszerfejlesztes.pb.h"
 #include "megallok_controller.h"
 #include "utvonal_controller.h"
+#include "buszok_controller.h"
+#include "soforok_controller.h"
 
 rfkliens::rfkliens(networkhelper& helper)
 {
@@ -44,6 +46,8 @@ void rfkliens::menu()
         std::cout << "1. utvonal-sofor-busz hozzarendeles\n";
         std::cout << "2. megallok kezelese\n";
         std::cout << "3. utvonalak kezelese\n";
+        std::cout << "4. buszok kezelese\n";
+        std::cout << "5. soforok kezelese\n";
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
@@ -55,6 +59,8 @@ void rfkliens::menu()
             case 1: utvonal_sofor_busz_hozzarendeles(); break;
             case 2: megallok_kezelese(); break;
             case 3: utvonalak_kezelese(); break;
+            case 4: buszok_kezelese(); break;
+            case 5: soforok_kezelese(); break;
 
             case 999: shutdown(); break;
         }
@@ -131,6 +137,18 @@ void rfkliens::utvonalak_kezelese()
 {
     utvonal_controller uc(helper);
     uc.run();
+}
+
+void rfkliens::buszok_kezelese()
+{
+    buszok_controller bc(helper);
+    bc.run();
+}
+
+void rfkliens::soforok_kezelese()
+{
+    soforok_controller sc(helper);
+    sc.run();
 }
 
 void rfkliens::shutdown()

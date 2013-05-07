@@ -21,11 +21,13 @@ SOURCES += main.cpp \
     networkhelper.cpp \
     utvonaldb.cpp \
     megallodb.cpp \
-    buszdb.cpp
+    buszdb.cpp \
+    sofordb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
     networkhelper.h \
     utvonaldb.h \
     megallodb.h \
-    buszdb.h
+    buszdb.h \
+    sofordb.h
