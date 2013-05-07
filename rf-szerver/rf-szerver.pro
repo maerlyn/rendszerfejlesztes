@@ -20,10 +20,12 @@ SOURCES += main.cpp \
     rfszerver.cpp ../protobuf/rendszerfejlesztes.pb.cc \
     networkhelper.cpp \
     utvonaldb.cpp \
-    megallodb.cpp
+    megallodb.cpp \
+    buszdb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
     networkhelper.h \
     utvonaldb.h \
-    megallodb.h
+    megallodb.h \
+    buszdb.h

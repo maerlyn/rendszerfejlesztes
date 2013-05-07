@@ -11,6 +11,7 @@
 #include "../protobuf/rendszerfejlesztes.pb.h"
 #include "utvonaldb.h"
 #include "megallodb.h"
+#include "buszdb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -18,6 +19,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 
   UtvonalDB::load();
   MegalloDB::load();
+  BuszDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -190,6 +192,7 @@ void RFSzerver::handleShutdownRequest()
 {
     UtvonalDB::save();
     MegalloDB::save();
+    BuszDB::save();
 
     qDebug() << "kilepes";
     exit(0);
