@@ -118,6 +118,10 @@ void RFSzerver::readyRead()
       handleJaratTorlesRequest(sock);
       break;
 
+    case protocol::MessageType::BEOSZTAS_UJ_REQUEST:
+      handleBeosztasUjRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -207,7 +211,9 @@ void RFSzerver::handleUtvonalRequest(QTcpSocket *socket)
     protocol::Utvonal u;
     //helper.wait(socket);
     helper.readMessage(u, socket);
+    qDebug() << "keresunk utvonalat, id="+u.id();
     u = UtvonalDB::find(u.id());
+    qDebug() << "talaltunk utvonalat";
 
     helper.sendMessage(u, socket);
 }
@@ -269,6 +275,15 @@ void RFSzerver::handleJaratTorlesRequest(QTcpSocket *socket)
     helper.readMessage(j, socket);
 
     JaratDB::del(j);
+}
+
+void RFSzerver::handleBeosztasUjRequest(QTcpSocket *socket)
+{
+    protocol::Beosztas b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    BeosztasDB::add(b);
 }
 
 void RFSzerver::handleShutdownRequest()

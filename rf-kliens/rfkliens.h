@@ -17,6 +17,7 @@ public:
     void buszok_kezelese();
     void soforok_kezelese();
     void jaratok_kezelese();
+    void beosztas_kezelese();
 
     void shutdown();
 };

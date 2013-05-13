@@ -26,7 +26,6 @@ message MessageType {
     JARAT_UJ_REQUEST = 16;
     JARAT_TORLES_REQUEST = 17;
     
-    BEOSZTAS_LISTA_REQUEST = 19;
     BEOSZTAS_UJ_REQUEST = 20;
 
     SHUTDOWN = 999;
@@ -105,7 +104,7 @@ message JaratLista {
 
 message Beosztas {
   required int32 id = 1;
-  required int32 menetrend_id = 2;
+  required int32 jarat_id = 2;
   required int32 busz_id = 3;
   required int32 sofor_id = 4;
   required string datum = 5;

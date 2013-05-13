@@ -71,7 +71,6 @@ enum MessageType_Types {
   MessageType_Types_JARAT_LISTA_REQUEST = 15,
   MessageType_Types_JARAT_UJ_REQUEST = 16,
   MessageType_Types_JARAT_TORLES_REQUEST = 17,
-  MessageType_Types_BEOSZTAS_LISTA_REQUEST = 19,
   MessageType_Types_BEOSZTAS_UJ_REQUEST = 20,
   MessageType_Types_SHUTDOWN = 999
 };
@@ -163,7 +162,6 @@ class MessageType : public ::google::protobuf::Message {
   static const Types JARAT_LISTA_REQUEST = MessageType_Types_JARAT_LISTA_REQUEST;
   static const Types JARAT_UJ_REQUEST = MessageType_Types_JARAT_UJ_REQUEST;
   static const Types JARAT_TORLES_REQUEST = MessageType_Types_JARAT_TORLES_REQUEST;
-  static const Types BEOSZTAS_LISTA_REQUEST = MessageType_Types_BEOSZTAS_LISTA_REQUEST;
   static const Types BEOSZTAS_UJ_REQUEST = MessageType_Types_BEOSZTAS_UJ_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
@@ -1599,12 +1597,12 @@ class Beosztas : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 id() const;
   inline void set_id(::google::protobuf::int32 value);
 
-  // required int32 menetrend_id = 2;
-  inline bool has_menetrend_id() const;
-  inline void clear_menetrend_id();
-  static const int kMenetrendIdFieldNumber = 2;
-  inline ::google::protobuf::int32 menetrend_id() const;
-  inline void set_menetrend_id(::google::protobuf::int32 value);
+  // required int32 jarat_id = 2;
+  inline bool has_jarat_id() const;
+  inline void clear_jarat_id();
+  static const int kJaratIdFieldNumber = 2;
+  inline ::google::protobuf::int32 jarat_id() const;
+  inline void set_jarat_id(::google::protobuf::int32 value);
 
   // required int32 busz_id = 3;
   inline bool has_busz_id() const;
@@ -1636,8 +1634,8 @@ class Beosztas : public ::google::protobuf::Message {
  private:
   inline void set_has_id();
   inline void clear_has_id();
-  inline void set_has_menetrend_id();
-  inline void clear_has_menetrend_id();
+  inline void set_has_jarat_id();
+  inline void clear_has_jarat_id();
   inline void set_has_busz_id();
   inline void clear_has_busz_id();
   inline void set_has_sofor_id();
@@ -1648,7 +1646,7 @@ class Beosztas : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 menetrend_id_;
+  ::google::protobuf::int32 jarat_id_;
   ::google::protobuf::int32 busz_id_;
   ::google::protobuf::int32 sofor_id_;
   ::std::string* datum_;
@@ -2860,26 +2858,26 @@ inline void Beosztas::set_id(::google::protobuf::int32 value) {
   id_ = value;
 }
 
-// required int32 menetrend_id = 2;
-inline bool Beosztas::has_menetrend_id() const {
+// required int32 jarat_id = 2;
+inline bool Beosztas::has_jarat_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Beosztas::set_has_menetrend_id() {
+inline void Beosztas::set_has_jarat_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void Beosztas::clear_has_menetrend_id() {
+inline void Beosztas::clear_has_jarat_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void Beosztas::clear_menetrend_id() {
-  menetrend_id_ = 0;
-  clear_has_menetrend_id();
+inline void Beosztas::clear_jarat_id() {
+  jarat_id_ = 0;
+  clear_has_jarat_id();
 }
-inline ::google::protobuf::int32 Beosztas::menetrend_id() const {
-  return menetrend_id_;
+inline ::google::protobuf::int32 Beosztas::jarat_id() const {
+  return jarat_id_;
 }
-inline void Beosztas::set_menetrend_id(::google::protobuf::int32 value) {
-  set_has_menetrend_id();
-  menetrend_id_ = value;
+inline void Beosztas::set_jarat_id(::google::protobuf::int32 value) {
+  set_has_jarat_id();
+  jarat_id_ = value;
 }
 
 // required int32 busz_id = 3;

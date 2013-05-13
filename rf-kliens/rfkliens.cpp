@@ -9,6 +9,7 @@
 #include "buszok_controller.h"
 #include "soforok_controller.h"
 #include "jaratok_controller.h"
+#include "beosztas_controller.h"
 
 rfkliens::rfkliens(networkhelper& helper)
 {
@@ -50,6 +51,7 @@ void rfkliens::menu()
         std::cout << "4. buszok kezelese\n";
         std::cout << "5. soforok kezelese\n";
         std::cout << "6. jaratok kezelese\n";
+        std::cout << "7. beosztas kezelese\n";
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
@@ -64,6 +66,7 @@ void rfkliens::menu()
             case 4: buszok_kezelese(); break;
             case 5: soforok_kezelese(); break;
             case 6: jaratok_kezelese(); break;
+            case 7: beosztas_kezelese(); break;
 
             case 999: shutdown(); break;
         }
@@ -158,6 +161,12 @@ void rfkliens::jaratok_kezelese()
 {
     jaratok_controller jc(helper);
     jc.run();
+}
+
+void rfkliens::beosztas_kezelese()
+{
+    beosztas_controller bc(helper);
+    bc.run();
 }
 
 void rfkliens::shutdown()

@@ -322,7 +322,7 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
   Beosztas_descriptor_ = file->message_type(15);
   static const int Beosztas_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, menetrend_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, jarat_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, busz_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, sofor_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, datum_),
@@ -447,9 +447,9 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\274\004\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\240\004\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"\201\004\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "ssageType.Types\"\345\003\n\005Types\022\r\n\tAUTH_TYPE\020\001"
     "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
     "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
     "NAL_BUSZ_SOFOR_REQUEST\020\005\022\031\n\025MEGALLO_LIST"
@@ -460,31 +460,30 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
     "\023BUSZ_TORLES_REQUEST\020\014\022\024\n\020SOFOR_UJ_REQUE"
     "ST\020\r\022\030\n\024SOFOR_TORLES_REQUEST\020\016\022\027\n\023JARAT_"
     "LISTA_REQUEST\020\017\022\024\n\020JARAT_UJ_REQUEST\020\020\022\030\n"
-    "\024JARAT_TORLES_REQUEST\020\021\022\032\n\026BEOSZTAS_LIST"
-    "A_REQUEST\020\023\022\027\n\023BEOSZTAS_UJ_REQUEST\020\024\022\r\n\010"
-    "SHUTDOWN\020\347\007\"1\n\013AuthRequest\022\020\n\010username\030\001"
-    " \002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014AuthResponse\022\016"
-    "\n\006status\030\001 \002(\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n"
-    "\003nev\030\002 \002(\t\"3\n\014MegalloLista\022#\n\010megallok\030\001"
-    " \003(\0132\021.protocol.Megallo\"Y\n\007Utvonal\022\n\n\002id"
-    "\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022\020\n\010menetido\030\004 \002(\005\022#\n"
-    "\010megallok\030\003 \003(\0132\021.protocol.Megallo\"4\n\014Ut"
-    "vonalLista\022$\n\tutvonalak\030\001 \003(\0132\021.protocol"
-    ".Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n\010rendszam"
-    "\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszok\030\001 \003(\0132\016.pr"
-    "otocol.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030"
-    "\002 \002(\t\".\n\nSoforLista\022 \n\007soforok\030\001 \003(\0132\017.p"
-    "rotocol.Sofor\"P\n\027UtvonalBuszSoforRequest"
-    "\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n"
-    "\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBuszSoforRespo"
-    "nse\022\016\n\006status\030\001 \002(\t\"=\n\005Jarat\022\n\n\002id\030\001 \002(\005"
-    "\022\022\n\nutvonal_id\030\002 \002(\005\022\024\n\014indulasi_ido\030\003 \002"
-    "(\t\".\n\nJaratLista\022 \n\007jaratok\030\001 \003(\0132\017.prot"
-    "ocol.Jarat\"^\n\010Beosztas\022\n\n\002id\030\001 \002(\005\022\024\n\014me"
-    "netrend_id\030\002 \002(\005\022\017\n\007busz_id\030\003 \002(\005\022\020\n\010sof"
-    "or_id\030\004 \002(\005\022\r\n\005datum\030\005 \002(\t\"7\n\rBeosztasLi"
-    "sta\022&\n\nbeosztasok\030\001 \003(\0132\022.protocol.Beosz"
-    "tas", 1483);
+    "\024JARAT_TORLES_REQUEST\020\021\022\027\n\023BEOSZTAS_UJ_R"
+    "EQUEST\020\024\022\r\n\010SHUTDOWN\020\347\007\"1\n\013AuthRequest\022\020"
+    "\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014Au"
+    "thResponse\022\016\n\006status\030\001 \002(\t\"\"\n\007Megallo\022\n\n"
+    "\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"3\n\014MegalloLista\022#"
+    "\n\010megallok\030\001 \003(\0132\021.protocol.Megallo\"Y\n\007U"
+    "tvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022\020\n\010menet"
+    "ido\030\004 \002(\005\022#\n\010megallok\030\003 \003(\0132\021.protocol.M"
+    "egallo\"4\n\014UtvonalLista\022$\n\tutvonalak\030\001 \003("
+    "\0132\021.protocol.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005"
+    "\022\020\n\010rendszam\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszo"
+    "k\030\001 \003(\0132\016.protocol.Busz\" \n\005Sofor\022\n\n\002id\030\001"
+    " \002(\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista\022 \n\007sofor"
+    "ok\030\001 \003(\0132\017.protocol.Sofor\"P\n\027UtvonalBusz"
+    "SoforRequest\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz"
+    "_id\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBu"
+    "szSoforResponse\022\016\n\006status\030\001 \002(\t\"=\n\005Jarat"
+    "\022\n\n\002id\030\001 \002(\005\022\022\n\nutvonal_id\030\002 \002(\005\022\024\n\014indu"
+    "lasi_ido\030\003 \002(\t\".\n\nJaratLista\022 \n\007jaratok\030"
+    "\001 \003(\0132\017.protocol.Jarat\"Z\n\010Beosztas\022\n\n\002id"
+    "\030\001 \002(\005\022\020\n\010jarat_id\030\002 \002(\005\022\017\n\007busz_id\030\003 \002("
+    "\005\022\020\n\010sofor_id\030\004 \002(\005\022\r\n\005datum\030\005 \002(\t\"7\n\rBe"
+    "osztasLista\022&\n\nbeosztasok\030\001 \003(\0132\022.protoc"
+    "ol.Beosztas", 1451);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -557,7 +556,6 @@ bool MessageType_Types_IsValid(int value) {
     case 16:
     case 17:
     case 18:
-    case 19:
     case 20:
     case 999:
       return true;
@@ -585,7 +583,6 @@ const MessageType_Types MessageType::SOFOR_TORLES_REQUEST;
 const MessageType_Types MessageType::JARAT_LISTA_REQUEST;
 const MessageType_Types MessageType::JARAT_UJ_REQUEST;
 const MessageType_Types MessageType::JARAT_TORLES_REQUEST;
-const MessageType_Types MessageType::BEOSZTAS_LISTA_REQUEST;
 const MessageType_Types MessageType::BEOSZTAS_UJ_REQUEST;
 const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
@@ -4316,7 +4313,7 @@ void JaratLista::Swap(JaratLista* other) {
 
 #ifndef _MSC_VER
 const int Beosztas::kIdFieldNumber;
-const int Beosztas::kMenetrendIdFieldNumber;
+const int Beosztas::kJaratIdFieldNumber;
 const int Beosztas::kBuszIdFieldNumber;
 const int Beosztas::kSoforIdFieldNumber;
 const int Beosztas::kDatumFieldNumber;
@@ -4339,7 +4336,7 @@ Beosztas::Beosztas(const Beosztas& from)
 void Beosztas::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0;
-  menetrend_id_ = 0;
+  jarat_id_ = 0;
   busz_id_ = 0;
   sofor_id_ = 0;
   datum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -4382,7 +4379,7 @@ Beosztas* Beosztas::New() const {
 void Beosztas::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = 0;
-    menetrend_id_ = 0;
+    jarat_id_ = 0;
     busz_id_ = 0;
     sofor_id_ = 0;
     if (has_datum()) {
@@ -4412,19 +4409,19 @@ bool Beosztas::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_menetrend_id;
+        if (input->ExpectTag(16)) goto parse_jarat_id;
         break;
       }
 
-      // required int32 menetrend_id = 2;
+      // required int32 jarat_id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_menetrend_id:
+         parse_jarat_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &menetrend_id_)));
-          set_has_menetrend_id();
+                 input, &jarat_id_)));
+          set_has_jarat_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -4504,9 +4501,9 @@ void Beosztas::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
 
-  // required int32 menetrend_id = 2;
-  if (has_menetrend_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->menetrend_id(), output);
+  // required int32 jarat_id = 2;
+  if (has_jarat_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->jarat_id(), output);
   }
 
   // required int32 busz_id = 3;
@@ -4541,9 +4538,9 @@ void Beosztas::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
 
-  // required int32 menetrend_id = 2;
-  if (has_menetrend_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->menetrend_id(), target);
+  // required int32 jarat_id = 2;
+  if (has_jarat_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->jarat_id(), target);
   }
 
   // required int32 busz_id = 3;
@@ -4584,11 +4581,11 @@ int Beosztas::ByteSize() const {
           this->id());
     }
 
-    // required int32 menetrend_id = 2;
-    if (has_menetrend_id()) {
+    // required int32 jarat_id = 2;
+    if (has_jarat_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->menetrend_id());
+          this->jarat_id());
     }
 
     // required int32 busz_id = 3;
@@ -4642,8 +4639,8 @@ void Beosztas::MergeFrom(const Beosztas& from) {
     if (from.has_id()) {
       set_id(from.id());
     }
-    if (from.has_menetrend_id()) {
-      set_menetrend_id(from.menetrend_id());
+    if (from.has_jarat_id()) {
+      set_jarat_id(from.jarat_id());
     }
     if (from.has_busz_id()) {
       set_busz_id(from.busz_id());
@@ -4679,7 +4676,7 @@ bool Beosztas::IsInitialized() const {
 void Beosztas::Swap(Beosztas* other) {
   if (other != this) {
     std::swap(id_, other->id_);
-    std::swap(menetrend_id_, other->menetrend_id_);
+    std::swap(jarat_id_, other->jarat_id_);
     std::swap(busz_id_, other->busz_id_);
     std::swap(sofor_id_, other->sofor_id_);
     std::swap(datum_, other->datum_);

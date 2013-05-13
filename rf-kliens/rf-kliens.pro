@@ -22,7 +22,8 @@ HEADERS += ../protobuf/rendszerfejlesztes.pb.h networkhelper.h \
     utvonal_controller.h \
     buszok_controller.h \
     soforok_controller.h \
-    jaratok_controller.h
+    jaratok_controller.h \
+    beosztas_controller.h
 
 SOURCES += main.cpp ../protobuf/rendszerfejlesztes.pb.cc networkhelper.cpp \
     rfkliens.cpp \
@@ -30,4 +31,5 @@ SOURCES += main.cpp ../protobuf/rendszerfejlesztes.pb.cc networkhelper.cpp \
     utvonal_controller.cpp \
     buszok_controller.cpp \
     soforok_controller.cpp \
-    jaratok_controller.cpp
+    jaratok_controller.cpp \
+    beosztas_controller.cpp
