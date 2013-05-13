@@ -74,6 +74,11 @@ void utvonal_controller::uj()
     if (!olvasott.length()) return;
     utvonal.set_nev(olvasott);
 
+    std::cout << "Utvonal menetideje (megsem: ures): ";
+    std::cin >> olvasott;
+    if (!olvasott.length()) return;
+    utvonal.set_menetido(atoi(olvasott.c_str()));
+
     helper->sendMessageType(protocol::MessageType::MEGALLO_LISTA_REQUEST);
     helper->wait();
     helper->readMessage(megallolista);

@@ -14,6 +14,7 @@
 #include "buszdb.h"
 #include "sofordb.h"
 #include "jaratdb.h"
+#include "beosztasdb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -24,6 +25,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
   BuszDB::load();
   SoforDB::load();
   JaratDB::load();
+  BeosztasDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -276,6 +278,7 @@ void RFSzerver::handleShutdownRequest()
     BuszDB::save();
     SoforDB::save();
     JaratDB::save();
+    BeosztasDB::save();
 
     qDebug() << "kilepes";
     exit(0);

@@ -66,6 +66,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* JaratLista_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   JaratLista_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Beosztas_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Beosztas_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BeosztasLista_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BeosztasLista_reflection_ = NULL;
 
 }  // namespace
 
@@ -155,9 +161,10 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MegalloLista));
   Utvonal_descriptor_ = file->message_type(5);
-  static const int Utvonal_offsets_[3] = {
+  static const int Utvonal_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, nev_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, menetido_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Utvonal, megallok_),
   };
   Utvonal_reflection_ =
@@ -312,6 +319,40 @@ void protobuf_AssignDesc_rendszerfejlesztes_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(JaratLista));
+  Beosztas_descriptor_ = file->message_type(15);
+  static const int Beosztas_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, menetrend_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, busz_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, sofor_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, datum_),
+  };
+  Beosztas_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Beosztas_descriptor_,
+      Beosztas::default_instance_,
+      Beosztas_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Beosztas, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Beosztas));
+  BeosztasLista_descriptor_ = file->message_type(16);
+  static const int BeosztasLista_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BeosztasLista, beosztasok_),
+  };
+  BeosztasLista_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BeosztasLista_descriptor_,
+      BeosztasLista::default_instance_,
+      BeosztasLista_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BeosztasLista, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BeosztasLista, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BeosztasLista));
 }
 
 namespace {
@@ -354,6 +395,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Jarat_descriptor_, &Jarat::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     JaratLista_descriptor_, &JaratLista::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Beosztas_descriptor_, &Beosztas::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BeosztasLista_descriptor_, &BeosztasLista::default_instance());
 }
 
 }  // namespace
@@ -389,6 +434,10 @@ void protobuf_ShutdownFile_rendszerfejlesztes_2eproto() {
   delete Jarat_reflection_;
   delete JaratLista::default_instance_;
   delete JaratLista_reflection_;
+  delete Beosztas::default_instance_;
+  delete Beosztas_reflection_;
+  delete BeosztasLista::default_instance_;
+  delete BeosztasLista_reflection_;
 }
 
 void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
@@ -398,9 +447,9 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\030rendszerfejlesztes.proto\022\010protocol\"\207\004\n"
+    "\n\030rendszerfejlesztes.proto\022\010protocol\"\274\004\n"
     "\013MessageType\022)\n\004type\030\001 \002(\0162\033.protocol.Me"
-    "ssageType.Types\"\314\003\n\005Types\022\r\n\tAUTH_TYPE\020\001"
+    "ssageType.Types\"\201\004\n\005Types\022\r\n\tAUTH_TYPE\020\001"
     "\022\030\n\024UTVONALLISTA_REQUEST\020\002\022\024\n\020BUSZLISA_R"
     "EQUEST\020\003\022\026\n\022SOFORLISTA_REQUEST\020\004\022\036\n\032UTVO"
     "NAL_BUSZ_SOFOR_REQUEST\020\005\022\031\n\025MEGALLO_LIST"
@@ -411,25 +460,31 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
     "\023BUSZ_TORLES_REQUEST\020\014\022\024\n\020SOFOR_UJ_REQUE"
     "ST\020\r\022\030\n\024SOFOR_TORLES_REQUEST\020\016\022\027\n\023JARAT_"
     "LISTA_REQUEST\020\017\022\024\n\020JARAT_UJ_REQUEST\020\020\022\030\n"
-    "\024JARAT_TORLES_REQUEST\020\021\022\r\n\010SHUTDOWN\020\347\007\"1"
-    "\n\013AuthRequest\022\020\n\010username\030\001 \002(\t\022\020\n\010passw"
-    "ord\030\002 \002(\t\"\036\n\014AuthResponse\022\016\n\006status\030\001 \002("
-    "\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\"3\n"
-    "\014MegalloLista\022#\n\010megallok\030\001 \003(\0132\021.protoc"
-    "ol.Megallo\"G\n\007Utvonal\022\n\n\002id\030\001 \002(\005\022\013\n\003nev"
-    "\030\002 \002(\t\022#\n\010megallok\030\003 \003(\0132\021.protocol.Mega"
-    "llo\"4\n\014UtvonalLista\022$\n\tutvonalak\030\001 \003(\0132\021"
-    ".protocol.Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n"
-    "\010rendszam\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszok\030\001"
-    " \003(\0132\016.protocol.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002("
-    "\005\022\013\n\003nev\030\002 \002(\t\".\n\nSoforLista\022 \n\007soforok\030"
-    "\001 \003(\0132\017.protocol.Sofor\"P\n\027UtvonalBuszSof"
-    "orRequest\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz_id"
-    "\030\002 \002(\005\022\020\n\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBuszS"
-    "oforResponse\022\016\n\006status\030\001 \002(\t\"=\n\005Jarat\022\n\n"
-    "\002id\030\001 \002(\005\022\022\n\nutvonal_id\030\002 \002(\005\022\024\n\014indulas"
-    "i_ido\030\003 \002(\t\".\n\nJaratLista\022 \n\007jaratok\030\001 \003"
-    "(\0132\017.protocol.Jarat", 1259);
+    "\024JARAT_TORLES_REQUEST\020\021\022\032\n\026BEOSZTAS_LIST"
+    "A_REQUEST\020\023\022\027\n\023BEOSZTAS_UJ_REQUEST\020\024\022\r\n\010"
+    "SHUTDOWN\020\347\007\"1\n\013AuthRequest\022\020\n\010username\030\001"
+    " \002(\t\022\020\n\010password\030\002 \002(\t\"\036\n\014AuthResponse\022\016"
+    "\n\006status\030\001 \002(\t\"\"\n\007Megallo\022\n\n\002id\030\001 \002(\005\022\013\n"
+    "\003nev\030\002 \002(\t\"3\n\014MegalloLista\022#\n\010megallok\030\001"
+    " \003(\0132\021.protocol.Megallo\"Y\n\007Utvonal\022\n\n\002id"
+    "\030\001 \002(\005\022\013\n\003nev\030\002 \002(\t\022\020\n\010menetido\030\004 \002(\005\022#\n"
+    "\010megallok\030\003 \003(\0132\021.protocol.Megallo\"4\n\014Ut"
+    "vonalLista\022$\n\tutvonalak\030\001 \003(\0132\021.protocol"
+    ".Utvonal\"$\n\004Busz\022\n\n\002id\030\001 \002(\005\022\020\n\010rendszam"
+    "\030\002 \002(\t\"+\n\tBuszLista\022\036\n\006buszok\030\001 \003(\0132\016.pr"
+    "otocol.Busz\" \n\005Sofor\022\n\n\002id\030\001 \002(\005\022\013\n\003nev\030"
+    "\002 \002(\t\".\n\nSoforLista\022 \n\007soforok\030\001 \003(\0132\017.p"
+    "rotocol.Sofor\"P\n\027UtvonalBuszSoforRequest"
+    "\022\022\n\nutvonal_id\030\001 \002(\005\022\017\n\007busz_id\030\002 \002(\005\022\020\n"
+    "\010sofor_id\030\003 \002(\005\"*\n\030UtvonalBuszSoforRespo"
+    "nse\022\016\n\006status\030\001 \002(\t\"=\n\005Jarat\022\n\n\002id\030\001 \002(\005"
+    "\022\022\n\nutvonal_id\030\002 \002(\005\022\024\n\014indulasi_ido\030\003 \002"
+    "(\t\".\n\nJaratLista\022 \n\007jaratok\030\001 \003(\0132\017.prot"
+    "ocol.Jarat\"^\n\010Beosztas\022\n\n\002id\030\001 \002(\005\022\024\n\014me"
+    "netrend_id\030\002 \002(\005\022\017\n\007busz_id\030\003 \002(\005\022\020\n\010sof"
+    "or_id\030\004 \002(\005\022\r\n\005datum\030\005 \002(\t\"7\n\rBeosztasLi"
+    "sta\022&\n\nbeosztasok\030\001 \003(\0132\022.protocol.Beosz"
+    "tas", 1483);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "rendszerfejlesztes.proto", &protobuf_RegisterTypes);
   MessageType::default_instance_ = new MessageType();
@@ -447,6 +502,8 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   UtvonalBuszSoforResponse::default_instance_ = new UtvonalBuszSoforResponse();
   Jarat::default_instance_ = new Jarat();
   JaratLista::default_instance_ = new JaratLista();
+  Beosztas::default_instance_ = new Beosztas();
+  BeosztasLista::default_instance_ = new BeosztasLista();
   MessageType::default_instance_->InitAsDefaultInstance();
   AuthRequest::default_instance_->InitAsDefaultInstance();
   AuthResponse::default_instance_->InitAsDefaultInstance();
@@ -462,6 +519,8 @@ void protobuf_AddDesc_rendszerfejlesztes_2eproto() {
   UtvonalBuszSoforResponse::default_instance_->InitAsDefaultInstance();
   Jarat::default_instance_->InitAsDefaultInstance();
   JaratLista::default_instance_->InitAsDefaultInstance();
+  Beosztas::default_instance_->InitAsDefaultInstance();
+  BeosztasLista::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_rendszerfejlesztes_2eproto);
 }
 
@@ -498,6 +557,8 @@ bool MessageType_Types_IsValid(int value) {
     case 16:
     case 17:
     case 18:
+    case 19:
+    case 20:
     case 999:
       return true;
     default:
@@ -524,6 +585,8 @@ const MessageType_Types MessageType::SOFOR_TORLES_REQUEST;
 const MessageType_Types MessageType::JARAT_LISTA_REQUEST;
 const MessageType_Types MessageType::JARAT_UJ_REQUEST;
 const MessageType_Types MessageType::JARAT_TORLES_REQUEST;
+const MessageType_Types MessageType::BEOSZTAS_LISTA_REQUEST;
+const MessageType_Types MessageType::BEOSZTAS_UJ_REQUEST;
 const MessageType_Types MessageType::SHUTDOWN;
 const MessageType_Types MessageType::Types_MIN;
 const MessageType_Types MessageType::Types_MAX;
@@ -1728,6 +1791,7 @@ void MegalloLista::Swap(MegalloLista* other) {
 #ifndef _MSC_VER
 const int Utvonal::kIdFieldNumber;
 const int Utvonal::kNevFieldNumber;
+const int Utvonal::kMenetidoFieldNumber;
 const int Utvonal::kMegallokFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1749,6 +1813,7 @@ void Utvonal::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0;
   nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  menetido_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1793,6 +1858,7 @@ void Utvonal::Clear() {
         nev_->clear();
       }
     }
+    menetido_ = 0;
   }
   megallok_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1848,6 +1914,22 @@ bool Utvonal::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(26)) goto parse_megallok;
+        if (input->ExpectTag(32)) goto parse_menetido;
+        break;
+      }
+
+      // required int32 menetido = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_menetido:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &menetido_)));
+          set_has_menetido();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1890,6 +1972,11 @@ void Utvonal::SerializeWithCachedSizes(
       3, this->megallok(i), output);
   }
 
+  // required int32 menetido = 4;
+  if (has_menetido()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->menetido(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1920,6 +2007,11 @@ void Utvonal::SerializeWithCachedSizes(
         3, this->megallok(i), target);
   }
 
+  // required int32 menetido = 4;
+  if (has_menetido()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->menetido(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1943,6 +2035,13 @@ int Utvonal::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->nev());
+    }
+
+    // required int32 menetido = 4;
+    if (has_menetido()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->menetido());
     }
 
   }
@@ -1987,6 +2086,9 @@ void Utvonal::MergeFrom(const Utvonal& from) {
     if (from.has_nev()) {
       set_nev(from.nev());
     }
+    if (from.has_menetido()) {
+      set_menetido(from.menetido());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2004,7 +2106,7 @@ void Utvonal::CopyFrom(const Utvonal& from) {
 }
 
 bool Utvonal::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   for (int i = 0; i < megallok_size(); i++) {
     if (!this->megallok(i).IsInitialized()) return false;
@@ -2016,6 +2118,7 @@ void Utvonal::Swap(Utvonal* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(nev_, other->nev_);
+    std::swap(menetido_, other->menetido_);
     megallok_.Swap(&other->megallok_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -4205,6 +4308,598 @@ void JaratLista::Swap(JaratLista* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = JaratLista_descriptor_;
   metadata.reflection = JaratLista_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Beosztas::kIdFieldNumber;
+const int Beosztas::kMenetrendIdFieldNumber;
+const int Beosztas::kBuszIdFieldNumber;
+const int Beosztas::kSoforIdFieldNumber;
+const int Beosztas::kDatumFieldNumber;
+#endif  // !_MSC_VER
+
+Beosztas::Beosztas()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Beosztas::InitAsDefaultInstance() {
+}
+
+Beosztas::Beosztas(const Beosztas& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Beosztas::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = 0;
+  menetrend_id_ = 0;
+  busz_id_ = 0;
+  sofor_id_ = 0;
+  datum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Beosztas::~Beosztas() {
+  SharedDtor();
+}
+
+void Beosztas::SharedDtor() {
+  if (datum_ != &::google::protobuf::internal::kEmptyString) {
+    delete datum_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Beosztas::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Beosztas::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Beosztas_descriptor_;
+}
+
+const Beosztas& Beosztas::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  return *default_instance_;
+}
+
+Beosztas* Beosztas::default_instance_ = NULL;
+
+Beosztas* Beosztas::New() const {
+  return new Beosztas;
+}
+
+void Beosztas::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = 0;
+    menetrend_id_ = 0;
+    busz_id_ = 0;
+    sofor_id_ = 0;
+    if (has_datum()) {
+      if (datum_ != &::google::protobuf::internal::kEmptyString) {
+        datum_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Beosztas::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_menetrend_id;
+        break;
+      }
+
+      // required int32 menetrend_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_menetrend_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &menetrend_id_)));
+          set_has_menetrend_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_busz_id;
+        break;
+      }
+
+      // required int32 busz_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_busz_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &busz_id_)));
+          set_has_busz_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_sofor_id;
+        break;
+      }
+
+      // required int32 sofor_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_sofor_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &sofor_id_)));
+          set_has_sofor_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_datum;
+        break;
+      }
+
+      // required string datum = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_datum:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_datum()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->datum().data(), this->datum().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Beosztas::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // required int32 menetrend_id = 2;
+  if (has_menetrend_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->menetrend_id(), output);
+  }
+
+  // required int32 busz_id = 3;
+  if (has_busz_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->busz_id(), output);
+  }
+
+  // required int32 sofor_id = 4;
+  if (has_sofor_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->sofor_id(), output);
+  }
+
+  // required string datum = 5;
+  if (has_datum()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->datum().data(), this->datum().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->datum(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Beosztas::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // required int32 menetrend_id = 2;
+  if (has_menetrend_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->menetrend_id(), target);
+  }
+
+  // required int32 busz_id = 3;
+  if (has_busz_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->busz_id(), target);
+  }
+
+  // required int32 sofor_id = 4;
+  if (has_sofor_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->sofor_id(), target);
+  }
+
+  // required string datum = 5;
+  if (has_datum()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->datum().data(), this->datum().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->datum(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Beosztas::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->id());
+    }
+
+    // required int32 menetrend_id = 2;
+    if (has_menetrend_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->menetrend_id());
+    }
+
+    // required int32 busz_id = 3;
+    if (has_busz_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->busz_id());
+    }
+
+    // required int32 sofor_id = 4;
+    if (has_sofor_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->sofor_id());
+    }
+
+    // required string datum = 5;
+    if (has_datum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->datum());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Beosztas::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Beosztas* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Beosztas*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Beosztas::MergeFrom(const Beosztas& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_menetrend_id()) {
+      set_menetrend_id(from.menetrend_id());
+    }
+    if (from.has_busz_id()) {
+      set_busz_id(from.busz_id());
+    }
+    if (from.has_sofor_id()) {
+      set_sofor_id(from.sofor_id());
+    }
+    if (from.has_datum()) {
+      set_datum(from.datum());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Beosztas::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Beosztas::CopyFrom(const Beosztas& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Beosztas::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  return true;
+}
+
+void Beosztas::Swap(Beosztas* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(menetrend_id_, other->menetrend_id_);
+    std::swap(busz_id_, other->busz_id_);
+    std::swap(sofor_id_, other->sofor_id_);
+    std::swap(datum_, other->datum_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Beosztas::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Beosztas_descriptor_;
+  metadata.reflection = Beosztas_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BeosztasLista::kBeosztasokFieldNumber;
+#endif  // !_MSC_VER
+
+BeosztasLista::BeosztasLista()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BeosztasLista::InitAsDefaultInstance() {
+}
+
+BeosztasLista::BeosztasLista(const BeosztasLista& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BeosztasLista::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BeosztasLista::~BeosztasLista() {
+  SharedDtor();
+}
+
+void BeosztasLista::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void BeosztasLista::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BeosztasLista::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BeosztasLista_descriptor_;
+}
+
+const BeosztasLista& BeosztasLista::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  return *default_instance_;
+}
+
+BeosztasLista* BeosztasLista::default_instance_ = NULL;
+
+BeosztasLista* BeosztasLista::New() const {
+  return new BeosztasLista;
+}
+
+void BeosztasLista::Clear() {
+  beosztasok_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BeosztasLista::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .protocol.Beosztas beosztasok = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_beosztasok:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_beosztasok()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_beosztasok;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BeosztasLista::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .protocol.Beosztas beosztasok = 1;
+  for (int i = 0; i < this->beosztasok_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->beosztasok(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BeosztasLista::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .protocol.Beosztas beosztasok = 1;
+  for (int i = 0; i < this->beosztasok_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->beosztasok(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BeosztasLista::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .protocol.Beosztas beosztasok = 1;
+  total_size += 1 * this->beosztasok_size();
+  for (int i = 0; i < this->beosztasok_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->beosztasok(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BeosztasLista::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BeosztasLista* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BeosztasLista*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BeosztasLista::MergeFrom(const BeosztasLista& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  beosztasok_.MergeFrom(from.beosztasok_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BeosztasLista::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BeosztasLista::CopyFrom(const BeosztasLista& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BeosztasLista::IsInitialized() const {
+
+  for (int i = 0; i < beosztasok_size(); i++) {
+    if (!this->beosztasok(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void BeosztasLista::Swap(BeosztasLista* other) {
+  if (other != this) {
+    beosztasok_.Swap(&other->beosztasok_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BeosztasLista::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BeosztasLista_descriptor_;
+  metadata.reflection = BeosztasLista_reflection_;
   return metadata;
 }
 

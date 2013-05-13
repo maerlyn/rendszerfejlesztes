@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     megallodb.cpp \
     buszdb.cpp \
     sofordb.cpp \
-    jaratdb.cpp
+    jaratdb.cpp \
+    beosztasdb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
@@ -32,4 +33,5 @@ HEADERS += \
     megallodb.h \
     buszdb.h \
     sofordb.h \
-    jaratdb.h
+    jaratdb.h \
+    beosztasdb.h

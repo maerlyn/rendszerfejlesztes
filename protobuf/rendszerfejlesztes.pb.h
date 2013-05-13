@@ -49,6 +49,8 @@ class UtvonalBuszSoforRequest;
 class UtvonalBuszSoforResponse;
 class Jarat;
 class JaratLista;
+class Beosztas;
+class BeosztasLista;
 
 enum MessageType_Types {
   MessageType_Types_AUTH_TYPE = 1,
@@ -69,6 +71,8 @@ enum MessageType_Types {
   MessageType_Types_JARAT_LISTA_REQUEST = 15,
   MessageType_Types_JARAT_UJ_REQUEST = 16,
   MessageType_Types_JARAT_TORLES_REQUEST = 17,
+  MessageType_Types_BEOSZTAS_LISTA_REQUEST = 19,
+  MessageType_Types_BEOSZTAS_UJ_REQUEST = 20,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -159,6 +163,8 @@ class MessageType : public ::google::protobuf::Message {
   static const Types JARAT_LISTA_REQUEST = MessageType_Types_JARAT_LISTA_REQUEST;
   static const Types JARAT_UJ_REQUEST = MessageType_Types_JARAT_UJ_REQUEST;
   static const Types JARAT_TORLES_REQUEST = MessageType_Types_JARAT_TORLES_REQUEST;
+  static const Types BEOSZTAS_LISTA_REQUEST = MessageType_Types_BEOSZTAS_LISTA_REQUEST;
+  static const Types BEOSZTAS_UJ_REQUEST = MessageType_Types_BEOSZTAS_UJ_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -655,6 +661,13 @@ class Utvonal : public ::google::protobuf::Message {
   inline ::std::string* release_nev();
   inline void set_allocated_nev(::std::string* nev);
 
+  // required int32 menetido = 4;
+  inline bool has_menetido() const;
+  inline void clear_menetido();
+  static const int kMenetidoFieldNumber = 4;
+  inline ::google::protobuf::int32 menetido() const;
+  inline void set_menetido(::google::protobuf::int32 value);
+
   // repeated .protocol.Megallo megallok = 3;
   inline int megallok_size() const;
   inline void clear_megallok();
@@ -673,15 +686,18 @@ class Utvonal : public ::google::protobuf::Message {
   inline void clear_has_id();
   inline void set_has_nev();
   inline void clear_has_nev();
+  inline void set_has_menetido();
+  inline void clear_has_menetido();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* nev_;
-  ::google::protobuf::RepeatedPtrField< ::protocol::Megallo > megallok_;
   ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 menetido_;
+  ::google::protobuf::RepeatedPtrField< ::protocol::Megallo > megallok_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
   friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
@@ -1520,6 +1536,218 @@ class JaratLista : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static JaratLista* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Beosztas : public ::google::protobuf::Message {
+ public:
+  Beosztas();
+  virtual ~Beosztas();
+
+  Beosztas(const Beosztas& from);
+
+  inline Beosztas& operator=(const Beosztas& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Beosztas& default_instance();
+
+  void Swap(Beosztas* other);
+
+  // implements Message ----------------------------------------------
+
+  Beosztas* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Beosztas& from);
+  void MergeFrom(const Beosztas& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required int32 menetrend_id = 2;
+  inline bool has_menetrend_id() const;
+  inline void clear_menetrend_id();
+  static const int kMenetrendIdFieldNumber = 2;
+  inline ::google::protobuf::int32 menetrend_id() const;
+  inline void set_menetrend_id(::google::protobuf::int32 value);
+
+  // required int32 busz_id = 3;
+  inline bool has_busz_id() const;
+  inline void clear_busz_id();
+  static const int kBuszIdFieldNumber = 3;
+  inline ::google::protobuf::int32 busz_id() const;
+  inline void set_busz_id(::google::protobuf::int32 value);
+
+  // required int32 sofor_id = 4;
+  inline bool has_sofor_id() const;
+  inline void clear_sofor_id();
+  static const int kSoforIdFieldNumber = 4;
+  inline ::google::protobuf::int32 sofor_id() const;
+  inline void set_sofor_id(::google::protobuf::int32 value);
+
+  // required string datum = 5;
+  inline bool has_datum() const;
+  inline void clear_datum();
+  static const int kDatumFieldNumber = 5;
+  inline const ::std::string& datum() const;
+  inline void set_datum(const ::std::string& value);
+  inline void set_datum(const char* value);
+  inline void set_datum(const char* value, size_t size);
+  inline ::std::string* mutable_datum();
+  inline ::std::string* release_datum();
+  inline void set_allocated_datum(::std::string* datum);
+
+  // @@protoc_insertion_point(class_scope:protocol.Beosztas)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_menetrend_id();
+  inline void clear_has_menetrend_id();
+  inline void set_has_busz_id();
+  inline void clear_has_busz_id();
+  inline void set_has_sofor_id();
+  inline void clear_has_sofor_id();
+  inline void set_has_datum();
+  inline void clear_has_datum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 menetrend_id_;
+  ::google::protobuf::int32 busz_id_;
+  ::google::protobuf::int32 sofor_id_;
+  ::std::string* datum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Beosztas* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BeosztasLista : public ::google::protobuf::Message {
+ public:
+  BeosztasLista();
+  virtual ~BeosztasLista();
+
+  BeosztasLista(const BeosztasLista& from);
+
+  inline BeosztasLista& operator=(const BeosztasLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BeosztasLista& default_instance();
+
+  void Swap(BeosztasLista* other);
+
+  // implements Message ----------------------------------------------
+
+  BeosztasLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BeosztasLista& from);
+  void MergeFrom(const BeosztasLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Beosztas beosztasok = 1;
+  inline int beosztasok_size() const;
+  inline void clear_beosztasok();
+  static const int kBeosztasokFieldNumber = 1;
+  inline const ::protocol::Beosztas& beosztasok(int index) const;
+  inline ::protocol::Beosztas* mutable_beosztasok(int index);
+  inline ::protocol::Beosztas* add_beosztasok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas >&
+      beosztasok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas >*
+      mutable_beosztasok();
+
+  // @@protoc_insertion_point(class_scope:protocol.BeosztasLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas > beosztasok_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static BeosztasLista* default_instance_;
+};
 // ===================================================================
 
 
@@ -1987,6 +2215,28 @@ inline void Utvonal::set_allocated_nev(::std::string* nev) {
     clear_has_nev();
     nev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// required int32 menetido = 4;
+inline bool Utvonal::has_menetido() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Utvonal::set_has_menetido() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Utvonal::clear_has_menetido() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Utvonal::clear_menetido() {
+  menetido_ = 0;
+  clear_has_menetido();
+}
+inline ::google::protobuf::int32 Utvonal::menetido() const {
+  return menetido_;
+}
+inline void Utvonal::set_menetido(::google::protobuf::int32 value) {
+  set_has_menetido();
+  menetido_ = value;
 }
 
 // repeated .protocol.Megallo megallok = 3;
@@ -2582,6 +2832,197 @@ JaratLista::jaratok() const {
 inline ::google::protobuf::RepeatedPtrField< ::protocol::Jarat >*
 JaratLista::mutable_jaratok() {
   return &jaratok_;
+}
+
+// -------------------------------------------------------------------
+
+// Beosztas
+
+// required int32 id = 1;
+inline bool Beosztas::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Beosztas::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Beosztas::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Beosztas::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Beosztas::id() const {
+  return id_;
+}
+inline void Beosztas::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required int32 menetrend_id = 2;
+inline bool Beosztas::has_menetrend_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Beosztas::set_has_menetrend_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Beosztas::clear_has_menetrend_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Beosztas::clear_menetrend_id() {
+  menetrend_id_ = 0;
+  clear_has_menetrend_id();
+}
+inline ::google::protobuf::int32 Beosztas::menetrend_id() const {
+  return menetrend_id_;
+}
+inline void Beosztas::set_menetrend_id(::google::protobuf::int32 value) {
+  set_has_menetrend_id();
+  menetrend_id_ = value;
+}
+
+// required int32 busz_id = 3;
+inline bool Beosztas::has_busz_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Beosztas::set_has_busz_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Beosztas::clear_has_busz_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Beosztas::clear_busz_id() {
+  busz_id_ = 0;
+  clear_has_busz_id();
+}
+inline ::google::protobuf::int32 Beosztas::busz_id() const {
+  return busz_id_;
+}
+inline void Beosztas::set_busz_id(::google::protobuf::int32 value) {
+  set_has_busz_id();
+  busz_id_ = value;
+}
+
+// required int32 sofor_id = 4;
+inline bool Beosztas::has_sofor_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Beosztas::set_has_sofor_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Beosztas::clear_has_sofor_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Beosztas::clear_sofor_id() {
+  sofor_id_ = 0;
+  clear_has_sofor_id();
+}
+inline ::google::protobuf::int32 Beosztas::sofor_id() const {
+  return sofor_id_;
+}
+inline void Beosztas::set_sofor_id(::google::protobuf::int32 value) {
+  set_has_sofor_id();
+  sofor_id_ = value;
+}
+
+// required string datum = 5;
+inline bool Beosztas::has_datum() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Beosztas::set_has_datum() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Beosztas::clear_has_datum() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Beosztas::clear_datum() {
+  if (datum_ != &::google::protobuf::internal::kEmptyString) {
+    datum_->clear();
+  }
+  clear_has_datum();
+}
+inline const ::std::string& Beosztas::datum() const {
+  return *datum_;
+}
+inline void Beosztas::set_datum(const ::std::string& value) {
+  set_has_datum();
+  if (datum_ == &::google::protobuf::internal::kEmptyString) {
+    datum_ = new ::std::string;
+  }
+  datum_->assign(value);
+}
+inline void Beosztas::set_datum(const char* value) {
+  set_has_datum();
+  if (datum_ == &::google::protobuf::internal::kEmptyString) {
+    datum_ = new ::std::string;
+  }
+  datum_->assign(value);
+}
+inline void Beosztas::set_datum(const char* value, size_t size) {
+  set_has_datum();
+  if (datum_ == &::google::protobuf::internal::kEmptyString) {
+    datum_ = new ::std::string;
+  }
+  datum_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Beosztas::mutable_datum() {
+  set_has_datum();
+  if (datum_ == &::google::protobuf::internal::kEmptyString) {
+    datum_ = new ::std::string;
+  }
+  return datum_;
+}
+inline ::std::string* Beosztas::release_datum() {
+  clear_has_datum();
+  if (datum_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = datum_;
+    datum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Beosztas::set_allocated_datum(::std::string* datum) {
+  if (datum_ != &::google::protobuf::internal::kEmptyString) {
+    delete datum_;
+  }
+  if (datum) {
+    set_has_datum();
+    datum_ = datum;
+  } else {
+    clear_has_datum();
+    datum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BeosztasLista
+
+// repeated .protocol.Beosztas beosztasok = 1;
+inline int BeosztasLista::beosztasok_size() const {
+  return beosztasok_.size();
+}
+inline void BeosztasLista::clear_beosztasok() {
+  beosztasok_.Clear();
+}
+inline const ::protocol::Beosztas& BeosztasLista::beosztasok(int index) const {
+  return beosztasok_.Get(index);
+}
+inline ::protocol::Beosztas* BeosztasLista::mutable_beosztasok(int index) {
+  return beosztasok_.Mutable(index);
+}
+inline ::protocol::Beosztas* BeosztasLista::add_beosztasok() {
+  return beosztasok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas >&
+BeosztasLista::beosztasok() const {
+  return beosztasok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas >*
+BeosztasLista::mutable_beosztasok() {
+  return &beosztasok_;
 }
 
 

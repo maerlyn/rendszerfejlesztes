@@ -25,6 +25,9 @@ message MessageType {
     JARAT_LISTA_REQUEST = 15;
     JARAT_UJ_REQUEST = 16;
     JARAT_TORLES_REQUEST = 17;
+    
+    BEOSZTAS_LISTA_REQUEST = 19;
+    BEOSZTAS_UJ_REQUEST = 20;
 
     SHUTDOWN = 999;
   }
@@ -53,6 +56,7 @@ message MegalloLista {
 message Utvonal {
   required int32 id = 1;
   required string nev = 2;
+  required int32 menetido = 4;
 
   repeated Megallo megallok = 3;
 }
@@ -97,4 +101,16 @@ message Jarat {
 
 message JaratLista {
   repeated Jarat jaratok = 1;
+}
+
+message Beosztas {
+  required int32 id = 1;
+  required int32 menetrend_id = 2;
+  required int32 busz_id = 3;
+  required int32 sofor_id = 4;
+  required string datum = 5;
+}
+
+message BeosztasLista {
+  repeated Beosztas beosztasok = 1;
 }
