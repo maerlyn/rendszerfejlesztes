@@ -72,6 +72,8 @@ enum MessageType_Types {
   MessageType_Types_JARAT_UJ_REQUEST = 16,
   MessageType_Types_JARAT_TORLES_REQUEST = 17,
   MessageType_Types_BEOSZTAS_UJ_REQUEST = 20,
+  MessageType_Types_BEOSZTAS_NAPITORLES_REQUEST = 21,
+  MessageType_Types_BEOSZTAS_NAPILISTA_REQUEST = 22,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -163,6 +165,8 @@ class MessageType : public ::google::protobuf::Message {
   static const Types JARAT_UJ_REQUEST = MessageType_Types_JARAT_UJ_REQUEST;
   static const Types JARAT_TORLES_REQUEST = MessageType_Types_JARAT_TORLES_REQUEST;
   static const Types BEOSZTAS_UJ_REQUEST = MessageType_Types_BEOSZTAS_UJ_REQUEST;
+  static const Types BEOSZTAS_NAPITORLES_REQUEST = MessageType_Types_BEOSZTAS_NAPITORLES_REQUEST;
+  static const Types BEOSZTAS_NAPILISTA_REQUEST = MessageType_Types_BEOSZTAS_NAPILISTA_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -383,17 +387,32 @@ class AuthResponse : public ::google::protobuf::Message {
   inline ::std::string* release_status();
   inline void set_allocated_status(::std::string* status);
 
+  // required string csoport = 2;
+  inline bool has_csoport() const;
+  inline void clear_csoport();
+  static const int kCsoportFieldNumber = 2;
+  inline const ::std::string& csoport() const;
+  inline void set_csoport(const ::std::string& value);
+  inline void set_csoport(const char* value);
+  inline void set_csoport(const char* value, size_t size);
+  inline ::std::string* mutable_csoport();
+  inline ::std::string* release_csoport();
+  inline void set_allocated_csoport(::std::string* csoport);
+
   // @@protoc_insertion_point(class_scope:protocol.AuthResponse)
  private:
   inline void set_has_status();
   inline void clear_has_status();
+  inline void set_has_csoport();
+  inline void clear_has_csoport();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* status_;
+  ::std::string* csoport_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
   friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
@@ -1991,6 +2010,76 @@ inline void AuthResponse::set_allocated_status(::std::string* status) {
   } else {
     clear_has_status();
     status_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string csoport = 2;
+inline bool AuthResponse::has_csoport() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AuthResponse::set_has_csoport() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AuthResponse::clear_has_csoport() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AuthResponse::clear_csoport() {
+  if (csoport_ != &::google::protobuf::internal::kEmptyString) {
+    csoport_->clear();
+  }
+  clear_has_csoport();
+}
+inline const ::std::string& AuthResponse::csoport() const {
+  return *csoport_;
+}
+inline void AuthResponse::set_csoport(const ::std::string& value) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(value);
+}
+inline void AuthResponse::set_csoport(const char* value) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(value);
+}
+inline void AuthResponse::set_csoport(const char* value, size_t size) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AuthResponse::mutable_csoport() {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  return csoport_;
+}
+inline ::std::string* AuthResponse::release_csoport() {
+  clear_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = csoport_;
+    csoport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AuthResponse::set_allocated_csoport(::std::string* csoport) {
+  if (csoport_ != &::google::protobuf::internal::kEmptyString) {
+    delete csoport_;
+  }
+  if (csoport) {
+    set_has_csoport();
+    csoport_ = csoport;
+  } else {
+    clear_has_csoport();
+    csoport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 

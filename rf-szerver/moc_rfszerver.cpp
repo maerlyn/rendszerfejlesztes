@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rfszerver.h'
 **
-** Created: Mon May 13 22:33:01 2013
+** Created: Tue May 14 19:26:08 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_RFSzerver[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -52,7 +52,8 @@ static const uint qt_meta_data_RFSzerver[] = {
      641,   44,   10,   10, 0x0a,
      675,   44,   10,   10, 0x0a,
      713,   44,   10,   10, 0x0a,
-     750,   10,   10,   10, 0x0a,
+     750,   44,   10,   10, 0x0a,
+     794,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -78,6 +79,7 @@ static const char qt_meta_stringdata_RFSzerver[] = {
     "handleJaratUjRequest(QTcpSocket*)\0"
     "handleJaratTorlesRequest(QTcpSocket*)\0"
     "handleBeosztasUjRequest(QTcpSocket*)\0"
+    "handleBeosztasNapilistaRequest(QTcpSocket*)\0"
     "handleShutdownRequest()\0"
 };
 
@@ -108,7 +110,8 @@ void RFSzerver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 18: _t->handleJaratUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 19: _t->handleJaratTorlesRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
         case 20: _t->handleBeosztasUjRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
-        case 21: _t->handleShutdownRequest(); break;
+        case 21: _t->handleBeosztasNapilistaRequest((*reinterpret_cast< QTcpSocket*(*)>(_a[1]))); break;
+        case 22: _t->handleShutdownRequest(); break;
         default: ;
         }
     }
@@ -146,9 +149,9 @@ int RFSzerver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     }
     return _id;
 }

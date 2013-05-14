@@ -27,6 +27,8 @@ message MessageType {
     JARAT_TORLES_REQUEST = 17;
     
     BEOSZTAS_UJ_REQUEST = 20;
+    BEOSZTAS_NAPITORLES_REQUEST = 21;
+    BEOSZTAS_NAPILISTA_REQUEST = 22;
 
     SHUTDOWN = 999;
   }
@@ -41,6 +43,7 @@ message AuthRequest {
 
 message AuthResponse {
   required string status = 1;
+  required string csoport = 2;
 }
 
 message Megallo {

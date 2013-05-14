@@ -1,6 +1,7 @@
 #ifndef BEOSZTASDB_H
 #define BEOSZTASDB_H
 
+#include <string>
 #include "../protobuf/rendszerfejlesztes.pb.h"
 
 class BeosztasDB
@@ -15,6 +16,7 @@ public:
     static void del(protocol::Beosztas b);
     static int nextId();
     static void add(protocol::Beosztas ujbeosztas);
+    static protocol::BeosztasLista napiLista(std::string datum);
 
 };
 

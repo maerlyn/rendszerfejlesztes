@@ -122,6 +122,10 @@ void RFSzerver::readyRead()
       handleBeosztasUjRequest(sock);
       break;
 
+    case protocol::MessageType::BEOSZTAS_NAPILISTA_REQUEST:
+      handleBeosztasNapilistaRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -135,6 +139,7 @@ void RFSzerver::handleAuthRequest(QTcpSocket *sock)
 
     protocol::AuthResponse arp;
     arp.set_status((arq.username() == "admin" && arq.password() == "admin") ? "ok" : "fail");
+    arp.set_csoport("");
 
     helper.sendMessage(arp, sock);
 }
@@ -284,6 +289,17 @@ void RFSzerver::handleBeosztasUjRequest(QTcpSocket *socket)
     helper.readMessage(b, socket);
 
     BeosztasDB::add(b);
+}
+
+void RFSzerver::handleBeosztasNapilistaRequest(QTcpSocket *socket)
+{
+    protocol::Beosztas b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    protocol::BeosztasLista lista = BeosztasDB::napiLista(b.datum());
+
+    helper.sendMessage(lista, socket);
 }
 
 void RFSzerver::handleShutdownRequest()

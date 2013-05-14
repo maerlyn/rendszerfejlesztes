@@ -64,3 +64,19 @@ void BeosztasDB::del(protocol::Beosztas beosztas)
         }
     }
 }
+
+protocol::BeosztasLista BeosztasDB::napiLista(std::string datum)
+{
+    protocol::BeosztasLista ret;
+
+    for (int i = 0; i < beosztasok.beosztasok_size(); ++i) {
+        protocol::Beosztas b = beosztasok.beosztasok().Get(i);
+
+        if (b.datum() == datum) {
+            protocol::Beosztas *add = ret.add_beosztasok();
+            add->CopyFrom(b);
+        }
+    }
+
+    return ret;
+}

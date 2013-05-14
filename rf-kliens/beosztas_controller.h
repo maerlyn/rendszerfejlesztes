@@ -15,6 +15,7 @@ public:
 
     void run();
     void elkeszites();
+    void napilista();
 };
 
 #endif // BEOSZTAS_CONTROLLER_H
