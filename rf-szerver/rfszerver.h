@@ -45,6 +45,7 @@ public slots:
 
   void handleBeosztasUjRequest(QTcpSocket *socket);
   void handleBeosztasNapilistaRequest(QTcpSocket *socket);
+  void handleBeosztasNapitorlesRequest(QTcpSocket *socket);
 
   void handleShutdownRequest();
 };

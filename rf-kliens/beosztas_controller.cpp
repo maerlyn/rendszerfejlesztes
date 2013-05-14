@@ -52,6 +52,18 @@ void beosztas_controller::elkeszites()
     std::cout << "Datum: ";
     std::cin >> datum;
 
+    {
+        protocol::Beosztas b;
+        b.set_id(1);
+        b.set_jarat_id(1);
+        b.set_busz_id(1);
+        b.set_sofor_id(1);
+        b.set_datum(datum.c_str());
+
+        helper->sendMessageType(protocol::MessageType::BEOSZTAS_NAPITORLES_REQUEST);
+        helper->sendMessage(b);
+    }
+
     for (int i = 0; i < jaratok.jaratok_size(); ++i) {
         protocol::Beosztas beosztas;
         beosztas.set_id(1);

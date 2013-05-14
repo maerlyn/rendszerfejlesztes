@@ -80,3 +80,13 @@ protocol::BeosztasLista BeosztasDB::napiLista(std::string datum)
 
     return ret;
 }
+
+void BeosztasDB::napiTorles(std::string datum)
+{
+    for (int i = 0; i < beosztasok.beosztasok().size(); ++i) {
+        if (beosztasok.beosztasok().Get(i).datum() == datum) {
+            beosztasok.mutable_beosztasok()->SwapElements(i, beosztasok.beosztasok_size() - 1);
+            beosztasok.mutable_beosztasok()->RemoveLast();
+        }
+    }
+}

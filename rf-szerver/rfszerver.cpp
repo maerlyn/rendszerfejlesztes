@@ -126,6 +126,10 @@ void RFSzerver::readyRead()
       handleBeosztasNapilistaRequest(sock);
       break;
 
+    case protocol::MessageType::BEOSZTAS_NAPITORLES_REQUEST:
+      handleBeosztasNapitorlesRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -300,6 +304,15 @@ void RFSzerver::handleBeosztasNapilistaRequest(QTcpSocket *socket)
     protocol::BeosztasLista lista = BeosztasDB::napiLista(b.datum());
 
     helper.sendMessage(lista, socket);
+}
+
+void RFSzerver::handleBeosztasNapitorlesRequest(QTcpSocket *socket)
+{
+    protocol::Beosztas b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    BeosztasDB::napiTorles(b.datum());
 }
 
 void RFSzerver::handleShutdownRequest()

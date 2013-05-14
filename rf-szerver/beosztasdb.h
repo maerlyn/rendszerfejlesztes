@@ -17,6 +17,7 @@ public:
     static int nextId();
     static void add(protocol::Beosztas ujbeosztas);
     static protocol::BeosztasLista napiLista(std::string datum);
+    static void napiTorles(std::string datum);
 
 };
 
