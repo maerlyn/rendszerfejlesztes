@@ -15,6 +15,7 @@
 #include "sofordb.h"
 #include "jaratdb.h"
 #include "beosztasdb.h"
+#include "felhasznalodb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -26,6 +27,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
   SoforDB::load();
   JaratDB::load();
   BeosztasDB::load();
+  FelhasznaloDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -130,6 +132,18 @@ void RFSzerver::readyRead()
       handleBeosztasNapitorlesRequest(sock);
       break;
 
+    case protocol::MessageType::FELHASZNALO_LISTA_REQUEST:
+      handleFelhasznaloListaRequest(sock);
+      break;
+
+    case protocol::MessageType::FELHASZNALO_UJ_REQUEST:
+      handleFelhasznaloUjRequest(sock);
+      break;
+
+    case protocol::MessageType::FELHASZNALO_TORLES_REQUEST:
+      handleFelhasznaloTorlesRequest(sock);
+      break;
+
     case protocol::MessageType::SHUTDOWN:
       handleShutdownRequest();
       break;
@@ -142,8 +156,14 @@ void RFSzerver::handleAuthRequest(QTcpSocket *sock)
     helper.readMessage(arq, sock);
 
     protocol::AuthResponse arp;
-    arp.set_status((arq.username() == "admin" && arq.password() == "admin") ? "ok" : "fail");
-    arp.set_csoport("");
+
+    protocol::Felhasznalo f;
+    f.set_felhasznalonev(arq.username());
+    f.set_jelszo(arq.password());
+    std::string csoport = FelhasznaloDB::csoport(f);
+
+    arp.set_status(csoport != "" ? "ok" : "fail");
+    arp.set_csoport(csoport);
 
     helper.sendMessage(arp, sock);
 }
@@ -315,6 +335,29 @@ void RFSzerver::handleBeosztasNapitorlesRequest(QTcpSocket *socket)
     BeosztasDB::napiTorles(b.datum());
 }
 
+void RFSzerver::handleFelhasznaloListaRequest(QTcpSocket *socket)
+{
+    helper.sendMessage(FelhasznaloDB::findAll(), socket);
+}
+
+void RFSzerver::handleFelhasznaloUjRequest(QTcpSocket *socket)
+{
+    protocol::Felhasznalo f;
+    helper.wait(socket);
+    helper.readMessage(f, socket);
+
+    FelhasznaloDB::add(f);
+}
+
+void RFSzerver::handleFelhasznaloTorlesRequest(QTcpSocket *socket)
+{
+    protocol::Felhasznalo f;
+    helper.wait(socket);
+    helper.readMessage(f, socket);
+
+    FelhasznaloDB::del(f);
+}
+
 void RFSzerver::handleShutdownRequest()
 {
     UtvonalDB::save();
@@ -323,6 +366,7 @@ void RFSzerver::handleShutdownRequest()
     SoforDB::save();
     JaratDB::save();
     BeosztasDB::save();
+    FelhasznaloDB::save();
 
     qDebug() << "kilepes";
     exit(0);

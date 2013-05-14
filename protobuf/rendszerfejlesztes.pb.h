@@ -51,6 +51,8 @@ class Jarat;
 class JaratLista;
 class Beosztas;
 class BeosztasLista;
+class Felhasznalo;
+class FelhasznaloLista;
 
 enum MessageType_Types {
   MessageType_Types_AUTH_TYPE = 1,
@@ -74,6 +76,9 @@ enum MessageType_Types {
   MessageType_Types_BEOSZTAS_UJ_REQUEST = 20,
   MessageType_Types_BEOSZTAS_NAPITORLES_REQUEST = 21,
   MessageType_Types_BEOSZTAS_NAPILISTA_REQUEST = 22,
+  MessageType_Types_FELHASZNALO_LISTA_REQUEST = 23,
+  MessageType_Types_FELHASZNALO_UJ_REQUEST = 24,
+  MessageType_Types_FELHASZNALO_TORLES_REQUEST = 25,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -167,6 +172,9 @@ class MessageType : public ::google::protobuf::Message {
   static const Types BEOSZTAS_UJ_REQUEST = MessageType_Types_BEOSZTAS_UJ_REQUEST;
   static const Types BEOSZTAS_NAPITORLES_REQUEST = MessageType_Types_BEOSZTAS_NAPITORLES_REQUEST;
   static const Types BEOSZTAS_NAPILISTA_REQUEST = MessageType_Types_BEOSZTAS_NAPILISTA_REQUEST;
+  static const Types FELHASZNALO_LISTA_REQUEST = MessageType_Types_FELHASZNALO_LISTA_REQUEST;
+  static const Types FELHASZNALO_UJ_REQUEST = MessageType_Types_FELHASZNALO_UJ_REQUEST;
+  static const Types FELHASZNALO_TORLES_REQUEST = MessageType_Types_FELHASZNALO_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -1765,6 +1773,218 @@ class BeosztasLista : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static BeosztasLista* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Felhasznalo : public ::google::protobuf::Message {
+ public:
+  Felhasznalo();
+  virtual ~Felhasznalo();
+
+  Felhasznalo(const Felhasznalo& from);
+
+  inline Felhasznalo& operator=(const Felhasznalo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Felhasznalo& default_instance();
+
+  void Swap(Felhasznalo* other);
+
+  // implements Message ----------------------------------------------
+
+  Felhasznalo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Felhasznalo& from);
+  void MergeFrom(const Felhasznalo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // required string felhasznalonev = 2;
+  inline bool has_felhasznalonev() const;
+  inline void clear_felhasznalonev();
+  static const int kFelhasznalonevFieldNumber = 2;
+  inline const ::std::string& felhasznalonev() const;
+  inline void set_felhasznalonev(const ::std::string& value);
+  inline void set_felhasznalonev(const char* value);
+  inline void set_felhasznalonev(const char* value, size_t size);
+  inline ::std::string* mutable_felhasznalonev();
+  inline ::std::string* release_felhasznalonev();
+  inline void set_allocated_felhasznalonev(::std::string* felhasznalonev);
+
+  // required string jelszo = 3;
+  inline bool has_jelszo() const;
+  inline void clear_jelszo();
+  static const int kJelszoFieldNumber = 3;
+  inline const ::std::string& jelszo() const;
+  inline void set_jelszo(const ::std::string& value);
+  inline void set_jelszo(const char* value);
+  inline void set_jelszo(const char* value, size_t size);
+  inline ::std::string* mutable_jelszo();
+  inline ::std::string* release_jelszo();
+  inline void set_allocated_jelszo(::std::string* jelszo);
+
+  // required string csoport = 4;
+  inline bool has_csoport() const;
+  inline void clear_csoport();
+  static const int kCsoportFieldNumber = 4;
+  inline const ::std::string& csoport() const;
+  inline void set_csoport(const ::std::string& value);
+  inline void set_csoport(const char* value);
+  inline void set_csoport(const char* value, size_t size);
+  inline ::std::string* mutable_csoport();
+  inline ::std::string* release_csoport();
+  inline void set_allocated_csoport(::std::string* csoport);
+
+  // @@protoc_insertion_point(class_scope:protocol.Felhasznalo)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_felhasznalonev();
+  inline void clear_has_felhasznalonev();
+  inline void set_has_jelszo();
+  inline void clear_has_jelszo();
+  inline void set_has_csoport();
+  inline void clear_has_csoport();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* felhasznalonev_;
+  ::std::string* jelszo_;
+  ::std::string* csoport_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Felhasznalo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FelhasznaloLista : public ::google::protobuf::Message {
+ public:
+  FelhasznaloLista();
+  virtual ~FelhasznaloLista();
+
+  FelhasznaloLista(const FelhasznaloLista& from);
+
+  inline FelhasznaloLista& operator=(const FelhasznaloLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FelhasznaloLista& default_instance();
+
+  void Swap(FelhasznaloLista* other);
+
+  // implements Message ----------------------------------------------
+
+  FelhasznaloLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FelhasznaloLista& from);
+  void MergeFrom(const FelhasznaloLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Felhasznalo felhasznalok = 1;
+  inline int felhasznalok_size() const;
+  inline void clear_felhasznalok();
+  static const int kFelhasznalokFieldNumber = 1;
+  inline const ::protocol::Felhasznalo& felhasznalok(int index) const;
+  inline ::protocol::Felhasznalo* mutable_felhasznalok(int index);
+  inline ::protocol::Felhasznalo* add_felhasznalok();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo >&
+      felhasznalok() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo >*
+      mutable_felhasznalok();
+
+  // @@protoc_insertion_point(class_scope:protocol.FelhasznaloLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo > felhasznalok_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static FelhasznaloLista* default_instance_;
+};
 // ===================================================================
 
 
@@ -3110,6 +3330,271 @@ BeosztasLista::beosztasok() const {
 inline ::google::protobuf::RepeatedPtrField< ::protocol::Beosztas >*
 BeosztasLista::mutable_beosztasok() {
   return &beosztasok_;
+}
+
+// -------------------------------------------------------------------
+
+// Felhasznalo
+
+// required int32 id = 1;
+inline bool Felhasznalo::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Felhasznalo::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Felhasznalo::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Felhasznalo::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Felhasznalo::id() const {
+  return id_;
+}
+inline void Felhasznalo::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// required string felhasznalonev = 2;
+inline bool Felhasznalo::has_felhasznalonev() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Felhasznalo::set_has_felhasznalonev() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Felhasznalo::clear_has_felhasznalonev() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Felhasznalo::clear_felhasznalonev() {
+  if (felhasznalonev_ != &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_->clear();
+  }
+  clear_has_felhasznalonev();
+}
+inline const ::std::string& Felhasznalo::felhasznalonev() const {
+  return *felhasznalonev_;
+}
+inline void Felhasznalo::set_felhasznalonev(const ::std::string& value) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(value);
+}
+inline void Felhasznalo::set_felhasznalonev(const char* value) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(value);
+}
+inline void Felhasznalo::set_felhasznalonev(const char* value, size_t size) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Felhasznalo::mutable_felhasznalonev() {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  return felhasznalonev_;
+}
+inline ::std::string* Felhasznalo::release_felhasznalonev() {
+  clear_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = felhasznalonev_;
+    felhasznalonev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Felhasznalo::set_allocated_felhasznalonev(::std::string* felhasznalonev) {
+  if (felhasznalonev_ != &::google::protobuf::internal::kEmptyString) {
+    delete felhasznalonev_;
+  }
+  if (felhasznalonev) {
+    set_has_felhasznalonev();
+    felhasznalonev_ = felhasznalonev;
+  } else {
+    clear_has_felhasznalonev();
+    felhasznalonev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string jelszo = 3;
+inline bool Felhasznalo::has_jelszo() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Felhasznalo::set_has_jelszo() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Felhasznalo::clear_has_jelszo() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Felhasznalo::clear_jelszo() {
+  if (jelszo_ != &::google::protobuf::internal::kEmptyString) {
+    jelszo_->clear();
+  }
+  clear_has_jelszo();
+}
+inline const ::std::string& Felhasznalo::jelszo() const {
+  return *jelszo_;
+}
+inline void Felhasznalo::set_jelszo(const ::std::string& value) {
+  set_has_jelszo();
+  if (jelszo_ == &::google::protobuf::internal::kEmptyString) {
+    jelszo_ = new ::std::string;
+  }
+  jelszo_->assign(value);
+}
+inline void Felhasznalo::set_jelszo(const char* value) {
+  set_has_jelszo();
+  if (jelszo_ == &::google::protobuf::internal::kEmptyString) {
+    jelszo_ = new ::std::string;
+  }
+  jelszo_->assign(value);
+}
+inline void Felhasznalo::set_jelszo(const char* value, size_t size) {
+  set_has_jelszo();
+  if (jelszo_ == &::google::protobuf::internal::kEmptyString) {
+    jelszo_ = new ::std::string;
+  }
+  jelszo_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Felhasznalo::mutable_jelszo() {
+  set_has_jelszo();
+  if (jelszo_ == &::google::protobuf::internal::kEmptyString) {
+    jelszo_ = new ::std::string;
+  }
+  return jelszo_;
+}
+inline ::std::string* Felhasznalo::release_jelszo() {
+  clear_has_jelszo();
+  if (jelszo_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = jelszo_;
+    jelszo_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Felhasznalo::set_allocated_jelszo(::std::string* jelszo) {
+  if (jelszo_ != &::google::protobuf::internal::kEmptyString) {
+    delete jelszo_;
+  }
+  if (jelszo) {
+    set_has_jelszo();
+    jelszo_ = jelszo;
+  } else {
+    clear_has_jelszo();
+    jelszo_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string csoport = 4;
+inline bool Felhasznalo::has_csoport() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Felhasznalo::set_has_csoport() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Felhasznalo::clear_has_csoport() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Felhasznalo::clear_csoport() {
+  if (csoport_ != &::google::protobuf::internal::kEmptyString) {
+    csoport_->clear();
+  }
+  clear_has_csoport();
+}
+inline const ::std::string& Felhasznalo::csoport() const {
+  return *csoport_;
+}
+inline void Felhasznalo::set_csoport(const ::std::string& value) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(value);
+}
+inline void Felhasznalo::set_csoport(const char* value) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(value);
+}
+inline void Felhasznalo::set_csoport(const char* value, size_t size) {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  csoport_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Felhasznalo::mutable_csoport() {
+  set_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    csoport_ = new ::std::string;
+  }
+  return csoport_;
+}
+inline ::std::string* Felhasznalo::release_csoport() {
+  clear_has_csoport();
+  if (csoport_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = csoport_;
+    csoport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Felhasznalo::set_allocated_csoport(::std::string* csoport) {
+  if (csoport_ != &::google::protobuf::internal::kEmptyString) {
+    delete csoport_;
+  }
+  if (csoport) {
+    set_has_csoport();
+    csoport_ = csoport;
+  } else {
+    clear_has_csoport();
+    csoport_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// FelhasznaloLista
+
+// repeated .protocol.Felhasznalo felhasznalok = 1;
+inline int FelhasznaloLista::felhasznalok_size() const {
+  return felhasznalok_.size();
+}
+inline void FelhasznaloLista::clear_felhasznalok() {
+  felhasznalok_.Clear();
+}
+inline const ::protocol::Felhasznalo& FelhasznaloLista::felhasznalok(int index) const {
+  return felhasznalok_.Get(index);
+}
+inline ::protocol::Felhasznalo* FelhasznaloLista::mutable_felhasznalok(int index) {
+  return felhasznalok_.Mutable(index);
+}
+inline ::protocol::Felhasznalo* FelhasznaloLista::add_felhasznalok() {
+  return felhasznalok_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo >&
+FelhasznaloLista::felhasznalok() const {
+  return felhasznalok_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo >*
+FelhasznaloLista::mutable_felhasznalok() {
+  return &felhasznalok_;
 }
 
 

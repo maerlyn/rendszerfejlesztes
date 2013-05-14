@@ -30,6 +30,10 @@ message MessageType {
     BEOSZTAS_NAPITORLES_REQUEST = 21;
     BEOSZTAS_NAPILISTA_REQUEST = 22;
 
+    FELHASZNALO_LISTA_REQUEST = 23;
+    FELHASZNALO_UJ_REQUEST = 24;
+    FELHASZNALO_TORLES_REQUEST = 25;
+
     SHUTDOWN = 999;
   }
 
@@ -115,4 +119,17 @@ message Beosztas {
 
 message BeosztasLista {
   repeated Beosztas beosztasok = 1;
+}
+
+message Felhasznalo
+{
+  required int32 id = 1;
+  required string felhasznalonev = 2;
+  required string jelszo = 3;
+  required string csoport = 4;
+}
+
+message FelhasznaloLista
+{
+  repeated Felhasznalo felhasznalok = 1;
 }

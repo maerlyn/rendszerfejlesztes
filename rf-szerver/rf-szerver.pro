@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     buszdb.cpp \
     sofordb.cpp \
     jaratdb.cpp \
-    beosztasdb.cpp
+    beosztasdb.cpp \
+    felhasznalodb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
@@ -34,4 +35,5 @@ HEADERS += \
     buszdb.h \
     sofordb.h \
     jaratdb.h \
-    beosztasdb.h
+    beosztasdb.h \
+    felhasznalodb.h

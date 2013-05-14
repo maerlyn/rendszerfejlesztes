@@ -2,10 +2,13 @@
 #define RFKLIENS_H
 
 #include <networkhelper.h>
+#include <string>
 
 class rfkliens
 {
     networkhelper *helper;
+    std::string csoport;
+
 public:
     rfkliens(networkhelper& helper);
 
@@ -18,6 +21,7 @@ public:
     void soforok_kezelese();
     void jaratok_kezelese();
     void beosztas_kezelese();
+    void felhasznalok_kezelese();
 
     void shutdown();
 };

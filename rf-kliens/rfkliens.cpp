@@ -10,6 +10,7 @@
 #include "soforok_controller.h"
 #include "jaratok_controller.h"
 #include "beosztas_controller.h"
+#include "felhasznalok_controller.h"
 
 rfkliens::rfkliens(networkhelper& helper)
 {
@@ -35,6 +36,8 @@ bool rfkliens::login()
     helper->readMessage(arp);
     std::cout << arp.status() << std::endl;
 
+    csoport = arp.csoport();
+
     return arp.status() == "ok";
 }
 
@@ -52,6 +55,7 @@ void rfkliens::menu()
         std::cout << "5. soforok kezelese\n";
         std::cout << "6. jaratok kezelese\n";
         std::cout << "7. beosztas kezelese\n";
+        std::cout << "8. felhasznalok kezelese\n";
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
@@ -67,6 +71,7 @@ void rfkliens::menu()
             case 5: soforok_kezelese(); break;
             case 6: jaratok_kezelese(); break;
             case 7: beosztas_kezelese(); break;
+            case 8: felhasznalok_kezelese(); break;
 
             case 999: shutdown(); break;
         }
@@ -167,6 +172,12 @@ void rfkliens::beosztas_kezelese()
 {
     beosztas_controller bc(helper);
     bc.run();
+}
+
+void rfkliens::felhasznalok_kezelese()
+{
+    felhasznalok_controller fc(helper);
+    fc.run();
 }
 
 void rfkliens::shutdown()
