@@ -48,14 +48,20 @@ void rfkliens::menu()
 
     do {
         std::cout << " ### MENU ###\n";
-        std::cout << "1. utvonal-sofor-busz hozzarendeles\n";
-        std::cout << "2. megallok kezelese\n";
-        std::cout << "3. utvonalak kezelese\n";
-        std::cout << "4. buszok kezelese\n";
-        std::cout << "5. soforok kezelese\n";
-        std::cout << "6. jaratok kezelese\n";
-        std::cout << "7. beosztas kezelese\n";
-        std::cout << "8. felhasznalok kezelese\n";
+
+        if (csoport == "sofor") {
+            std::cout << "TODO, nyomj nyullat\n";
+        } else if (csoport == "titkar") {
+            std::cout << "2. megallok kezelese\n";
+            std::cout << "3. utvonalak kezelese\n";
+            std::cout << "4. buszok kezelese\n";
+            std::cout << "5. soforok kezelese\n";
+            std::cout << "6. jaratok kezelese\n";
+            std::cout << "8. felhasznalok kezelese\n";
+        } else if (csoport == "diszpecser") {
+            std::cout << "7. beosztas kezelese\n";
+        }
+
         std::cout << std::endl;
         std::cout << "0. kilepes\n";
         std::cout << "VALASZ: ";
