@@ -53,6 +53,8 @@ class Beosztas;
 class BeosztasLista;
 class Felhasznalo;
 class FelhasznaloLista;
+class Betegseg;
+class BetegsegLista;
 
 enum MessageType_Types {
   MessageType_Types_AUTH_TYPE = 1,
@@ -79,6 +81,9 @@ enum MessageType_Types {
   MessageType_Types_FELHASZNALO_LISTA_REQUEST = 23,
   MessageType_Types_FELHASZNALO_UJ_REQUEST = 24,
   MessageType_Types_FELHASZNALO_TORLES_REQUEST = 25,
+  MessageType_Types_BETEGSEG_LISTA_REQUEST = 26,
+  MessageType_Types_BETEGSEG_UJ_REQUEST = 27,
+  MessageType_Types_BETEGSEG_TORLES_REQUEST = 28,
   MessageType_Types_SHUTDOWN = 999
 };
 bool MessageType_Types_IsValid(int value);
@@ -175,6 +180,9 @@ class MessageType : public ::google::protobuf::Message {
   static const Types FELHASZNALO_LISTA_REQUEST = MessageType_Types_FELHASZNALO_LISTA_REQUEST;
   static const Types FELHASZNALO_UJ_REQUEST = MessageType_Types_FELHASZNALO_UJ_REQUEST;
   static const Types FELHASZNALO_TORLES_REQUEST = MessageType_Types_FELHASZNALO_TORLES_REQUEST;
+  static const Types BETEGSEG_LISTA_REQUEST = MessageType_Types_BETEGSEG_LISTA_REQUEST;
+  static const Types BETEGSEG_UJ_REQUEST = MessageType_Types_BETEGSEG_UJ_REQUEST;
+  static const Types BETEGSEG_TORLES_REQUEST = MessageType_Types_BETEGSEG_TORLES_REQUEST;
   static const Types SHUTDOWN = MessageType_Types_SHUTDOWN;
   static inline bool Types_IsValid(int value) {
     return MessageType_Types_IsValid(value);
@@ -1985,6 +1993,208 @@ class FelhasznaloLista : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static FelhasznaloLista* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Betegseg : public ::google::protobuf::Message {
+ public:
+  Betegseg();
+  virtual ~Betegseg();
+
+  Betegseg(const Betegseg& from);
+
+  inline Betegseg& operator=(const Betegseg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Betegseg& default_instance();
+
+  void Swap(Betegseg* other);
+
+  // implements Message ----------------------------------------------
+
+  Betegseg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Betegseg& from);
+  void MergeFrom(const Betegseg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string felhasznalonev = 1;
+  inline bool has_felhasznalonev() const;
+  inline void clear_felhasznalonev();
+  static const int kFelhasznalonevFieldNumber = 1;
+  inline const ::std::string& felhasznalonev() const;
+  inline void set_felhasznalonev(const ::std::string& value);
+  inline void set_felhasznalonev(const char* value);
+  inline void set_felhasznalonev(const char* value, size_t size);
+  inline ::std::string* mutable_felhasznalonev();
+  inline ::std::string* release_felhasznalonev();
+  inline void set_allocated_felhasznalonev(::std::string* felhasznalonev);
+
+  // required string mikortol = 2;
+  inline bool has_mikortol() const;
+  inline void clear_mikortol();
+  static const int kMikortolFieldNumber = 2;
+  inline const ::std::string& mikortol() const;
+  inline void set_mikortol(const ::std::string& value);
+  inline void set_mikortol(const char* value);
+  inline void set_mikortol(const char* value, size_t size);
+  inline ::std::string* mutable_mikortol();
+  inline ::std::string* release_mikortol();
+  inline void set_allocated_mikortol(::std::string* mikortol);
+
+  // required string meddig = 3;
+  inline bool has_meddig() const;
+  inline void clear_meddig();
+  static const int kMeddigFieldNumber = 3;
+  inline const ::std::string& meddig() const;
+  inline void set_meddig(const ::std::string& value);
+  inline void set_meddig(const char* value);
+  inline void set_meddig(const char* value, size_t size);
+  inline ::std::string* mutable_meddig();
+  inline ::std::string* release_meddig();
+  inline void set_allocated_meddig(::std::string* meddig);
+
+  // @@protoc_insertion_point(class_scope:protocol.Betegseg)
+ private:
+  inline void set_has_felhasznalonev();
+  inline void clear_has_felhasznalonev();
+  inline void set_has_mikortol();
+  inline void clear_has_mikortol();
+  inline void set_has_meddig();
+  inline void clear_has_meddig();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* felhasznalonev_;
+  ::std::string* mikortol_;
+  ::std::string* meddig_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static Betegseg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BetegsegLista : public ::google::protobuf::Message {
+ public:
+  BetegsegLista();
+  virtual ~BetegsegLista();
+
+  BetegsegLista(const BetegsegLista& from);
+
+  inline BetegsegLista& operator=(const BetegsegLista& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BetegsegLista& default_instance();
+
+  void Swap(BetegsegLista* other);
+
+  // implements Message ----------------------------------------------
+
+  BetegsegLista* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BetegsegLista& from);
+  void MergeFrom(const BetegsegLista& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protocol.Betegseg betegsegek = 1;
+  inline int betegsegek_size() const;
+  inline void clear_betegsegek();
+  static const int kBetegsegekFieldNumber = 1;
+  inline const ::protocol::Betegseg& betegsegek(int index) const;
+  inline ::protocol::Betegseg* mutable_betegsegek(int index);
+  inline ::protocol::Betegseg* add_betegsegek();
+  inline const ::google::protobuf::RepeatedPtrField< ::protocol::Betegseg >&
+      betegsegek() const;
+  inline ::google::protobuf::RepeatedPtrField< ::protocol::Betegseg >*
+      mutable_betegsegek();
+
+  // @@protoc_insertion_point(class_scope:protocol.BetegsegLista)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::protocol::Betegseg > betegsegek_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_AssignDesc_rendszerfejlesztes_2eproto();
+  friend void protobuf_ShutdownFile_rendszerfejlesztes_2eproto();
+
+  void InitAsDefaultInstance();
+  static BetegsegLista* default_instance_;
+};
 // ===================================================================
 
 
@@ -3595,6 +3805,249 @@ FelhasznaloLista::felhasznalok() const {
 inline ::google::protobuf::RepeatedPtrField< ::protocol::Felhasznalo >*
 FelhasznaloLista::mutable_felhasznalok() {
   return &felhasznalok_;
+}
+
+// -------------------------------------------------------------------
+
+// Betegseg
+
+// required string felhasznalonev = 1;
+inline bool Betegseg::has_felhasznalonev() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Betegseg::set_has_felhasznalonev() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Betegseg::clear_has_felhasznalonev() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Betegseg::clear_felhasznalonev() {
+  if (felhasznalonev_ != &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_->clear();
+  }
+  clear_has_felhasznalonev();
+}
+inline const ::std::string& Betegseg::felhasznalonev() const {
+  return *felhasznalonev_;
+}
+inline void Betegseg::set_felhasznalonev(const ::std::string& value) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(value);
+}
+inline void Betegseg::set_felhasznalonev(const char* value) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(value);
+}
+inline void Betegseg::set_felhasznalonev(const char* value, size_t size) {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  felhasznalonev_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Betegseg::mutable_felhasznalonev() {
+  set_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    felhasznalonev_ = new ::std::string;
+  }
+  return felhasznalonev_;
+}
+inline ::std::string* Betegseg::release_felhasznalonev() {
+  clear_has_felhasznalonev();
+  if (felhasznalonev_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = felhasznalonev_;
+    felhasznalonev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Betegseg::set_allocated_felhasznalonev(::std::string* felhasznalonev) {
+  if (felhasznalonev_ != &::google::protobuf::internal::kEmptyString) {
+    delete felhasznalonev_;
+  }
+  if (felhasznalonev) {
+    set_has_felhasznalonev();
+    felhasznalonev_ = felhasznalonev;
+  } else {
+    clear_has_felhasznalonev();
+    felhasznalonev_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string mikortol = 2;
+inline bool Betegseg::has_mikortol() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Betegseg::set_has_mikortol() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Betegseg::clear_has_mikortol() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Betegseg::clear_mikortol() {
+  if (mikortol_ != &::google::protobuf::internal::kEmptyString) {
+    mikortol_->clear();
+  }
+  clear_has_mikortol();
+}
+inline const ::std::string& Betegseg::mikortol() const {
+  return *mikortol_;
+}
+inline void Betegseg::set_mikortol(const ::std::string& value) {
+  set_has_mikortol();
+  if (mikortol_ == &::google::protobuf::internal::kEmptyString) {
+    mikortol_ = new ::std::string;
+  }
+  mikortol_->assign(value);
+}
+inline void Betegseg::set_mikortol(const char* value) {
+  set_has_mikortol();
+  if (mikortol_ == &::google::protobuf::internal::kEmptyString) {
+    mikortol_ = new ::std::string;
+  }
+  mikortol_->assign(value);
+}
+inline void Betegseg::set_mikortol(const char* value, size_t size) {
+  set_has_mikortol();
+  if (mikortol_ == &::google::protobuf::internal::kEmptyString) {
+    mikortol_ = new ::std::string;
+  }
+  mikortol_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Betegseg::mutable_mikortol() {
+  set_has_mikortol();
+  if (mikortol_ == &::google::protobuf::internal::kEmptyString) {
+    mikortol_ = new ::std::string;
+  }
+  return mikortol_;
+}
+inline ::std::string* Betegseg::release_mikortol() {
+  clear_has_mikortol();
+  if (mikortol_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = mikortol_;
+    mikortol_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Betegseg::set_allocated_mikortol(::std::string* mikortol) {
+  if (mikortol_ != &::google::protobuf::internal::kEmptyString) {
+    delete mikortol_;
+  }
+  if (mikortol) {
+    set_has_mikortol();
+    mikortol_ = mikortol;
+  } else {
+    clear_has_mikortol();
+    mikortol_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string meddig = 3;
+inline bool Betegseg::has_meddig() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Betegseg::set_has_meddig() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Betegseg::clear_has_meddig() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Betegseg::clear_meddig() {
+  if (meddig_ != &::google::protobuf::internal::kEmptyString) {
+    meddig_->clear();
+  }
+  clear_has_meddig();
+}
+inline const ::std::string& Betegseg::meddig() const {
+  return *meddig_;
+}
+inline void Betegseg::set_meddig(const ::std::string& value) {
+  set_has_meddig();
+  if (meddig_ == &::google::protobuf::internal::kEmptyString) {
+    meddig_ = new ::std::string;
+  }
+  meddig_->assign(value);
+}
+inline void Betegseg::set_meddig(const char* value) {
+  set_has_meddig();
+  if (meddig_ == &::google::protobuf::internal::kEmptyString) {
+    meddig_ = new ::std::string;
+  }
+  meddig_->assign(value);
+}
+inline void Betegseg::set_meddig(const char* value, size_t size) {
+  set_has_meddig();
+  if (meddig_ == &::google::protobuf::internal::kEmptyString) {
+    meddig_ = new ::std::string;
+  }
+  meddig_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Betegseg::mutable_meddig() {
+  set_has_meddig();
+  if (meddig_ == &::google::protobuf::internal::kEmptyString) {
+    meddig_ = new ::std::string;
+  }
+  return meddig_;
+}
+inline ::std::string* Betegseg::release_meddig() {
+  clear_has_meddig();
+  if (meddig_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = meddig_;
+    meddig_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Betegseg::set_allocated_meddig(::std::string* meddig) {
+  if (meddig_ != &::google::protobuf::internal::kEmptyString) {
+    delete meddig_;
+  }
+  if (meddig) {
+    set_has_meddig();
+    meddig_ = meddig;
+  } else {
+    clear_has_meddig();
+    meddig_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BetegsegLista
+
+// repeated .protocol.Betegseg betegsegek = 1;
+inline int BetegsegLista::betegsegek_size() const {
+  return betegsegek_.size();
+}
+inline void BetegsegLista::clear_betegsegek() {
+  betegsegek_.Clear();
+}
+inline const ::protocol::Betegseg& BetegsegLista::betegsegek(int index) const {
+  return betegsegek_.Get(index);
+}
+inline ::protocol::Betegseg* BetegsegLista::mutable_betegsegek(int index) {
+  return betegsegek_.Mutable(index);
+}
+inline ::protocol::Betegseg* BetegsegLista::add_betegsegek() {
+  return betegsegek_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protocol::Betegseg >&
+BetegsegLista::betegsegek() const {
+  return betegsegek_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::protocol::Betegseg >*
+BetegsegLista::mutable_betegsegek() {
+  return &betegsegek_;
 }
 
 

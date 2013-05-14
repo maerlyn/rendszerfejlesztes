@@ -37,6 +37,7 @@ bool rfkliens::login()
     std::cout << arp.status() << std::endl;
 
     csoport = arp.csoport();
+    felhasznalonev = arq.username();
 
     return arp.status() == "ok";
 }
@@ -49,8 +50,28 @@ void rfkliens::menu()
     do {
         std::cout << " ### MENU ###\n";
 
+        if (csoport == "diszpecser") {
+            helper->sendMessageType(protocol::MessageType::BETEGSEG_LISTA_REQUEST);
+            helper->wait();
+            protocol::BetegsegLista betegsegek;
+            helper->readMessage(betegsegek);
+            std::cout << betegsegek.betegsegek_size() << "\n";
+            if (betegsegek.betegsegek_size()) {
+                std::cout << "++ betegsegek\n";
+                std::cout << "ki\tmikortol\tmeddig\n";
+
+                for (int i = 0; i < betegsegek.betegsegek_size(); ++i) {
+                    protocol::Betegseg b = betegsegek.betegsegek().Get(i);
+
+                    std::cout << b.felhasznalonev() << "\t" << b.mikortol() << "\t" << b.meddig() << "\n";
+                }
+
+                std::cout << std::endl;
+            }
+        }
+
         if (csoport == "sofor") {
-            std::cout << "TODO, nyomj nyullat\n";
+            std::cout << "10. betegseg bejelentese\n";
         } else if (csoport == "titkar") {
             std::cout << "2. megallok kezelese\n";
             std::cout << "3. utvonalak kezelese\n";
@@ -60,6 +81,7 @@ void rfkliens::menu()
             std::cout << "8. felhasznalok kezelese\n";
         } else if (csoport == "diszpecser") {
             std::cout << "7. beosztas kezelese\n";
+            std::cout << "9. betegsegek torlese\n";
         }
 
         std::cout << std::endl;
@@ -78,6 +100,8 @@ void rfkliens::menu()
             case 6: jaratok_kezelese(); break;
             case 7: beosztas_kezelese(); break;
             case 8: felhasznalok_kezelese(); break;
+            case 9: betegsegek_torlese(); break;
+            case 10: betegseg_bejelentese(); break;
 
             case 999: shutdown(); break;
         }
@@ -184,6 +208,33 @@ void rfkliens::felhasznalok_kezelese()
 {
     felhasznalok_controller fc(helper);
     fc.run();
+}
+
+void rfkliens::betegsegek_torlese()
+{
+    helper->sendMessageType(protocol::MessageType::BETEGSEG_TORLES_REQUEST);
+}
+
+void rfkliens::betegseg_bejelentese()
+{
+    std::string mikortol, meddig;
+
+    std::cout << "mikortol: ";
+    std::cin >> mikortol;
+    if (mikortol.length() == 0) return;
+
+    std::cout << "meddig: ";
+    std::cin >> meddig;
+    if (meddig.length() == 0) return;
+
+    protocol::Betegseg b;
+
+    b.set_felhasznalonev(felhasznalonev);
+    b.set_mikortol(mikortol);
+    b.set_meddig(meddig);
+
+    helper->sendMessageType(protocol::MessageType::BETEGSEG_UJ_REQUEST);
+    helper->sendMessage(b);
 }
 
 void rfkliens::shutdown()

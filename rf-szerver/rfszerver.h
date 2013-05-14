@@ -51,6 +51,10 @@ public slots:
   void handleFelhasznaloUjRequest(QTcpSocket *socket);
   void handleFelhasznaloTorlesRequest(QTcpSocket *socket);
 
+  void handleBetegsegListaRequest(QTcpSocket *socket);
+  void handleBetegsegUjRequest(QTcpSocket *socket);
+  void handleBetegsegTorlesRequest(QTcpSocket *socket);
+
   void handleShutdownRequest();
 };
 

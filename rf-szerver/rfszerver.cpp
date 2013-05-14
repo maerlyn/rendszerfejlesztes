@@ -16,6 +16,7 @@
 #include "jaratdb.h"
 #include "beosztasdb.h"
 #include "felhasznalodb.h"
+#include "betegsegdb.h"
 
 RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
 {
@@ -28,6 +29,7 @@ RFSzerver::RFSzerver(QObject *parent) : QObject(parent)
   JaratDB::load();
   BeosztasDB::load();
   FelhasznaloDB::load();
+  BetegsegDB::load();
 }
 
 void RFSzerver::incomingConnection()
@@ -142,6 +144,18 @@ void RFSzerver::readyRead()
 
     case protocol::MessageType::FELHASZNALO_TORLES_REQUEST:
       handleFelhasznaloTorlesRequest(sock);
+      break;
+
+    case protocol::MessageType::BETEGSEG_LISTA_REQUEST:
+      handleBetegsegListaRequest(sock);
+      break;
+
+    case protocol::MessageType::BETEGSEG_UJ_REQUEST:
+      handleBetegsegUjRequest(sock);
+      break;
+
+    case protocol::MessageType::BETEGSEG_TORLES_REQUEST:
+      handleBetegsegTorlesRequest(sock);
       break;
 
     case protocol::MessageType::SHUTDOWN:
@@ -358,6 +372,25 @@ void RFSzerver::handleFelhasznaloTorlesRequest(QTcpSocket *socket)
     FelhasznaloDB::del(f);
 }
 
+void RFSzerver::handleBetegsegListaRequest(QTcpSocket *socket)
+{
+    helper.sendMessage(BetegsegDB::findAll(), socket);
+}
+
+void RFSzerver::handleBetegsegUjRequest(QTcpSocket *socket)
+{
+    protocol::Betegseg b;
+    helper.wait(socket);
+    helper.readMessage(b, socket);
+
+    BetegsegDB::add(b);
+}
+
+void RFSzerver::handleBetegsegTorlesRequest(QTcpSocket *socket)
+{
+    BetegsegDB::clear();
+}
+
 void RFSzerver::handleShutdownRequest()
 {
     UtvonalDB::save();
@@ -367,6 +400,7 @@ void RFSzerver::handleShutdownRequest()
     JaratDB::save();
     BeosztasDB::save();
     FelhasznaloDB::save();
+    BetegsegDB::save();
 
     qDebug() << "kilepes";
     exit(0);

@@ -34,6 +34,10 @@ message MessageType {
     FELHASZNALO_UJ_REQUEST = 24;
     FELHASZNALO_TORLES_REQUEST = 25;
 
+    BETEGSEG_LISTA_REQUEST = 26;
+    BETEGSEG_UJ_REQUEST = 27;
+    BETEGSEG_TORLES_REQUEST = 28;
+
     SHUTDOWN = 999;
   }
 
@@ -132,4 +136,16 @@ message Felhasznalo
 message FelhasznaloLista
 {
   repeated Felhasznalo felhasznalok = 1;
+}
+
+message Betegseg
+{
+  required string felhasznalonev = 1;
+  required string mikortol = 2;
+  required string meddig = 3;
+}
+
+message BetegsegLista
+{
+  repeated Betegseg betegsegek = 1;
 }

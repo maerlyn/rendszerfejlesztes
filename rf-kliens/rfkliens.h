@@ -7,7 +7,7 @@
 class rfkliens
 {
     networkhelper *helper;
-    std::string csoport;
+    std::string csoport, felhasznalonev;
 
 public:
     rfkliens(networkhelper& helper);
@@ -22,6 +22,8 @@ public:
     void jaratok_kezelese();
     void beosztas_kezelese();
     void felhasznalok_kezelese();
+    void betegsegek_torlese();
+    void betegseg_bejelentese();
 
     void shutdown();
 };

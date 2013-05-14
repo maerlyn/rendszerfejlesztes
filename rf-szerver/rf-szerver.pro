@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     sofordb.cpp \
     jaratdb.cpp \
     beosztasdb.cpp \
-    felhasznalodb.cpp
+    felhasznalodb.cpp \
+    betegsegdb.cpp
 
 HEADERS += \
     rfszerver.h ../protobuf/rendszerfejlesztes.pb.h \
@@ -36,4 +37,5 @@ HEADERS += \
     sofordb.h \
     jaratdb.h \
     beosztasdb.h \
-    felhasznalodb.h
+    felhasznalodb.h \
+    betegsegdb.h
